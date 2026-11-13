@@ -16,6 +16,9 @@ All writing lives in `content/` as Markdown with a short YAML header.
   - `related` lists other note slugs to link at the bottom.
   - `sources` (optional) is a list of `{title, url}`, listed at the end of the note.
 - `content/building/<slug>.md`: one entry per project, with `role`, optional `status` and `links`.
+- `content/research/<slug>.md`: a manuscript draft, rendered at `/research/<slug>/`. Not in the nav; linked from Home.
+  - `pdf` is the typeset working paper and `poster` the original poster, both under `static/research/`.
+  - After editing, regenerate the PDF with `.venv/bin/python scripts/make_pdf.py` (needs Chrome or `playwright install chromium`) and commit it.
 
 Write plain text; no em dashes (the check below flags them).
 

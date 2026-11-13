@@ -34,13 +34,17 @@ class Page:
             raise AttributeError(name) from exc
 
 
-def read(path: Path) -> Page:
+MD_EXTENSIONS = ["smarty", "sane_lists"]
+MANUSCRIPT_EXTENSIONS = [*MD_EXTENSIONS, "tables"]
+
+
+def read(path: Path, extensions: list[str] = MD_EXTENSIONS) -> Page:
     text = path.read_text(encoding="utf-8")
     if not text.startswith("---\n"):
         raise ValueError(f"{path} is missing front matter")
     _, front, body = text.split("---\n", 2)
     meta = yaml.safe_load(front) or {}
-    html = markdown.markdown(body, extensions=["smarty", "sane_lists"], output_format="html")
+    html = markdown.markdown(body, extensions=extensions, output_format="html")
     return Page(meta=meta, html=html, slug=path.stem)
 
 
@@ -94,8 +98,11 @@ def build(out: Path) -> None:
     for t in theses:
         render("thesis.html", f"theses/{t.slug}/index.html", page=t, current="/theses/")
     render("building.html", "building/index.html", page=building, projects=projects, current="/building/")
+    research = [read(p, MANUSCRIPT_EXTENSIONS) for p in sorted((CONTENT / "research").glob("*.md"))]
+    for r in research:
+        render("research.html", f"research/{r.slug}/index.html", page=r, current="")
     render("404.html", "404.html", current="")
-    print(f"Built {len(theses)} theses, {len(projects)} projects into {out}")
+    print(f"Built {len(theses)} theses, {len(projects)} projects, {len(research)} research pages into {out}")
 
 
 if __name__ == "__main__":

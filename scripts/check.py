@@ -99,6 +99,16 @@ def main() -> int:
         errors.append("home: mailto link missing")
     if any(re.fullmatch(r"/theses/[^/]+/", link) for link in home.links):
         errors.append("home: should link to the theses index, not individual theses")
+    research = [f for f in pages if f.parent.parent == DIST / "research"]
+    for f in research:
+        url = f"/research/{f.parent.name}/"
+        if url not in home.links:
+            errors.append(f"home: research page {url} not linked")
+        if "Not peer reviewed" not in f.read_text(encoding="utf-8"):
+            errors.append(f"{f.relative_to(DIST)}: missing not-peer-reviewed status")
+        pdfs = [link for link in pages[f].links if link.endswith(".pdf")]
+        if len(pdfs) < 2 or any(not (DIST / p.lstrip("/")).read_bytes().startswith(b"%PDF-") for p in pdfs):
+            errors.append(f"{f.relative_to(DIST)}: needs working paper and poster PDFs")
     if "reading" in " ".join(link.lower() for p in pages.values() for link in p.links):
         errors.append("a Reading link exists")
 
