@@ -127,6 +127,12 @@ h2 + ol {
   margin: 0;
 }
 
+.file {
+  color: #666;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
 .meta {
   margin-top: 0;
   color: #555;
