@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Building · Arya Shah{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+{% block main %}
+<h1>{{ page.title }}</h1>
+<div class="prose">{{ page.html | safe }}</div>
+{% for p in projects %}
+<section class="project" aria-labelledby="{{ p.slug }}">
+  <h2 id="{{ p.slug }}">{{ p.title }}</h2>
+  <p class="meta">{{ p.role }}{% if p.meta.get("status") %} · {{ p.status }}{% endif %}</p>
+  <div class="prose">{{ p.html | safe }}</div>
+  {% if p.meta.get("links") %}
+  <p class="links">{% for l in p.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+  {% endif %}
+</section>
+{% endfor %}
+{% endblock %}

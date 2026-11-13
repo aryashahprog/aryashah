@@ -1,0 +1,253 @@
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("/fonts/source-serif-4-roman.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("/fonts/source-serif-4-italic.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --bg: #fbf9f4;
+  --text: #111;
+  --muted: #555;
+  --rule: #dcd8cf;
+  --measure: 36rem;
+  font-family: "Source Serif 4", Charter, "Iowan Old Style", Georgia, serif;
+  font-size: 112.5%;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: calc(var(--measure) + 3rem);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: #8a857b;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+a:focus-visible,
+main:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+main:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  padding: 0.4rem 0.7rem;
+  background: var(--text);
+  color: var(--bg);
+}
+
+.skip:focus {
+  top: 1rem;
+}
+
+header.site {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 4rem;
+}
+
+header.site .name {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+header.site ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header.site li {
+  margin: 0;
+}
+
+header.site nav a {
+  text-decoration: none;
+}
+
+.email {
+  white-space: nowrap;
+}
+
+header.site nav a:hover,
+header.site nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.005em;
+}
+
+h2 {
+  font-size: 1.15rem;
+  margin: 2.75rem 0 0.75rem;
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 1.75rem 0 0.5rem;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 1rem;
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+
+li + li {
+  margin-top: 0.35rem;
+}
+
+.entries {
+  list-style: none;
+  padding: 0;
+}
+
+.entries li + li {
+  margin-top: 1.1rem;
+}
+
+.entries p {
+  margin: 0.15rem 0 0;
+  color: var(--muted);
+}
+
+.kicker,
+.meta,
+.note,
+.back,
+.links,
+footer.site {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.kicker {
+  margin-bottom: 0.5rem;
+}
+
+.meta {
+  margin-top: -0.75rem;
+}
+
+.note {
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.project + .project {
+  border-top: 1px solid var(--rule);
+}
+
+.project h2 {
+  margin-top: 2.25rem;
+}
+
+.project .meta {
+  margin-top: -0.4rem;
+}
+
+.back {
+  margin-top: 3rem;
+}
+
+footer.site {
+  margin-top: 5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+footer.site p {
+  margin: 0;
+}
+
+@media (max-width: 40rem) {
+  :root {
+    font-size: 106.25%;
+  }
+
+  body {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  header.site {
+    margin-bottom: 2.75rem;
+  }
+
+  h1 {
+    font-size: 1.55rem;
+  }
+}
+
+@media print {
+  header.site nav,
+  .skip,
+  footer.site {
+    display: none;
+  }
+}
