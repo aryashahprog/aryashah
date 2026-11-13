@@ -1,5 +1,5 @@
 [project]
-name = "aryashah-site"
+name = "aryashah"
 version = "0.1.0"
 description = "Arya Shah's personal website: a small static site built from Markdown."
 requires-python = ">=3.10"

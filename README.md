@@ -1,4 +1,4 @@
-# aryashah-site
+# aryashah
 
 Arya Shah's personal website. A small static site: Markdown content, Jinja templates, one stylesheet, no JavaScript.
 
