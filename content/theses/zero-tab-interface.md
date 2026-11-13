@@ -2,7 +2,6 @@
 title: The zero-tab interface
 theme: New interfaces and buyers
 order: 2
-featured: 2
 summary: Messaging-native agents may move software into conversations people already have, instead of more tabs and apps. iMessage is one possible distribution surface.
 updated: 2026-11-13
 status: First draft

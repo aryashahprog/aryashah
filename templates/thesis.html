@@ -3,16 +3,9 @@
 {% block description %}{{ page.summary }}{% endblock %}
 {% block main %}
 <article>
-  <p class="kicker"><a href="/theses/">Working theses</a> · {{ page.theme }}</p>
   <h1>{{ page.title }}</h1>
-  <p class="meta">
-    Last updated <time datetime="{{ page.updated }}">{{ page.updated | date }}</time> · {{ page.status }}
-  </p>
-  <p class="note">
-    {% if page.meta.get("sources") %}Evidence is limited to the sources listed at the end. The rest is my own reasoning.
-    {% else %}No outside evidence added yet. This is my own reasoning, not research.{% endif %}
-  </p>
-  <div class="prose">{{ page.html | safe }}</div>
+  <p class="meta">{{ page.theme }} · Last updated <time datetime="{{ page.updated }}">{{ page.updated | date }}</time> · {{ page.status }}</p>
+  {{ page.html | safe }}
   {% if page.meta.get("sources") %}
   <h2>Sources</h2>
   <ul>
@@ -20,11 +13,7 @@
   </ul>
   {% endif %}
   {% if page.related %}
-  <h2>Related notes</h2>
-  <ul class="entries">
-    {% for r in page.related %}<li><a href="/theses/{{ r.slug }}/">{{ r.title }}</a></li>{% endfor %}
-  </ul>
+  <p class="related">Related: {% for r in page.related %}<a href="/theses/{{ r.slug }}/">{{ r.title }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
   {% endif %}
-  <p class="back"><a href="/theses/">All working theses</a></p>
 </article>
 {% endblock %}

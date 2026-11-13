@@ -3,18 +3,12 @@
 {% block description %}{{ page.description }}{% endblock %}
 {% block main %}
 <h1>{{ page.title }}</h1>
-<div class="prose">{{ page.html | safe }}</div>
+{{ page.html | safe }}
 {% for theme, items in groups %}
-<section aria-labelledby="theme-{{ loop.index }}">
-  <h2 id="theme-{{ loop.index }}">{{ theme }}</h2>
-  <ul class="entries">
-    {% for t in items %}
-    <li>
-      <a href="/theses/{{ t.slug }}/">{{ t.title }}</a>
-      <p>{{ t.summary }}</p>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
+<h2 class="group" id="theme-{{ loop.index }}">{{ theme }}</h2>
+<ul class="list nu" aria-labelledby="theme-{{ loop.index }}">
+  {% for t in items %}<li><a href="/theses/{{ t.slug }}/">{{ t.title }}</a></li>
+  {% endfor %}
+</ul>
 {% endfor %}
 {% endblock %}

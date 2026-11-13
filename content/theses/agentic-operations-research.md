@@ -2,7 +2,6 @@
 title: Agentic operations research
 theme: AI in operations
 order: 3
-featured: 3
 summary: Agents may run the operations research loop continuously, reformulating and re-solving problems as conditions change. Real deployment outcomes should be the test.
 updated: 2026-11-13
 status: First draft

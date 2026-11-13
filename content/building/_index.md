@@ -1,5 +1,5 @@
 ---
 title: Building
-description: Things I've built or co-founded, with their real status.
+description: Things I’ve built or co-founded.
 ---
-Things I've built or co-founded. Statuses are as of the date each note was written.
+Things I’ve built or co-founded.

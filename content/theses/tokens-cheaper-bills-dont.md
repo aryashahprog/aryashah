@@ -1,8 +1,7 @@
 ---
-title: Tokens get cheaper, AI bills don't
+title: Tokens get cheaper, AI bills don’t
 theme: AI economics
 order: 1
-featured: 1
 summary: Cost per token keeps falling, but enterprise AI bills may stay flat or rise as agents use far more of them. Measure ROI per agent or workflow, not per token.
 updated: 2026-11-13
 status: First draft

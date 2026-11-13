@@ -68,8 +68,6 @@ def main() -> int:
         for href in NAV:
             if href not in p.links:
                 errors.append(f"{rel}: nav link {href} missing")
-        if f"mailto:{EMAIL}" not in p.links:
-            errors.append(f"{rel}: mailto link missing")
         for href in p.links:
             u = urlparse(href)
             if u.scheme in ("http", "https", "mailto"):
@@ -96,9 +94,11 @@ def main() -> int:
             errors.append(f"{f.relative_to(DIST)}: missing sections {missing}")
         if "Last updated" not in f.read_text(encoding="utf-8"):
             errors.append(f"{f.relative_to(DIST)}: missing last-updated metadata")
-    home = (DIST / "index.html").read_text(encoding="utf-8")
-    if len(re.findall(r'<a href="/theses/[^"]+/">', home)) != 3:
-        errors.append("home: expected three featured theses")
+    home = pages[DIST / "index.html"]
+    if f"mailto:{EMAIL}" not in home.links:
+        errors.append("home: mailto link missing")
+    if any(re.fullmatch(r"/theses/[^/]+/", link) for link in home.links):
+        errors.append("home: should link to the theses index, not individual theses")
     if "reading" in " ".join(link.lower() for p in pages.values() for link in p.links):
         errors.append("a Reading link exists")
 

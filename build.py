@@ -83,14 +83,13 @@ def build(out: Path) -> None:
 
     home = read(CONTENT / "home.md")
     theses_index, theses = load_theses()
-    featured = sorted((t for t in theses if t.meta.get("featured")), key=lambda t: t.featured)
     building = read(CONTENT / "building" / "_index.md")
     projects = sorted(
         (read(p) for p in (CONTENT / "building").glob("*.md") if p.name != "_index.md"),
         key=lambda p: p.order,
     )
 
-    render("home.html", "index.html", page=home, featured=featured, current="/")
+    render("home.html", "index.html", page=home, current="/")
     render("theses.html", "theses/index.html", current="/theses/", **theses_index)
     for t in theses:
         render("thesis.html", f"theses/{t.slug}/index.html", page=t, current="/theses/")
