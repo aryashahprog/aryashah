@@ -35,7 +35,7 @@ class Page:
 
 
 MD_EXTENSIONS = ["smarty", "sane_lists"]
-MANUSCRIPT_EXTENSIONS = [*MD_EXTENSIONS, "tables"]
+PAPER_EXTENSIONS = [*MD_EXTENSIONS, "tables", "md_in_html"]
 
 
 def read(path: Path, extensions: list[str] = MD_EXTENSIONS) -> Page:
@@ -98,7 +98,7 @@ def build(out: Path) -> None:
     for t in theses:
         render("thesis.html", f"theses/{t.slug}/index.html", page=t, current="/theses/")
     render("building.html", "building/index.html", page=building, projects=projects, current="/building/")
-    research = [read(p, MANUSCRIPT_EXTENSIONS) for p in sorted((CONTENT / "research").glob("*.md"))]
+    research = [read(p) for p in sorted((CONTENT / "research").glob("*.md"))]
     for r in research:
         render("research.html", f"research/{r.slug}/index.html", page=r, current="")
     render("404.html", "404.html", current="")
