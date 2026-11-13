@@ -1,0 +1,117 @@
+"""Check the built site: internal links and anchors resolve, content rules hold."""
+
+from __future__ import annotations
+
+import re
+import sys
+from html.parser import HTMLParser
+from pathlib import Path
+from urllib.parse import unquote, urlparse
+
+ROOT = Path(__file__).resolve().parent.parent
+DIST = ROOT / "dist"
+CONTENT = ROOT / "content"
+EMAIL = "aryashah@gatech.edu"
+NAV = ["/", "/theses/", "/building/"]
+THESIS_SECTIONS = ["The claim", "Reasoning", "Where value might accrue", "What would change my mind"]
+
+
+class Page(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.links: list[str] = []
+        self.ids: set[str] = set()
+        self.h2: list[str] = []
+        self.h1 = 0
+        self._in_h2 = False
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if a.get("id"):
+            self.ids.add(a["id"])
+        if tag == "a" and "href" in a:
+            self.links.append(a["href"])
+        if tag in ("link", "script", "img") and (a.get("href") or a.get("src")):
+            self.links.append(a.get("href") or a.get("src"))
+        if tag == "h1":
+            self.h1 += 1
+        if tag == "h2":
+            self._in_h2 = True
+            self.h2.append("")
+
+    def handle_endtag(self, tag):
+        if tag == "h2":
+            self._in_h2 = False
+
+    def handle_data(self, data):
+        if self._in_h2:
+            self.h2[-1] += data
+
+
+def resolve(path: str) -> Path:
+    target = DIST / unquote(path).lstrip("/")
+    return target / "index.html" if path.endswith("/") or target.is_dir() else target
+
+
+def main() -> int:
+    errors: list[str] = []
+    pages = {}
+    for f in sorted(DIST.rglob("*.html")):
+        p = Page()
+        p.feed(f.read_text(encoding="utf-8"))
+        pages[f] = p
+
+    for f, p in pages.items():
+        rel = f.relative_to(DIST)
+        if p.h1 != 1:
+            errors.append(f"{rel}: expected one h1, found {p.h1}")
+        for href in NAV:
+            if href not in p.links:
+                errors.append(f"{rel}: nav link {href} missing")
+        if f"mailto:{EMAIL}" not in p.links:
+            errors.append(f"{rel}: mailto link missing")
+        for href in p.links:
+            u = urlparse(href)
+            if u.scheme in ("http", "https", "mailto"):
+                if u.scheme == "mailto" and u.path != EMAIL:
+                    errors.append(f"{rel}: unexpected mailto {href}")
+                continue
+            base = (
+                f
+                if not u.path
+                else resolve(u.path if u.path.startswith("/") else "/" + str((f.parent / u.path).relative_to(DIST)))
+            )
+            if not base.exists():
+                errors.append(f"{rel}: broken link {href}")
+                continue
+            if u.fragment and base in pages and u.fragment not in pages[base].ids:
+                errors.append(f"{rel}: missing anchor {href}")
+
+    theses = [f for f in pages if f.parent.parent == DIST / "theses"]
+    if len(theses) != 12:
+        errors.append(f"expected 12 theses, found {len(theses)}")
+    for f in theses:
+        missing = [s for s in THESIS_SECTIONS if s not in pages[f].h2]
+        if missing:
+            errors.append(f"{f.relative_to(DIST)}: missing sections {missing}")
+        if "Last updated" not in f.read_text(encoding="utf-8"):
+            errors.append(f"{f.relative_to(DIST)}: missing last-updated metadata")
+    home = (DIST / "index.html").read_text(encoding="utf-8")
+    if len(re.findall(r'<a href="/theses/[^"]+/">', home)) != 3:
+        errors.append("home: expected three featured theses")
+    if "reading" in " ".join(link.lower() for p in pages.values() for link in p.links):
+        errors.append("a Reading link exists")
+
+    for f in CONTENT.rglob("*.md"):
+        text = f.read_text(encoding="utf-8")
+        if "\u2014" in text or "---" in text.split("---\n", 2)[-1]:
+            errors.append(f"{f.relative_to(ROOT)}: contains an em dash")
+
+    for e in errors:
+        print("FAIL", e)
+    print(f"Checked {len(pages)} pages: {'ok' if not errors else f'{len(errors)} problems'}")
+    return 1 if errors else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>{{ page.title }}</h1>
+<div class="prose">{{ page.html | safe }}</div>
+<p>I'd love to hear from you: <a class="email" href="mailto:aryashah@gatech.edu">aryashah [at] gatech [dot] edu</a></p>
+
+<section aria-labelledby="featured">
+  <h2 id="featured">Working theses</h2>
+  <ul class="entries">
+    {% for t in featured %}
+    <li>
+      <a href="/theses/{{ t.slug }}/">{{ t.title }}</a>
+      <p>{{ t.summary }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  <p><a href="/theses/">All working theses</a></p>
+</section>
+{% endblock %}
