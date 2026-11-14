@@ -1,7 +1,7 @@
 ---
 title: Arya Shah
 ---
-Hey! I’m Arya. I grew up in Cyprus, served in its National Guard and now study at Georgia Tech.
+Hey! I’m Arya. I grew up in Cyprus, served for 14 months on its de facto border and am now studying finance and computer science at Georgia Tech.
 
 I’m an Investments and Insights Analyst at Tech Square Ventures and Engage, studying where enterprise technology is heading and what makes it worth buying.
 
