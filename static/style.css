@@ -1,4 +1,4 @@
-/* Modelled on a plain personal page: system sans, 16px/1.6, 640px column, side nav on wide screens. */
+/* Modelled on pgreddy.com's essay pages: system sans, 16px/1.6, 640px column, side nav on wide screens. */
 :root {
   --sans: -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica, "helvetica neue", ubuntu, roboto, noto,
     "segoe ui", arial, sans-serif;
@@ -89,7 +89,7 @@ h2 + ol {
 
 .page {
   position: relative;
-  padding: 12px 0 20px;
+  padding: 9px 0 20px;
 }
 
 .limiter {
@@ -101,7 +101,7 @@ h2 + ol {
 }
 
 .content {
-  padding-top: 12px;
+  padding-top: 9px;
   padding-bottom: 20px;
 }
 
@@ -115,6 +115,12 @@ h2 + ol {
 
 .header .name a {
   color: #111;
+  text-decoration: none;
+}
+
+.header .name a:hover,
+.header .name a:focus-visible {
+  text-decoration: underline;
 }
 
 .header ul {
@@ -165,18 +171,24 @@ h2 + ol {
   letter-spacing: -0.015em;
 }
 
+article > h1 {
+  margin-top: 0.83em;
+}
+
 figure {
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 }
 
 figure img {
   display: block;
   width: 100%;
+  max-width: 640px;
   height: auto;
+  margin: 0 auto;
 }
 
 figure.tall img {
-  max-width: 420px;
+  max-width: 480px;
 }
 
 figure.narrow img {
@@ -225,35 +237,60 @@ figure.narrow img {
 
 figcaption {
   margin-top: 0.5rem;
-  color: #555;
-  font-size: 14px;
+  font-size: 0.8rem;
   line-height: 1.5;
+  text-align: center;
 }
 
-figcaption a {
-  color: #333;
+sup,
+sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
 }
 
-sup {
-  line-height: 0;
+sub {
+  top: 0.4em;
 }
 
-.footnote {
-  margin-top: 2rem;
-  font-size: 14px;
-  line-height: 1.5;
+.footnote-ref,
+.footnote-backref {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footnote-ref:hover,
+.footnote-ref:focus-visible,
+.footnote-backref:hover,
+.footnote-backref:focus-visible {
+  text-decoration: underline;
+}
+
+#notes {
+  margin: 1rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
 }
 
 .footnote ol {
-  margin-top: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: note;
+}
+
+.footnote li {
+  margin: 1rem 0;
+  counter-increment: note;
+}
+
+.footnote li > p:first-child::before {
+  content: "[" counter(note) "] ";
 }
 
 .footnote p {
   margin: 0;
-}
-
-.footnote-backref {
-  text-decoration: none;
 }
 
 .related {

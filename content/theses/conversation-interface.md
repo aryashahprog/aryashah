@@ -12,7 +12,7 @@ For most of the web's history, a business reached a customer through a page the 
 
 Search is already splitting by who is doing the asking.
 
-<figure class="narrow">
+<figure class="tall">
 <a href="/theses/conversation-interface/search-paths.png"><img src="/theses/conversation-interface/search-paths.png" width="1137" height="1760" loading="lazy" alt="Three search paths. Humans: the Google search box. Chatbots: web search inside ChatGPT or Claude. Agents: AI search built for machines, not people."></a>
 <figcaption>Search is splitting by who is asking: people at a search box, chatbots searching for them, and agents calling search built for machines. A framing, not usage data. Crop from one of my slides. <a href="/theses/conversation-interface/search-paths.png">Open full size</a></figcaption>
 </figure>
@@ -28,7 +28,7 @@ The clearest number so far is about referrals. Adobe measured traffic to US reta
 
 That is people starting in an AI tool and then visiting a store. It says nothing about agents buying on their own. The action side is earlier. The Agentic Commerce Protocol is an open standard for checkout between buyers, AI agents and businesses, in which the business stays in control of what it sells.[^acp] Standards like this show the plumbing being built, not that people trust agents with their money.
 
-<figure class="narrow">
+<figure>
 <a href="/theses/conversation-interface/referral-to-purchase.svg"><img src="/theses/conversation-interface/referral-to-purchase.svg" width="360" height="440" loading="lazy" alt="Conceptual spectrum, not measured evidence. 1. AI referral: a person asks an AI tool, then visits the store; Adobe measured +693% traffic. 2. Information retrieval: an agent reads catalogs, prices and availability. 3. Agent-completed purchase: the agent checks out on the person's behalf; checkout standards such as ACP are early. Each step down adds autonomy and needs more trust."></a>
 <figcaption>Conceptual, not measured evidence: three different things an “AI commerce” figure can mean. Only the first is measured here (Adobe, above). My diagram. <a href="/theses/conversation-interface/referral-to-purchase.svg">Open full size</a></figcaption>
 </figure>

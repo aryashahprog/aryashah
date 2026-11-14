@@ -10,7 +10,7 @@ related: [agent-memory-history, conversation-interface]
 ---
 Most governance is written before software runs: a policy, an approval, a review. Agents strain that model, because the same agent can take different steps on the same input and its actions happen while it works. Governing agents has to happen at runtime, with authorization scoped to each task, a trace of what the agent did, monitoring while it acts, a quick way to revoke access and a way to recover when something goes wrong. It comes down to three questions.
 
-<figure class="narrow">
+<figure>
 <a href="/theses/agent-governance/access-visibility-control.svg"><img src="/theses/agent-governance/access-visibility-control.svg" width="360" height="324" loading="lazy" alt="Framework, not data. Access: what can each agent reach, and on whose authority? Visibility: what is it doing, and can anyone see it? Control: who can stop it, and how quickly?"></a>
 <figcaption>A framework for the questions, not data. My diagram, adapted from one of my slides. <a href="/theses/agent-governance/access-visibility-control.svg">Open full size</a></figcaption>
 </figure>
@@ -21,7 +21,7 @@ The gap, if there is one, is in tying these together around an agent's task. Exi
 
 One way to close part of that gap is to check the action as well as the caller. An identity check confirms who is calling. An intent check asks whether this particular action was in the plan approved for this task, and in that design an out-of-scope action is stopped before it runs.
 
-<figure class="tall">
+<figure>
 <a href="/theses/agent-governance/identity-vs-intent.png"><img src="/theses/agent-governance/identity-vs-intent.png" width="1423" height="1573" loading="lazy" alt="Illustrative workflow. Without an intent check: agent reasoning, an identity check of who is calling, then the action runs; the credentials were valid but the action itself was never approved. With an intent check: agent reasoning, a signed plan, an intent check of whether the action was in the plan, then the action runs; out-of-scope actions are blocked before they run and logged."></a>
 <figcaption>An identity check asks who is calling; an intent check asks whether this action was approved for this task. Illustrative, one possible design rather than a validated security guarantee. Adapted from one of my slides, without the vendor name or performance claim. <a href="/theses/agent-governance/identity-vs-intent.png">Open full size</a></figcaption>
 </figure>
