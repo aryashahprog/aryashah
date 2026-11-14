@@ -4,31 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Arya Shah{% endblock %}</title>
-  <meta name="description" content="{% block description %}Arya Shah: working theses on enterprise AI and the things I'm building.{% endblock %}">
+  <meta name="description" content="{% block description %}Arya Shah: Georgia Tech student writing about technology, enterprise adoption and ideas I’m working through.{% endblock %}">
   <meta name="author" content="Arya Shah">
-  <meta name="theme-color" content="#fbf9f4">
-  <meta name="robots" content="noindex">
-  <link rel="preload" href="/fonts/source-serif-4-roman.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#fff">
   <link rel="stylesheet" href="/style.css">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  {% block head %}{% endblock %}
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="site">
-    <a class="name" href="/">Arya Shah</a>
-    <nav aria-label="Main">
-      <ul>
-        {% for label, href in nav %}
-        <li><a href="{{ href }}"{% if current == href %} aria-current="page"{% endif %}>{{ label }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </header>
-  <main id="main" tabindex="-1">
-    {% block main %}{% endblock %}
-  </main>
-  <footer class="site">
-    <p><a class="email" href="mailto:aryashah@gatech.edu">aryashah [at] gatech [dot] edu</a></p>
-  </footer>
+  <div class="page">
+    <header class="header-wrap">
+      <div class="header nu limiter">
+        {% if current == "/" %}<h1 class="name">Arya Shah</h1>{% else %}<p class="name"><a href="/">Arya Shah</a></p>{% endif %}
+        <nav aria-label="Main">
+          <ul>
+            {% for label, href in nav %}
+            <li><a href="{{ href }}"{% if current == href %} aria-current="page"{% endif %}>{{ label }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="content limiter" tabindex="-1">
+      {% block main %}{% endblock %}
+    </main>
+  </div>
 </body>
 </html>

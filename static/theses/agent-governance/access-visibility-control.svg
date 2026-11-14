@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 324" width="360" height="324" role="img" aria-labelledby="t d">
+  <title id="t">Access, visibility and control: three questions for governing agents</title>
+  <desc id="d">A framework, not data. Access: what can each agent reach, and on whose authority? Visibility: what is it doing, and can anyone see it? Control: who can stop it, and how quickly?</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0072B2"/></marker>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; fill: #111; }
+    .h { font-size: 16px; font-weight: 600; }
+    .s { font-size: 14px; fill: #444; }
+    .k { font-size: 11px; letter-spacing: 0.08em; fill: #555; }
+    .l { font-size: 13px; fill: #0072B2; }
+    rect { fill: #fff; stroke: #111; stroke-width: 1.25; }
+    rect.g { fill: #f6f6f6; stroke: #777; stroke-dasharray: 4 3; }
+  </style>
+  <rect x="0.5" y="0.5" width="359" height="323" fill="#fff" stroke="none"/>
+  <text class="k" x="20" y="24">FRAMEWORK · NOT DATA</text>
+  <rect x="20" y="44" width="320" height="76" rx="4"/>
+  <text class="h" x="36" y="72">Access</text>
+  <text class="s" x="36" y="94">What can each agent reach,</text>
+  <text class="s" x="36" y="112">and on whose authority?</text>
+  <rect x="20" y="136" width="320" height="76" rx="4"/>
+  <text class="h" x="36" y="164">Visibility</text>
+  <text class="s" x="36" y="186">What is it doing,</text>
+  <text class="s" x="36" y="204">and can anyone see it?</text>
+  <rect x="20" y="228" width="320" height="76" rx="4"/>
+  <text class="h" x="36" y="256">Control</text>
+  <text class="s" x="36" y="278">Who can stop it,</text>
+  <text class="s" x="36" y="296">and how quickly?</text>
+</svg>

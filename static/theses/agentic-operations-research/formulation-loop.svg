@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 764" width="360" height="764" role="img" aria-labelledby="t d">
+  <title id="t">Proposed architecture: agent-drafted, human-reviewed optimization</title>
+  <desc id="d">A proposed architecture, not measured evidence. Messy operational information such as emails, spreadsheets and policies goes to an agent that drafts candidate objectives and constraints. A person reviews the draft and approves, edits or rejects it. The reviewed formulation feeds four proposed layers: a world model of the operation as it is, forecasts, behavior models of how people actually act, and an optimizer that draws on the other three. The reviewed plan goes into use with changes kept reversible, and drift and exceptions from deployment feed back into the next draft.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0072B2"/></marker>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; fill: #111; }
+    .h { font-size: 16px; font-weight: 600; }
+    .s { font-size: 14px; fill: #444; }
+    .k { font-size: 11px; letter-spacing: 0.08em; fill: #555; }
+    .l { font-size: 13px; fill: #0072B2; }
+    rect { fill: #fff; stroke: #111; stroke-width: 1.25; }
+    rect.g { fill: #f6f6f6; stroke: #777; stroke-dasharray: 4 3; }
+  </style>
+  <rect x="0.5" y="0.5" width="359" height="763" fill="#fff" stroke="none"/>
+  <text class="k" x="20" y="24">PROPOSED · NOT MEASURED EVIDENCE</text>
+  <rect x="20" y="44" width="290" height="58" rx="4"/>
+  <text class="h" x="36" y="72">Messy operational information</text>
+  <text class="s" x="36" y="94">Emails, spreadsheets, policies</text>
+  <path d="M165 102V128" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <rect x="20" y="132" width="290" height="58" rx="4"/>
+  <text class="h" x="36" y="160">Agent drafts the formulation</text>
+  <text class="s" x="36" y="182">Candidate objectives, constraints</text>
+  <path d="M165 190V216" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <rect x="20" y="220" width="290" height="58" rx="4"/>
+  <text class="h" x="36" y="248">Human review</text>
+  <text class="s" x="36" y="270">Approve, edit or reject</text>
+  <path d="M165 278V304" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <text class="k" x="36" y="330">PROPOSED FOUR LAYERS</text>
+  <rect class="g" x="20" y="308" width="290" height="304" rx="4"/>
+  <rect x="36" y="342" width="258" height="58" rx="4"/>
+  <text class="h" x="52" y="370">World model</text>
+  <text class="s" x="52" y="392">The operation as it is</text>
+  <rect x="36" y="408" width="258" height="58" rx="4"/>
+  <text class="h" x="52" y="436">Forecasts</text>
+  <text class="s" x="52" y="458">What is likely to come</text>
+  <rect x="36" y="474" width="258" height="58" rx="4"/>
+  <text class="h" x="52" y="502">Behavior models</text>
+  <text class="s" x="52" y="524">How people actually act</text>
+  <rect x="36" y="540" width="258" height="58" rx="4"/>
+  <text class="h" x="52" y="568">Optimizer</text>
+  <text class="s" x="52" y="590">Draws on the other three</text>
+  <path d="M165 612V638" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <rect x="20" y="642" width="290" height="58" rx="4"/>
+  <text class="h" x="36" y="670">Reviewed plan in use</text>
+  <text class="s" x="36" y="692">Changes stay reversible</text>
+  <path d="M310 678H340V150H314" fill="none" stroke="#0072B2" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+  <text class="l" x="20" y="730">Dashed loop: drift and exceptions from</text>
+  <text class="l" x="20" y="748">deployment feed the next draft.</text>
+</svg>

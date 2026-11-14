@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import re
 import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -34,13 +35,17 @@ class Page:
             raise AttributeError(name) from exc
 
 
-def read(path: Path) -> Page:
+MD_EXTENSIONS = ["smarty", "sane_lists"]
+PAPER_EXTENSIONS = [*MD_EXTENSIONS, "tables", "md_in_html"]
+
+
+def read(path: Path, extensions: list[str] = MD_EXTENSIONS) -> Page:
     text = path.read_text(encoding="utf-8")
     if not text.startswith("---\n"):
         raise ValueError(f"{path} is missing front matter")
     _, front, body = text.split("---\n", 2)
     meta = yaml.safe_load(front) or {}
-    html = markdown.markdown(body, extensions=["smarty", "sane_lists"], output_format="html")
+    html = markdown.markdown(body, extensions=extensions, output_format="html")
     return Page(meta=meta, html=html, slug=path.stem)
 
 
@@ -57,6 +62,10 @@ def load_theses() -> tuple[dict, list[Page]]:
         if missing:
             raise ValueError(f"{t.slug}: unknown related notes {missing}")
         t.related = [by_slug[s] for s in t.meta.get("related", [])]
+    replaced = [old for t in theses for old in t.meta.get("replaces", [])]
+    clash = set(replaced) & set(by_slug) | {s for s in replaced if replaced.count(s) > 1}
+    if clash:
+        raise ValueError(f"redirects clash with notes or each other: {sorted(clash)}")
     themes = index.meta["themes"]
     order = {name: i for i, name in enumerate(themes)}
     for t in theses:
@@ -67,7 +76,9 @@ def load_theses() -> tuple[dict, list[Page]]:
     return {"page": index, "groups": grouped}, theses
 
 
-def build(out: Path) -> None:
+def build(out: Path, base: str = "") -> None:
+    base = base.rstrip("/")
+    root_links = re.compile(r'((?:href|src)="|url=)/(?!/)')
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html"]))
     env.filters["date"] = human_date
     env.globals["nav"] = NAV
@@ -79,27 +90,36 @@ def build(out: Path) -> None:
     def render(template: str, dest: str, **ctx) -> None:
         target = out / dest
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(env.get_template(template).render(**ctx), encoding="utf-8")
+        html = env.get_template(template).render(**ctx)
+        if base:
+            html = root_links.sub(rf"\g<1>{base}/", html)
+        target.write_text(html, encoding="utf-8")
 
     home = read(CONTENT / "home.md")
     theses_index, theses = load_theses()
-    featured = sorted((t for t in theses if t.meta.get("featured")), key=lambda t: t.featured)
     building = read(CONTENT / "building" / "_index.md")
     projects = sorted(
         (read(p) for p in (CONTENT / "building").glob("*.md") if p.name != "_index.md"),
         key=lambda p: p.order,
     )
 
-    render("home.html", "index.html", page=home, featured=featured, current="/")
+    render("home.html", "index.html", page=home, current="/")
     render("theses.html", "theses/index.html", current="/theses/", **theses_index)
     for t in theses:
         render("thesis.html", f"theses/{t.slug}/index.html", page=t, current="/theses/")
+        for old in t.meta.get("replaces", []):
+            render("redirect.html", f"theses/{old}/index.html", target=t, current="/theses/")
     render("building.html", "building/index.html", page=building, projects=projects, current="/building/")
+    research = [read(p) for p in sorted((CONTENT / "research").glob("*.md"))]
+    for r in research:
+        render("research.html", f"research/{r.slug}/index.html", page=r, current="")
     render("404.html", "404.html", current="")
-    print(f"Built {len(theses)} theses, {len(projects)} projects into {out}")
+    print(f"Built {len(theses)} theses, {len(projects)} projects, {len(research)} research pages into {out}")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, default=ROOT / "dist")
-    build(parser.parse_args().out)
+    parser.add_argument("--base", default="", help="path prefix when served from a subdirectory, e.g. /aryashah")
+    args = parser.parse_args()
+    build(args.out, args.base)
