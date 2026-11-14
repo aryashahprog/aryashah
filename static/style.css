@@ -183,6 +183,46 @@ figure.narrow img {
   max-width: 360px;
 }
 
+.stat-number {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.framework dl {
+  margin: 0;
+}
+
+.framework dl > div {
+  padding-top: 0.5rem;
+  border-top: 2px solid #111;
+}
+
+.framework dl > div + div {
+  margin-top: 1rem;
+}
+
+.framework dt {
+  font-weight: 700;
+}
+
+.framework dd {
+  margin: 0;
+}
+
+@media screen and (min-width: 640px) {
+  .framework dl {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .framework dl > div + div {
+    margin-top: 0;
+  }
+}
+
 figcaption {
   margin-top: 0.5rem;
   color: #555;

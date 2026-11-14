@@ -6,6 +6,9 @@ summary: Cost per token keeps falling, but enterprise AI bills may stay flat or 
 updated: 2026-11-13
 status: First draft
 related: [ai-repeats-the-cloud-arc, arbitrage-window]
+sources:
+  - {title: "Ernie Tedeschi, “AI and productivity”, Stripe Economics, July 23, 2026", url: "https://www.stripeeconomics.com/p/ai-and-productivity"}
+  - {title: "Andy Markus, “The Tokenomics Equation: Balancing Cost and Performance”, AT&T, July 23, 2026", url: "https://about.att.com/blogs/2026/the-tokenomics-equation.html"}
 ---
 ## The claim
 
@@ -17,6 +20,7 @@ The price of a token keeps falling, but a company's total AI bill may stay flat 
 - Agents push this further. One task can involve many model calls: planning, using tools, retrying, checking its own work. A team might go from a few prompts a day to thousands of calls without anyone deciding to "use more AI."
 - So a falling price per token and a rising total bill don't contradict each other. Both can be true.
 - If that's right, price per token says little about whether AI is paying off. A finance team would rather know what a workflow costs end to end and what it replaces or produces.
+- Routing is one lever on the bill. AT&T says its AI gateway, which sends each task to the most cost-effective model with cache-aware routing, has cut its AI costs by as much as 90% at an average of 45 billion tokens a day. That's the company's own figure, not an independent measurement.
 
 What I'm assuming: that usage grows faster than prices fall. I haven't checked that against real enterprise spending.
 

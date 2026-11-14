@@ -19,6 +19,17 @@ Agents don't always behave the same way twice, and when one gets something wrong
 - Governance as code means writing the rules (what an agent can touch, when it needs a human, what gets logged) as policies that are enforced automatically.
 - Operational resilience is the other half: what happens when an agent fails halfway through a task, and can the business keep running?
 
+Three questions a company should be able to answer for every agent:
+
+<figure class="framework">
+<dl>
+<div><dt>Access</dt><dd>What can each agent reach, and on whose authority?</dd></div>
+<div><dt>Visibility</dt><dd>What is it doing, and can anyone see it?</dd></div>
+<div><dt>Control</dt><dd>Who can stop it, and how quickly?</dd></div>
+</dl>
+<figcaption>A framework for the questions, not data.</figcaption>
+</figure>
+
 ## Where value might accrue
 
 - Policy and control layers that sit between agents and the systems they act on.
