@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import re
 import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -75,7 +76,9 @@ def load_theses() -> tuple[dict, list[Page]]:
     return {"page": index, "groups": grouped}, theses
 
 
-def build(out: Path) -> None:
+def build(out: Path, base: str = "") -> None:
+    base = base.rstrip("/")
+    root_links = re.compile(r'((?:href|src)="|url=)/(?!/)')
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html"]))
     env.filters["date"] = human_date
     env.globals["nav"] = NAV
@@ -87,7 +90,10 @@ def build(out: Path) -> None:
     def render(template: str, dest: str, **ctx) -> None:
         target = out / dest
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(env.get_template(template).render(**ctx), encoding="utf-8")
+        html = env.get_template(template).render(**ctx)
+        if base:
+            html = root_links.sub(rf"\g<1>{base}/", html)
+        target.write_text(html, encoding="utf-8")
 
     home = read(CONTENT / "home.md")
     theses_index, theses = load_theses()
@@ -114,4 +120,6 @@ def build(out: Path) -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, default=ROOT / "dist")
-    build(parser.parse_args().out)
+    parser.add_argument("--base", default="", help="path prefix when served from a subdirectory, e.g. /aryashah")
+    args = parser.parse_args()
+    build(args.out, args.base)
