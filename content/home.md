@@ -1,10 +1,12 @@
 ---
 title: Arya Shah
 ---
-Hey! I’m Arya, a Georgia Tech student working at Tech Square Ventures and Engage, where I research enterprise AI and the problems large companies are trying to solve.
+Hey! I’m Arya. I grew up in Cyprus, served in its National Guard and now study at Georgia Tech.
 
-Before that, I co-founded Roamio and built a partnership with DoorDash. I also worked on neuroscience research at the TReNDS Center, using machine learning to study how premature birth relates to [brain structure and cognition](/research/prematurity-brain-cognition/).
+I’m an Investments and Insights Analyst at Tech Square Ventures and Engage, studying where enterprise technology is heading and what makes it worth buying.
 
-I grew up in Cyprus, a tiny island in the Mediterranean, and served in the National Guard before moving to the US.
+Before that, I co-founded an [events management startup](/building/#events-startup) and ran a pilot with DoorDash. I’ve also worked with Coca-Cola on AI automation and used machine learning at the TReNDS Center to study how premature birth relates to [brain structure and cognition](/research/prematurity-brain-cognition/).
 
-[I write about technology, enterprise adoption and ideas I’m working through.](/theses/) Always happy to hear from you.
+In an earlier venture role, I worked on deals involving Perplexity, Colossal Biosciences and Sardine AI.
+
+I’m interested in the distance between what technology can do and what people will trust it to do. I [write about that here](/theses/). Always happy to hear from you.

@@ -37,4 +37,4 @@ Agents that live in messaging could shift a lot of software use into conversatio
 - Platforms restricting what third-party agents can do.
 - The tasks people care about turning out to need visual interfaces.
 
-Related project: the [Roamio MCP server](/building/#roamio-mcp) is a prototype built around event discovery inside iMessage.
+Related project: my [event finder for iMessage](/building/#messaging-event-agent) is a prototype built around event discovery inside a message thread.

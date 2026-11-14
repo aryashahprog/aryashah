@@ -1,5 +1,5 @@
 ---
 title: Building
-description: Things I’ve built or co-founded.
+description: Some things I’ve built, with friends and on my own.
 ---
-Things I’ve built or co-founded.
+Some things I’ve built, with friends and on my own.
