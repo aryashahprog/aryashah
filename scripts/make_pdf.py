@@ -1,7 +1,4 @@
-"""Typeset review/papers/*.md into PDFs beside their sources, inlining figures from review/papers/figures/.
-
-review/ is not copied into dist, so these PDFs are not served by the site.
-"""
+"""Typeset review/papers/*.md into static/research/, inlining figures from review/papers/figures/."""
 
 from __future__ import annotations
 
@@ -45,7 +42,7 @@ def main() -> None:
         for source in sorted(PAPERS.glob("*.md")):
             page = read(source, PAPER_EXTENSIONS)
             page.html = inline_figures(page.html)
-            target = PAPERS / page.pdf
+            target = ROOT / "static" / "research" / page.pdf
             tab = browser.new_page()
             tab.set_content(env.get_template("research-print.html").render(page=page), wait_until="load")
             tab.pdf(

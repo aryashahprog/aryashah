@@ -21,14 +21,14 @@ I don't have data that settles which is more common, so I'm not assuming bills r
 
 Choosing the model for each task is one of the bigger levers. A smaller, cheaper model may be good enough for a routine step, but someone has to define good enough for that task and check it, or the savings come back as rework. AT&T says its AI gateway, which uses cache-aware routing to send each request to a cost-effective model, has cut its AI costs by as much as 90% while handling about 45 billion tokens a day.[^att] Routing can matter as much as list prices, and it is only one layer. The model itself, the runtime that serves it and the cluster underneath can each be made cheaper too.
 
-<figure class="tall">
+<figure>
 <a href="/theses/workflow-economics/inference-optimization-stack.png"><img src="/theses/workflow-economics/inference-optimization-stack.png" width="1037" height="1355" loading="lazy" alt="Three layers of LLM inference optimization. Layer 1, model: compress and redesign the weights, through pruning, quantization, distillation and mixture-of-experts or state-space architectures. Layer 2, runtime: serve and decode faster per request, through serving engines, speculative decoding, KV caching and kernels. Layer 3, infrastructure: share and route the cluster, through GPU orchestration, utilization and compute marketplaces."></a>
 <figcaption>Price per token isn’t the only cost lever: the model, the serving runtime and the shared infrastructure can each be optimized. A map of mechanisms, not a measure of savings. Crop from my AI compute trend brief, without its acquisition and moat columns. <a href="/theses/workflow-economics/inference-optimization-stack.png">Open full size</a></figcaption>
 </figure>
 
 Returns are harder to see. In Stripe's sector data, industries that use more AI have grown productivity faster recently, but they were also growing faster before generative AI existed.[^stripe]
 
-<figure class="tall">
+<figure class="narrow">
 <a href="/theses/workflow-economics/sector-productivity-vs-ai-adoption.png"><img src="/theses/workflow-economics/sector-productivity-vs-ai-adoption.png" width="1700" height="3600" loading="lazy" alt="Three scatter plots of US sectors, annualized labor productivity growth against the share of firms using AI in 2026 H1. Latest period, 2022 Q4 to 2025 Q4: weak upward fit, R squared 0.18. Pre-pandemic, 2016 Q4 to 2019 Q4: similar upward fit, R squared 0.21. Latest minus pre-pandemic: flat fit, R squared 0.00."></a>
 <figcaption>Sectors that use more AI grew faster recently, but they also grew faster before generative AI existed; net of that earlier trend, the fit is about zero. Early, sector-level data about returns, not about token prices or spending, and not evidence that AI adds no value. Chart: Ernie Tedeschi, <a href="https://www.stripeeconomics.com/p/ai-and-productivity">“AI and productivity”</a>, Stripe Economics, July 23, 2026. Data: Census Bureau (BTOS), Bureau of Labor Statistics, Federal Reserve Bank of Chicago, Stripe analysis; mining excluded. <a href="/theses/workflow-economics/sector-productivity-vs-ai-adoption.png">Open full size</a></figcaption>
 </figure>

@@ -42,7 +42,10 @@ NOTES_HEADING = re.compile(r'(<div class="footnote">)\s*<hr ?/?>')
 
 
 def thesis_extensions() -> list:
-    return [*MD_EXTENSIONS, FootnoteExtension(BACKLINK_TEXT="\u21a9\ufe0e", BACKLINK_TITLE="Back to text")]
+    return [
+        *MD_EXTENSIONS,
+        FootnoteExtension(SUPERSCRIPT_TEXT="[{}]", BACKLINK_TEXT="\u21a9\ufe0e", BACKLINK_TITLE="Back to text"),
+    ]
 
 
 def read(path: Path, extensions: list[str] = MD_EXTENSIONS) -> Page:
@@ -52,7 +55,7 @@ def read(path: Path, extensions: list[str] = MD_EXTENSIONS) -> Page:
     _, front, body = text.split("---\n", 2)
     meta = yaml.safe_load(front) or {}
     html = markdown.markdown(body, extensions=extensions, output_format="html")
-    html = NOTES_HEADING.sub(r'\1\n<h2 id="notes">Notes</h2>', html)
+    html = NOTES_HEADING.sub(r'\1\n<h2 id="notes">Notes:</h2>', html)
     return Page(meta=meta, html=html, slug=path.stem)
 
 

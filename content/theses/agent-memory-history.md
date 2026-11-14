@@ -21,7 +21,7 @@ In Theory Ventures' picture of the harness, the model is the disposable layer an
 
 I'd put the company at the center instead. It rents the model, and what its workflows learn stays with it for the next run.
 
-<figure class="narrow">
+<figure class="tall">
 <img src="/theses/agent-memory-history/company-context-loop.svg" width="360" height="520" alt="Proposed framework, not measured evidence: 1. Model access, rented and replaceable. 2. Workflow execution, agents complete real tasks. 3. Retained company context, corrections, rules and outcomes with provenance and permissions. 4. Improved workflow, the next run uses what was learned. Feedback from each run loops back into execution.">
 <figcaption>A proposed framework, not measured evidence: the company rents model access but keeps what its workflows learn. My diagram, adapted from one of my slides.</figcaption>
 </figure>

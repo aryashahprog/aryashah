@@ -136,19 +136,14 @@ def main() -> int:
         if url not in home.links:
             errors.append(f"home: research page {url} not linked")
         pdfs = [link for link in pages[f].links if link.endswith(".pdf")]
-        if not pdfs or any(not (DIST / p.lstrip("/")).read_bytes().startswith(b"%PDF-") for p in pdfs):
-            errors.append(f"{f.relative_to(DIST)}: needs a poster PDF")
-        if any("paper" in p for p in pdfs):
-            errors.append(f"{f.relative_to(DIST)}: links the unreviewed paper PDF")
+        if len(pdfs) != 2 or any(not (DIST / p.lstrip("/")).read_bytes().startswith(b"%PDF-") for p in pdfs):
+            errors.append(f"{f.relative_to(DIST)}: needs poster and working paper PDFs")
     for f in pages:
         if re.search(r"<img(?![^>]*\balt=\"[^\"]+\")[^>]*>", f.read_text(encoding="utf-8")):
             errors.append(f"{f.relative_to(DIST)}: image without alt text")
     if "reading" in " ".join(link.lower() for p in pages.values() for link in p.links):
         errors.append("a Reading link exists")
 
-    for pdf in PAPERS.glob("*.pdf"):
-        if any(DIST.rglob(pdf.name)):
-            errors.append(f"dist: unreviewed paper {pdf.name} is published")
     for f in PAPERS.glob("*.md"):
         text = f.read_text(encoding="utf-8")
         for marker in PLACEHOLDERS:
