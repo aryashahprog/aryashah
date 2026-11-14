@@ -11,7 +11,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   {% block head %}{% endblock %}
 </head>
-<body>
+<body{% block body_attrs %}{% endblock %}>
   <a class="skip" href="#main">Skip to content</a>
   <div class="page">
     <header class="header-wrap">

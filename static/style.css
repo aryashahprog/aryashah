@@ -297,3 +297,19 @@ figcaption a {
 figure.slim img {
   max-width: 220px;
 }
+
+/* Essay pages keep the reference's quiet, continuous reading column. */
+.essay-page .content { padding-top: 20px; }
+.essay h1 { margin: 0 0 1rem; font-size: 1.5rem; }
+.essay > p { margin: 1rem 0; }
+.essay figure { margin: 2rem 0; }
+.essay figcaption { font-size: 0.8rem; line-height: 1.5; }
+.essay-notes { margin-top: 2.5rem; font-size: 0.875rem; }
+.essay-notes h2 { font-size: 0.875rem; font-weight: 400; }
+.essay-notes ol { padding-left: 1.5rem; }
+.essay-date, .essay .related { font-size: 0.8rem; }
+.essay-page .header-wrap { border-bottom: 0; }
+.essay-page .header ul { display: flex; flex-wrap: wrap; gap: 0 1rem; }
+@media screen and (min-width: 1025px) {
+  .essay-page .header ul { display: block; }
+}

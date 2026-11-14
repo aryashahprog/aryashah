@@ -42,4 +42,4 @@ The failure cases matter as much as the upside:
 
 Each one argues for keeping proposals reviewable and changes reversible.
 
-Planning teams in logistics, manufacturing and scheduling, who already pay for solvers and consultants, are the likely beneficiaries. The strongest counterargument is that formulation depends on tacit knowledge agents can't reach, so experts still do the real work and agents only save typing. I'd change my mind if, in live deployments, agent-proposed formulations need so much correction that they save analysts no time, or if the errors they introduce outweigh the gains.
+Planning teams in logistics, manufacturing and scheduling, who already pay for solvers and consultants, are the likely beneficiaries. Formulation may depend on tacit knowledge agents can't reach. In that case, experts still do the real work and agents only save typing. I'd change my mind if, in live deployments, agent-proposed formulations need so much correction that they save analysts no time, or if the errors they introduce outweigh the gains.

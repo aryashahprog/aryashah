@@ -1,5 +1,5 @@
 ---
 title: Building
-description: Some things I’ve built, with friends and on my own.
+description: Projects and experiments.
 ---
-Some things I’ve built, with friends and on my own.
+Projects and experiments.
