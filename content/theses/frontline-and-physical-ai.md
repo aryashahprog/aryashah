@@ -20,6 +20,11 @@ Here is a hypothetical scenario, not something I've deployed. A technician servi
 
 AR glasses are one way to deliver this, and the first-person data they capture might later help train robots. That is one possible path, not an inevitable one. Robotics could advance without it, and a phone may be good enough for many jobs.
 
+<figure class="narrow">
+<a href="/theses/frontline-and-physical-ai/data-routes.png"><img src="/theses/frontline-and-physical-ai/data-routes.png" width="956" height="1199" loading="lazy" alt="Four ways to gather physical-task data. Teleoperation and demo farms: accurate, but cost grows linearly. Human video capture: cheap and abundant, but no force data. Simulation and world models: scalable, but must carry over to real conditions. Deployed fleet data flywheels: compounding, but needs a live fleet."></a>
+<figcaption>Four ways to collect data on how physical work is done. Expert demonstrations record skilled work most directly but cost the most; video and simulation scale more cheaply but miss touch or realism; fleet data compounds only once something is deployed. Adapted from my physical AI trend brief. <a href="/theses/frontline-and-physical-ai/data-routes.png">Open full size</a></figcaption>
+</figure>
+
 Some questions stay open. Hiring difficulty might drive adoption in some industries and not others, and how workers and unions respond will differ by workplace, so I don't assume one pattern. Synthetic data might help with training, but it can't replace real outcomes when checking whether guidance works.
 
 The buyer is probably an operations or service leader who owns a task where errors are costly and hard to staff, such as field service, maintenance or quality inspection. The strongest counterargument is that this is a feature of existing field service and training software, and the hard part is integration and getting crews to change habits, not the AI. I'd change my mind if guided workflows fail to measurably cut errors or time on a specific task in real deployments, or if workers stop using them once the novelty wears off.

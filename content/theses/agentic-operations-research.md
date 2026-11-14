@@ -29,6 +29,11 @@ One way to structure it, as a proposed architecture: an operations world model t
 <figcaption>A proposed architecture, not measured evidence: the agent drafts, a person reviews, and deployment feedback flows back into the next draft. My diagram. <a href="/theses/agentic-operations-research/formulation-loop.svg">Open full size</a></figcaption>
 </figure>
 
+<figure class="slim">
+<a href="/theses/agentic-operations-research/deployment-loop.png"><img src="/theses/agentic-operations-research/deployment-loop.png" width="422" height="1599" loading="lazy" alt="Deployment loop: live sensors, then candidate actions, then predicted outcomes, then a planner and safety check, then an action or a request for human help."></a>
+<figcaption>The world-model layer at run time: predict what each candidate action would do, then let a planner and safety check pick one or hand off to a person. It illustrates one layer, not the whole thesis. Crop from an Engage brief on world models. <a href="/theses/agentic-operations-research/deployment-loop.png">Open full size</a></figcaption>
+</figure>
+
 The failure cases matter as much as the upside:
 
 - Wrong constraints: the agent encodes a rule that doesn't exist or misses one that does, and the solver returns a confident plan that can't or shouldn't be carried out.
