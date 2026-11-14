@@ -5,7 +5,7 @@ Hey! I’m Arya. I grew up in Cyprus, served in its National Guard and now study
 
 I’m an Investments and Insights Analyst at Tech Square Ventures and Engage, studying where enterprise technology is heading and what makes it worth buying.
 
-Before that, I co-founded an [events management startup](/building/#events-startup) and ran a pilot with DoorDash. I’ve also worked with Coca-Cola on AI automation and used machine learning at the TReNDS Center to study how premature birth relates to [brain structure and cognition](/research/prematurity-brain-cognition/).
+Before that, I co-founded an events management startup and ran a pilot with DoorDash. I’ve also worked with Coca-Cola on AI automation and used machine learning at the TReNDS Center to study how premature birth relates to [brain structure and cognition](/research/prematurity-brain-cognition/).
 
 In an earlier venture role, I worked on deals involving Perplexity, Colossal Biosciences and Sardine AI.
 
