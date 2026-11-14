@@ -12,6 +12,7 @@ from pathlib import Path
 import markdown
 import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from markdown.extensions.footnotes import FootnoteExtension
 
 ROOT = Path(__file__).resolve().parent
 CONTENT = ROOT / "content"
@@ -37,6 +38,11 @@ class Page:
 
 MD_EXTENSIONS = ["smarty", "sane_lists"]
 PAPER_EXTENSIONS = [*MD_EXTENSIONS, "tables", "md_in_html"]
+NOTES_HEADING = re.compile(r'(<div class="footnote">)\s*<hr ?/?>')
+
+
+def thesis_extensions() -> list:
+    return [*MD_EXTENSIONS, FootnoteExtension(BACKLINK_TEXT="\u21a9\ufe0e", BACKLINK_TITLE="Back to text")]
 
 
 def read(path: Path, extensions: list[str] = MD_EXTENSIONS) -> Page:
@@ -46,6 +52,7 @@ def read(path: Path, extensions: list[str] = MD_EXTENSIONS) -> Page:
     _, front, body = text.split("---\n", 2)
     meta = yaml.safe_load(front) or {}
     html = markdown.markdown(body, extensions=extensions, output_format="html")
+    html = NOTES_HEADING.sub(r'\1\n<h2 id="notes">Notes</h2>', html)
     return Page(meta=meta, html=html, slug=path.stem)
 
 
@@ -55,7 +62,7 @@ def human_date(value: dt.date) -> str:
 
 def load_theses() -> tuple[dict, list[Page]]:
     index = read(CONTENT / "theses" / "_index.md")
-    theses = [read(p) for p in sorted((CONTENT / "theses").glob("*.md")) if p.name != "_index.md"]
+    theses = [read(p, thesis_extensions()) for p in sorted((CONTENT / "theses").glob("*.md")) if p.name != "_index.md"]
     by_slug = {t.slug: t for t in theses}
     for t in theses:
         missing = [s for s in t.meta.get("related", []) if s not in by_slug]

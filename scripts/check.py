@@ -119,6 +119,8 @@ def main() -> int:
         if f.name == "_index.md":
             continue
         body = f.read_text(encoding="utf-8").split("---\n", 2)[-1]
+        body = re.sub(r"^\[\^[^\]]+\]:.*$", " ", body, flags=re.M)
+        body = re.sub(r"\[\^[^\]]+\]", "", body)
         prose = re.sub(r"<[^>]+>", " ", re.sub(r"<figure.*?</figure>", " ", body, flags=re.S))
         n = len(re.findall(r"[A-Za-z0-9’'%.,$-]+", prose))
         if not WORDS[0] <= n <= WORDS[1]:
