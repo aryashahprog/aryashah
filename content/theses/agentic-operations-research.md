@@ -16,9 +16,9 @@ sources:
   - title: "Ramamonjison et al., “NL4Opt Competition: Formulating Optimization Problems Based on Their Natural Language Descriptions,” 2023"
     url: https://arxiv.org/abs/2303.08233
 ---
-An earlier version of this note said operations research solves static snapshots and that agents could make it continuous. That was wrong. Established methods already handle change: model predictive control re-solves a plan over a rolling horizon as new data arrives, and stochastic programming plans under uncertainty. The solvers aren't the bottleneck.
+Established optimization methods already handle changing conditions. Model predictive control re-solves a plan over a rolling horizon, while stochastic programming accounts for uncertainty. The opportunity I’m interested in comes before the solver: turning messy operational information into a problem it can solve.
 
-The bottleneck is often formulation. Before anything can be optimized, someone has to decide what the objective is, which constraints are real and which data to trust, and that knowledge is scattered across emails, spreadsheets, policies and people's heads. The authors of OptiMUS, an LLM-based agent that formulates and solves linear and mixed-integer programs from natural-language descriptions, argue that most such problems are still solved by hand because formulating them takes expertise. The NL4Opt competition was set up to study the same step.
+Formulation is often a bottleneck in its own right. Before anything can be optimized, someone has to decide what the objective is, which constraints are real and which data to trust, and that knowledge is scattered across emails, spreadsheets, policies and people's heads. The authors of OptiMUS, an LLM-based agent that formulates and solves linear and mixed-integer programs from natural-language descriptions, argue that most such problems are still solved by hand because formulating them takes expertise. The NL4Opt competition was set up to study the same step.
 
 My thesis is that agents can help turn messy operational information into candidate objectives and constraints, propose revisions when conditions change and explain exceptions, with a person reviewing before anything changes the plan. Results so far come from benchmark problems, not live operations, so I'm not claiming agents do this better than experienced analysts.
 
