@@ -16,9 +16,10 @@ All writing lives in `content/` as Markdown with a short YAML header.
   - `related` lists other note slugs to link at the bottom.
   - `sources` (optional) is a list of `{title, url}`, listed at the end of the note.
 - `content/building/<slug>.md`: one entry per project, with `role`, optional `status` and `links`.
-- `content/research/<slug>.md`: a short research landing page at `/research/<slug>/` with links to `poster` and `paper`, both PDFs under `static/research/`. Not in the nav; linked from Home.
-- `papers/<slug>.md`: source for the paper PDF (figures in `papers/figures/`). After editing, regenerate it with `.venv/bin/python scripts/make_pdf.py` (needs Chrome or `playwright install chromium`) and commit the PDF.
-  - `docs/research-review.md` lists open questions for the authors. It is not part of the site or the PDF.
+- `content/research/<slug>.md`: a short research landing page at `/research/<slug>/` linking the `poster` PDF in `static/research/`. Not in the nav; linked from Home.
+- `review/`: work held back from the site until scientific and coauthor review is done. `build.py` only copies `static/`, so nothing here is served, but the repository is public, so it is still publicly readable (and was in earlier public commits).
+  - `review/papers/<slug>.md`: source for the paper PDF (figures in `review/papers/figures/`). Regenerate with `.venv/bin/python scripts/make_pdf.py` (needs Chrome or `playwright install chromium`); the PDF is written beside the source.
+  - `review/research-review.md`: open questions for the authors.
 
 Write plain text; no em dashes (the check below flags them).
 

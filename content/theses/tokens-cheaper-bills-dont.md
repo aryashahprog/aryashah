@@ -20,6 +20,15 @@ The price of a token keeps falling, but a company's total AI bill may stay flat 
 
 What I'm assuming: that usage grows faster than prices fall. I haven't checked that against real enterprise spending.
 
+The payoff side is also hard to see in aggregate data so far. Stripe Economics compared AI adoption across US sectors with labor productivity growth:
+
+<figure class="tall">
+<a href="/theses/tokens-cheaper-bills-dont/sector-productivity-vs-ai-adoption.png"><img src="/theses/tokens-cheaper-bills-dont/sector-productivity-vs-ai-adoption.png" width="1700" height="3600" loading="lazy" alt="Three scatter plots of US sectors, annualized labor productivity growth against the share of firms using AI in 2026 H1. Latest period, 2022 Q4 to 2025 Q4: weak upward fit, R squared 0.18. Pre-pandemic, 2016 Q4 to 2019 Q4: similar upward fit, R squared 0.21. Latest minus pre-pandemic: flat fit, R squared 0.00."></a>
+<figcaption>Sectors that use more AI grew faster recently, but they also grew faster before generative AI existed; net of that earlier trend, the fit is about zero. This is early, sector-level data, not evidence that AI adds no value. Chart: Ernie Tedeschi, <a href="https://www.stripeeconomics.com/p/ai-and-productivity">“AI and productivity”</a>, Stripe Economics, July 23, 2026. Data: Census Bureau (BTOS), Bureau of Labor Statistics, Federal Reserve Bank of Chicago, Stripe analysis; mining excluded. <a href="/theses/tokens-cheaper-bills-dont/sector-productivity-vs-ai-adoption.png">Open full size</a></figcaption>
+</figure>
+
+That's one more reason to measure cost and return per workflow rather than wait for it to show up in totals.
+
 ## Where value might accrue
 
 - Tools that track cost and outcome per agent or per workflow, so a team can see which ones are worth running.

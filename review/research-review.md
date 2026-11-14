@@ -1,6 +1,6 @@
 # Research paper: author review notes
 
-Review notes for `papers/prematurity-brain-cognition.md` and the paper PDF. This file is not built into the site or the PDF, but the repository is public, so anything written here is publicly visible.
+Review notes for `review/papers/prematurity-brain-cognition.md` and its PDF. This file is not built into the site or the PDF, but the repository is public, so anything written here is publicly visible.
 
 ## Provenance
 

@@ -1,4 +1,7 @@
-"""Typeset papers/*.md into PDFs under static/research/, inlining figures from papers/figures/."""
+"""Typeset review/papers/*.md into PDFs beside their sources, inlining figures from review/papers/figures/.
+
+review/ is not copied into dist, so these PDFs are not served by the site.
+"""
 
 from __future__ import annotations
 
@@ -13,10 +16,10 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
-PAPERS = ROOT / "papers"
+PAPERS = ROOT / "review" / "papers"
 sys.path.insert(0, str(ROOT))
 
-from build import PAPER_EXTENSIONS, STATIC, TEMPLATES, read  # noqa: E402
+from build import PAPER_EXTENSIONS, TEMPLATES, read  # noqa: E402
 
 FOOTER = (
     "<div style=\"width:100%;font-family:Arial,'Liberation Sans',sans-serif;font-size:8pt;"
@@ -42,7 +45,7 @@ def main() -> None:
         for source in sorted(PAPERS.glob("*.md")):
             page = read(source, PAPER_EXTENSIONS)
             page.html = inline_figures(page.html)
-            target = STATIC / page.pdf.lstrip("/")
+            target = PAPERS / page.pdf
             tab = browser.new_page()
             tab.set_content(env.get_template("research-print.html").render(page=page), wait_until="load")
             tab.pdf(

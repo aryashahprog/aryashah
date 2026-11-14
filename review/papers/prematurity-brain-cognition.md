@@ -4,7 +4,7 @@ running_title: Cuneus grey matter and vocabulary after preterm birth
 authors: Arya Shah, Dawn Jensen, PhD, Vince Calhoun, PhD, Jingyu Liu, PhD
 affiliations: Georgia Institute of Technology · Georgia State University · TReNDS Center
 source_note: This report expands the conference poster “Cuneus Cortex Mediates Lower Cognitive Performance in Adolescents Born Premature” by the same authors. It presents the analyses and results reported on the poster; no additional analyses were conducted. It has not been peer reviewed.
-pdf: /research/prematurity-brain-cognition-paper.pdf
+pdf: prematurity-brain-cognition-paper.pdf
 ---
 <section class="abstract" markdown="1">
 

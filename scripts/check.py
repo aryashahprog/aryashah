@@ -13,6 +13,7 @@ DIST = ROOT / "dist"
 CONTENT = ROOT / "content"
 EMAIL = "aryashah@gatech.edu"
 NAV = ["/", "/theses/", "/building/"]
+PAPERS = ROOT / "review" / "papers"
 PLACEHOLDERS = ["[AUTHOR", "TO CONFIRM", "TO ADD", "not verified", "TODO", "TBD"]
 THESIS_SECTIONS = ["The claim", "Reasoning", "Where value might accrue", "What would change my mind"]
 
@@ -106,12 +107,20 @@ def main() -> int:
         if url not in home.links:
             errors.append(f"home: research page {url} not linked")
         pdfs = [link for link in pages[f].links if link.endswith(".pdf")]
-        if len(pdfs) < 2 or any(not (DIST / p.lstrip("/")).read_bytes().startswith(b"%PDF-") for p in pdfs):
-            errors.append(f"{f.relative_to(DIST)}: needs poster and paper PDFs")
+        if not pdfs or any(not (DIST / p.lstrip("/")).read_bytes().startswith(b"%PDF-") for p in pdfs):
+            errors.append(f"{f.relative_to(DIST)}: needs a poster PDF")
+        if any("paper" in p for p in pdfs):
+            errors.append(f"{f.relative_to(DIST)}: links the unreviewed paper PDF")
+    for f in pages:
+        if re.search(r"<img(?![^>]*\balt=\"[^\"]+\")[^>]*>", f.read_text(encoding="utf-8")):
+            errors.append(f"{f.relative_to(DIST)}: image without alt text")
     if "reading" in " ".join(link.lower() for p in pages.values() for link in p.links):
         errors.append("a Reading link exists")
 
-    for f in (ROOT / "papers").glob("*.md"):
+    for pdf in PAPERS.glob("*.pdf"):
+        if any(DIST.rglob(pdf.name)):
+            errors.append(f"dist: unreviewed paper {pdf.name} is published")
+    for f in PAPERS.glob("*.md"):
         text = f.read_text(encoding="utf-8")
         for marker in PLACEHOLDERS:
             if marker.lower() in text.lower():
@@ -120,7 +129,7 @@ def main() -> int:
             if not (f.parent / fig).exists():
                 errors.append(f"{f.relative_to(ROOT)}: missing figure {fig}")
 
-    for f in [*CONTENT.rglob("*.md"), *(ROOT / "papers").glob("*.md")]:
+    for f in [*CONTENT.rglob("*.md"), *PAPERS.glob("*.md")]:
         text = f.read_text(encoding="utf-8")
         if "\u2014" in text or "---" in text.split("---\n", 2)[-1]:
             errors.append(f"{f.relative_to(ROOT)}: contains an em dash")

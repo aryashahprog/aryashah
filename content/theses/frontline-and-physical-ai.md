@@ -17,6 +17,13 @@ Most AI tools assume someone sitting at a desk. People working on a floor, in a 
 - Voice and vision through something worn may fit better than a phone or laptop.
 - AR as a step in between: a person still does the task but gets guidance as they work. The data from that work might later help train robots.
 
+One way that loop could work:
+
+<figure class="narrow">
+<img src="/theses/frontline-and-physical-ai/physical-workflow.svg" width="360" height="410" alt="Proposed loop, not measured evidence: 1. Observe work, capturing first-person task context. 2. Learn expertise, from expert reasoning and outcomes. 3. Guide execution, checking the next task. Verified outcomes feed back to improve the next procedure.">
+<figcaption>A proposed workflow, not measured evidence: capture how experts do a task, learn from their reasoning and results, guide the next person, and feed checked outcomes back in. My diagram.</figcaption>
+</figure>
+
 ## Open questions
 
 - Labor constraints: whether difficulty hiring is what actually pushes companies to adopt these tools.
