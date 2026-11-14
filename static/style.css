@@ -234,6 +234,28 @@ figcaption a {
   color: #333;
 }
 
+sup {
+  line-height: 0;
+}
+
+.footnote {
+  margin-top: 2rem;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.footnote ol {
+  margin-top: 0.25rem;
+}
+
+.footnote p {
+  margin: 0;
+}
+
+.footnote-backref {
+  text-decoration: none;
+}
+
 .related {
   margin-top: 1.5rem;
 }
