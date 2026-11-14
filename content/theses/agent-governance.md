@@ -1,25 +1,19 @@
 ---
-title: Agent governance
-theme: Enterprise agent infrastructure
-order: 3
-summary: Agents behave less predictably than normal software, which leaves accountability unclear. That could create demand for governance written as code and for operational resilience.
+title: Agent governance is a runtime problem
+theme: Agents and enterprise systems
+order: 2
+summary: Agents act while they run, so governing them means scoped authorization, traces, monitoring, revocation and recovery as actions happen, not only policy written in advance.
 updated: 2026-11-13
-status: First draft
-related: [agent-system-of-record, agents-need-context]
+status: Working draft
+replaces: [cybersecurity-timelines]
+related: [agent-memory-history, conversation-interface]
+sources:
+  - title: "OWASP GenAI Security Project, LLM06:2025 Excessive Agency"
+    url: https://genai.owasp.org/llmrisk/llm062025-excessive-agency/
+  - title: "IETF RFC 7009, OAuth 2.0 Token Revocation, 2013"
+    url: https://www.rfc-editor.org/rfc/rfc7009
 ---
-## The claim
-
-Agents don't always behave the same way twice, and when one gets something wrong it isn't clear who is accountable. Companies will need governance that is built into how agents run, not just written in a policy document.
-
-## Reasoning
-
-- Traditional software does what its code says, and when it breaks you can usually trace why. An agent can take a different path on the same input.
-- When an agent approves, sends or changes something, who owns that decision: the team that deployed it, the vendor or the person who asked it to act?
-- Companies that can't answer that will probably limit what agents are allowed to do. Clearer accountability could unlock more use.
-- Governance as code means writing the rules (what an agent can touch, when it needs a human, what gets logged) as policies that are enforced automatically.
-- Operational resilience is the other half: what happens when an agent fails halfway through a task, and can the business keep running?
-
-Three questions a company should be able to answer for every agent:
+Most governance is written before software runs: a policy, an approval, a review. Agents make that harder, because the same agent can take different steps on the same input, and its actions happen while it works. My thesis is that agent governance has to operate at runtime: authorization scoped to each task, a trace of what the agent did, monitoring while it acts, a fast way to revoke access and a way to recover when something goes wrong. Three questions frame it:
 
 <figure class="framework">
 <dl>
@@ -30,13 +24,8 @@ Three questions a company should be able to answer for every agent:
 <figcaption>A framework for the questions, not data.</figcaption>
 </figure>
 
-## Where value might accrue
+Much of this already exists. Identity and access tools issue scoped, short-lived credentials, and standards such as OAuth 2.0 token revocation define how to cut access off. Security teams already automate a lot of detection and response, and logging and observability tools record what systems do. OWASP's guidance on excessive agency in LLM applications points to the same controls: give an agent only the tools and permissions it needs, and require human approval for high-impact actions.
 
-- Policy and control layers that sit between agents and the systems they act on.
-- Tools that make agent actions auditable and reversible.
-- Risk and compliance teams may be the natural buyers, since accountability is already their job.
+The possible gap is in tying these together around an agent's task. Existing tools mostly see a service account making calls. They may not see that the calls belong to one agent run, on whose behalf it acted, which step it had reached, or how to undo the three things it already changed when it is stopped halfway. Recovery is the least solved part: revoking a credential stops new actions but doesn't reverse finished ones. Cheaper models help attackers and defenders at once, which raises the stakes, but I don't have numbers on how fast either side is moving, so I'm not leaning on that here.
 
-## What would change my mind
-
-- Existing identity, access and audit tools stretching to cover agents without much change.
-- Agents becoming predictable enough that the accountability question fades.
+The natural buyers are security, risk and platform teams who already own access and incident response. The strongest counterargument is that identity, security and observability vendors extend their products to cover agents, and governance becomes a set of features in tools companies already run. I'd drop this if companies running many agents in production can answer the three questions above with their existing stack, including stopping an agent mid-task and undoing its partial work.

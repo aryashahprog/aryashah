@@ -9,8 +9,9 @@ Unpublished first version. Nothing here deploys automatically.
 All writing lives in `content/` as Markdown with a short YAML header.
 
 - `content/home.md`: the bio on the home page (the email line is added by `templates/home.html`).
-- `content/theses/_index.md`: the intro to Working theses and the order of the four themes.
-- `content/theses/<slug>.md`: one note per thesis. The file name is the URL (`/theses/<slug>/`).
+- `content/theses/_index.md`: the intro to Working theses and the order of the three themes.
+- `content/theses/<slug>.md`: one note per thesis. The file name is the URL (`/theses/<slug>/`). `replaces: [old-slug, ...]` writes a redirect page at each old URL.
+- `archive/theses/`: the original 12 notes before they were combined. Not built.
   - `theme` must match one of the themes in `_index.md`; `order` sorts notes within a theme.
   - `updated` is the last-updated date shown on the page. Change it when you revise a note.
   - `related` lists other note slugs to link at the bottom.
@@ -34,7 +35,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
 ## Checks
 
 ```bash
-.venv/bin/python scripts/check.py  # internal links, anchors, nav, mailto, required thesis sections, no em dashes
+.venv/bin/python scripts/check.py  # internal links, anchors, nav, mailto, old thesis URLs redirect to live notes, 250 to 450 words per note, no em dashes
 .venv/bin/ruff check . && .venv/bin/ruff format --check .
 ```
 

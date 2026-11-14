@@ -61,6 +61,10 @@ def load_theses() -> tuple[dict, list[Page]]:
         if missing:
             raise ValueError(f"{t.slug}: unknown related notes {missing}")
         t.related = [by_slug[s] for s in t.meta.get("related", [])]
+    replaced = [old for t in theses for old in t.meta.get("replaces", [])]
+    clash = set(replaced) & set(by_slug) | {s for s in replaced if replaced.count(s) > 1}
+    if clash:
+        raise ValueError(f"redirects clash with notes or each other: {sorted(clash)}")
     themes = index.meta["themes"]
     order = {name: i for i, name in enumerate(themes)}
     for t in theses:
@@ -97,6 +101,8 @@ def build(out: Path) -> None:
     render("theses.html", "theses/index.html", current="/theses/", **theses_index)
     for t in theses:
         render("thesis.html", f"theses/{t.slug}/index.html", page=t, current="/theses/")
+        for old in t.meta.get("replaces", []):
+            render("redirect.html", f"theses/{old}/index.html", target=t, current="/theses/")
     render("building.html", "building/index.html", page=building, projects=projects, current="/building/")
     research = [read(p) for p in sorted((CONTENT / "research").glob("*.md"))]
     for r in research:

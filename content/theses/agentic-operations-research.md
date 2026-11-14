@@ -1,39 +1,35 @@
 ---
-title: Agentic operations research
+title: Agents can help formulate the optimization problem
 theme: AI in operations
-order: 3
-summary: Agents may run the operations research loop continuously, reformulating and re-solving problems as conditions change. Real deployment outcomes should be the test.
+order: 2
+summary: Operations research already re-plans continuously and under uncertainty. The bottleneck is often turning messy operational knowledge into objectives and constraints, which agents might help with under human review.
 updated: 2026-11-13
-status: First draft
-related: [frontline-and-physical-ai, agents-need-context]
+status: Working draft
+related: [frontline-and-physical-ai, workflow-economics]
+sources:
+  - title: "Rawlings, Mayne and Diehl, Model Predictive Control: Theory, Computation, and Design, 2nd ed."
+    url: https://sites.engineering.ucsb.edu/~jbraw/mpc/
+  - title: "Birge and Louveaux, Introduction to Stochastic Programming, 2nd ed., Springer, 2011"
+    url: https://doi.org/10.1007/978-1-4614-0237-4
+  - title: "AhmadiTeshnizi, Gao and Udell, “OptiMUS: Scalable Optimization Modeling with (MI)LP Solvers and Large Language Models,” 2024"
+    url: https://arxiv.org/abs/2402.10172
+  - title: "Ramamonjison et al., “NL4Opt Competition: Formulating Optimization Problems Based on Their Natural Language Descriptions,” 2023"
+    url: https://arxiv.org/abs/2303.08233
 ---
-## The claim
+An earlier version of this note said operations research solves static snapshots and that agents could make it continuous. That was wrong. Established methods already handle change: model predictive control re-solves a plan over a rolling horizon as new data arrives, and stochastic programming plans under uncertainty. The solvers aren't the bottleneck.
 
-Operations research usually solves a snapshot: given today's data, find the best schedule, route or plan. Agents may be able to run that loop continuously, going back and forth between defining the problem and solving it as conditions change.
+The bottleneck is often formulation. Before anything can be optimized, someone has to decide what the objective is, which constraints are real and which data to trust, and that knowledge is scattered across emails, spreadsheets, policies and people's heads. The authors of OptiMUS, an LLM-based agent that formulates and solves linear and mixed-integer programs from natural-language descriptions, argue that most such problems are still solved by hand because formulating them takes expertise. The NL4Opt competition was set up to study the same step.
 
-## Reasoning
+My thesis is that agents can help turn messy operational information into candidate objectives and constraints, propose revisions when conditions change and explain exceptions, with a person reviewing before anything changes the plan. Results so far come from benchmark problems, not live operations, so I'm not claiming agents do this better than experienced analysts.
 
-- In practice, a lot of the hard work is formulating the problem: what to optimize, which constraints are real and which data to trust. That step is where agents might help most.
-- A continuous loop matters because the real world keeps moving. A plan built on Monday's data can be stale by Tuesday.
+One way to structure it, as a proposed architecture: an operations world model that reflects the operation as it is, forecasts, models of how workers and customers actually behave, and an optimizer that draws on the other three.
 
-## Four proposed layers
+The failure cases matter as much as the upside:
 
-1. **Operations world model:** an up-to-date picture of the operation as it actually is.
-2. **Forecasting:** what is likely to happen next.
-3. **Human behavior models:** how workers and customers actually respond, since plans fail when they assume people will follow them exactly.
-4. **Optimizer:** chooses what to do given the other three.
+- Wrong constraints: the agent encodes a rule that doesn't exist or misses one that does, and the solver returns a confident plan that can't or shouldn't be carried out.
+- Drift: the formulation is right on day one and slowly stops matching how the operation works.
+- Unsafe actions: a plan goes to people or equipment without anyone checking it.
 
-## How to test it
+Each one argues for keeping proposals reviewable and changes reversible.
 
-Real deployment outcomes, not benchmarks alone. Did costs, delays or service actually improve in a live operation, and did the people running it trust it enough to keep using it?
-
-## Where value might accrue
-
-- Whoever builds and maintains the operations world model, since it's hard to build and hard to replace.
-- Teams that deploy this in a specific operation and can show real results.
-
-## What would change my mind
-
-- Continuous re-solving not beating periodic planning in live operations.
-- Agents not being reliable enough to handle problem formulation.
-- Operations teams being unwilling to hand over that much control.
+Planning teams in logistics, manufacturing and scheduling, who already pay for solvers and consultants, are the likely beneficiaries. The strongest counterargument is that formulation depends on tacit knowledge agents can't reach, so experts still do the real work and agents only save typing. I'd change my mind if, in live deployments, agent-proposed formulations need so much correction that they save analysts no time, or if the errors they introduce outweigh the gains.

@@ -15,7 +15,8 @@ EMAIL = "aryashah@gatech.edu"
 NAV = ["/", "/theses/", "/building/"]
 PAPERS = ROOT / "review" / "papers"
 PLACEHOLDERS = ["[AUTHOR", "TO CONFIRM", "TO ADD", "not verified", "TODO", "TBD"]
-THESIS_SECTIONS = ["The claim", "Reasoning", "Where value might accrue", "What would change my mind"]
+ARCHIVE = ROOT / "archive" / "theses"
+WORDS = (250, 450)
 
 
 class Page(HTMLParser):
@@ -87,15 +88,37 @@ def main() -> int:
             if u.fragment and base in pages and u.fragment not in pages[base].ids:
                 errors.append(f"{rel}: missing anchor {href}")
 
-    theses = [f for f in pages if f.parent.parent == DIST / "theses"]
-    if len(theses) != 12:
-        errors.append(f"expected 12 theses, found {len(theses)}")
+    thesis_dirs = [f for f in pages if f.parent.parent == DIST / "theses"]
+    redirects = [f for f in thesis_dirs if 'http-equiv="refresh"' in f.read_text(encoding="utf-8")]
+    theses = [f for f in thesis_dirs if f not in redirects]
+    if len(theses) != 7:
+        errors.append(f"expected 7 theses, found {len(theses)}")
     for f in theses:
-        missing = [s for s in THESIS_SECTIONS if s not in pages[f].h2]
-        if missing:
-            errors.append(f"{f.relative_to(DIST)}: missing sections {missing}")
         if "Last updated" not in f.read_text(encoding="utf-8"):
             errors.append(f"{f.relative_to(DIST)}: missing last-updated metadata")
+    for old in ARCHIVE.glob("*.md"):
+        page = DIST / "theses" / old.stem / "index.html"
+        if not page.exists():
+            errors.append(f"old URL /theses/{old.stem}/ no longer resolves")
+    for f in redirects:
+        target = re.search(r'url=(/theses/[^/"]+/)"', f.read_text(encoding="utf-8"))
+        if not target or resolve(target.group(1)) not in theses:
+            errors.append(f"{f.relative_to(DIST)}: redirect target is not a thesis")
+    index_links = set(pages[DIST / "theses" / "index.html"].links)
+    for f in redirects:
+        if f"/theses/{f.parent.name}/" in {link for p in pages.values() for link in p.links}:
+            errors.append(f"something links to redirect /theses/{f.parent.name}/")
+    for f in theses:
+        if f"/theses/{f.parent.name}/" not in index_links:
+            errors.append(f"theses index is missing /theses/{f.parent.name}/")
+    for f in (CONTENT / "theses").glob("*.md"):
+        if f.name == "_index.md":
+            continue
+        body = f.read_text(encoding="utf-8").split("---\n", 2)[-1]
+        prose = re.sub(r"<[^>]+>", " ", re.sub(r"<figure.*?</figure>", " ", body, flags=re.S))
+        n = len(re.findall(r"[A-Za-z0-9’'%.,$-]+", prose))
+        if not WORDS[0] <= n <= WORDS[1]:
+            errors.append(f"{f.relative_to(ROOT)}: {n} words, expected {WORDS[0]} to {WORDS[1]}")
     home = pages[DIST / "index.html"]
     if f"mailto:{EMAIL}" not in home.links:
         errors.append("home: mailto link missing")
