@@ -15,13 +15,9 @@ sources:
 ---
 Most governance is written before software runs: a policy, an approval, a review. Agents make that harder, because the same agent can take different steps on the same input, and its actions happen while it works. My thesis is that agent governance has to operate at runtime: authorization scoped to each task, a trace of what the agent did, monitoring while it acts, a fast way to revoke access and a way to recover when something goes wrong. Three questions frame it:
 
-<figure class="framework">
-<dl>
-<div><dt>Access</dt><dd>What can each agent reach, and on whose authority?</dd></div>
-<div><dt>Visibility</dt><dd>What is it doing, and can anyone see it?</dd></div>
-<div><dt>Control</dt><dd>Who can stop it, and how quickly?</dd></div>
-</dl>
-<figcaption>A framework for the questions, not data.</figcaption>
+<figure class="narrow">
+<a href="/theses/agent-governance/access-visibility-control.svg"><img src="/theses/agent-governance/access-visibility-control.svg" width="360" height="324" loading="lazy" alt="Framework, not data. Access: what can each agent reach, and on whose authority? Visibility: what is it doing, and can anyone see it? Control: who can stop it, and how quickly?"></a>
+<figcaption>A framework for the questions, not data. My diagram, adapted from one of my slides. <a href="/theses/agent-governance/access-visibility-control.svg">Open full size</a></figcaption>
 </figure>
 
 Much of this already exists. Identity and access tools issue scoped, short-lived credentials, and standards such as OAuth 2.0 token revocation define how to cut access off. Security teams already automate a lot of detection and response, and logging and observability tools record what systems do. OWASP's guidance on excessive agency in LLM applications points to the same controls: give an agent only the tools and permissions it needs, and require human approval for high-impact actions.

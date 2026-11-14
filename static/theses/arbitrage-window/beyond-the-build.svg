@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 512" width="360" height="512" role="img" aria-labelledby="t d">
+  <title id="t">Cheap software shifts value beyond the build</title>
+  <desc id="d">A conceptual diagram, not measured evidence. Building the first version is much cheaper with AI coding tools. Still needed for a durable product: distribution, who hears about it; domain access, knowing which problem to solve; integration, fitting the systems people use; maintenance, keeping up as those change; and trust, meaning support, reliability and care with data.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0072B2"/></marker>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; fill: #111; }
+    .h { font-size: 16px; font-weight: 600; }
+    .s { font-size: 14px; fill: #444; }
+    .k { font-size: 11px; letter-spacing: 0.08em; fill: #555; }
+    .l { font-size: 13px; fill: #0072B2; }
+    rect { fill: #fff; stroke: #111; stroke-width: 1.25; }
+    rect.g { fill: #f6f6f6; stroke: #777; stroke-dasharray: 4 3; }
+  </style>
+  <rect x="0.5" y="0.5" width="359" height="511" fill="#fff" stroke="none"/>
+  <text class="k" x="20" y="24">CONCEPTUAL · NOT MEASURED EVIDENCE</text>
+  <rect x="20" y="44" width="320" height="58" rx="4"/>
+  <text class="h" x="36" y="72">Building the first version</text>
+  <text class="s" x="36" y="94">Much cheaper with AI coding tools</text>
+  <path d="M180 102V132" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <text class="s" x="20" y="152" style="font-weight:600;fill:#111">Still needed for a durable product</text>
+  <rect x="20" y="166" width="320" height="58" rx="4"/>
+  <text class="h" x="36" y="194">Distribution</text>
+  <text class="s" x="36" y="216">Who hears about it</text>
+  <rect x="20" y="234" width="320" height="58" rx="4"/>
+  <text class="h" x="36" y="262">Domain access</text>
+  <text class="s" x="36" y="284">Knowing which problem to solve</text>
+  <rect x="20" y="302" width="320" height="58" rx="4"/>
+  <text class="h" x="36" y="330">Integration</text>
+  <text class="s" x="36" y="352">Fitting the systems people use</text>
+  <rect x="20" y="370" width="320" height="58" rx="4"/>
+  <text class="h" x="36" y="398">Maintenance</text>
+  <text class="s" x="36" y="420">Keeping up as those change</text>
+  <rect x="20" y="438" width="320" height="58" rx="4"/>
+  <text class="h" x="36" y="466">Trust</text>
+  <text class="s" x="36" y="488">Support, reliability, data care</text>
+</svg>

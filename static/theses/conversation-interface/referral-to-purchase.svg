@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 440" width="360" height="440" role="img" aria-labelledby="t d">
+  <title id="t">Three different things AI commerce figures can mean</title>
+  <desc id="d">A conceptual spectrum, not measured evidence. 1. AI referral: a person asks an AI tool, then visits the store; Adobe measured a 693 percent rise in this traffic. 2. Information retrieval: an agent reads catalogs, prices and availability. 3. Agent-completed purchase: the agent checks out on the person&#x27;s behalf; checkout standards such as the Agentic Commerce Protocol are early. Moving down adds autonomy and requires more trust.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0072B2"/></marker>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; fill: #111; }
+    .h { font-size: 16px; font-weight: 600; }
+    .s { font-size: 14px; fill: #444; }
+    .k { font-size: 11px; letter-spacing: 0.08em; fill: #555; }
+    .l { font-size: 13px; fill: #0072B2; }
+    rect { fill: #fff; stroke: #111; stroke-width: 1.25; }
+    rect.g { fill: #f6f6f6; stroke: #777; stroke-dasharray: 4 3; }
+  </style>
+  <rect x="0.5" y="0.5" width="359" height="439" fill="#fff" stroke="none"/>
+  <text class="k" x="20" y="24">CONCEPTUAL · NOT MEASURED EVIDENCE</text>
+  <rect x="20" y="44" width="280" height="94" rx="4"/>
+  <text class="h" x="36" y="72">1. AI referral</text>
+  <text class="s" x="36" y="94">A person asks an AI tool,</text>
+  <text class="s" x="36" y="112">then visits the store</text>
+  <text class="l" x="36" y="130">Measured: Adobe, +693% traffic</text>
+  <path d="M160 138V168" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <rect x="20" y="172" width="280" height="76" rx="4"/>
+  <text class="h" x="36" y="200">2. Information retrieval</text>
+  <text class="s" x="36" y="222">An agent reads catalogs,</text>
+  <text class="s" x="36" y="240">prices and availability</text>
+  <path d="M160 248V278" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <rect x="20" y="282" width="280" height="94" rx="4"/>
+  <text class="h" x="36" y="310">3. Agent-completed purchase</text>
+  <text class="s" x="36" y="332">The agent checks out</text>
+  <text class="s" x="36" y="350">on the person’s behalf</text>
+  <text class="l" x="36" y="368">Early: checkout standards (ACP)</text>
+  <path d="M322 52V370" stroke="#0072B2" stroke-width="1.5" marker-end="url(#b)"/>
+  <text class="l" x="20" y="406">Down the arrow: more autonomy,</text>
+  <text class="l" x="20" y="424">and more trust needed.</text>
+</svg>

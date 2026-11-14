@@ -111,6 +111,10 @@ def main() -> int:
     for f in theses:
         if f"/theses/{f.parent.name}/" not in index_links:
             errors.append(f"theses index is missing /theses/{f.parent.name}/")
+    for f in theses:
+        figures = re.findall(r"<figure.*?</figure>", f.read_text(encoding="utf-8"), flags=re.S)
+        if not any("<img" in fg and "<figcaption>" in fg for fg in figures):
+            errors.append(f"{f.relative_to(DIST)}: needs at least one captioned image")
     for f in (CONTENT / "theses").glob("*.md"):
         if f.name == "_index.md":
             continue

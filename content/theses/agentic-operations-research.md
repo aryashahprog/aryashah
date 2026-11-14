@@ -24,6 +24,11 @@ My thesis is that agents can help turn messy operational information into candid
 
 One way to structure it, as a proposed architecture: an operations world model that reflects the operation as it is, forecasts, models of how workers and customers actually behave, and an optimizer that draws on the other three.
 
+<figure class="narrow">
+<a href="/theses/agentic-operations-research/formulation-loop.svg"><img src="/theses/agentic-operations-research/formulation-loop.svg" width="360" height="764" loading="lazy" alt="Proposed architecture, not measured evidence. Messy operational information goes to an agent that drafts candidate objectives and constraints; a person approves, edits or rejects the draft; the reviewed formulation feeds four proposed layers: world model, forecasts, behavior models and an optimizer drawing on the other three; the reviewed plan goes into use with changes reversible; drift and exceptions from deployment feed the next draft."></a>
+<figcaption>A proposed architecture, not measured evidence: the agent drafts, a person reviews, and deployment feedback flows back into the next draft. My diagram. <a href="/theses/agentic-operations-research/formulation-loop.svg">Open full size</a></figcaption>
+</figure>
+
 The failure cases matter as much as the upside:
 
 - Wrong constraints: the agent encodes a rule that doesn't exist or misses one that does, and the solver returns a confident plan that can't or shouldn't be carried out.
