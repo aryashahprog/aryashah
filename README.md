@@ -39,7 +39,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
 .venv/bin/ruff check . && .venv/bin/ruff format --check .
 ```
 
-`dist/` is plain static files, so any static host (GitHub Pages, Netlify, Cloudflare Pages) can serve it later. It is published to GitHub Pages from `main` by `.github/workflows/pages.yml`, built with `--base /aryashah`. Old thesis URLs are `noindex` redirect pages.
+`dist/` is plain static files, so any static host (GitHub Pages, Netlify, Cloudflare Pages) can serve it later. It is published to GitHub Pages at https://aryashah0.com from `main` by `.github/workflows/pages.yml`; `static/CNAME` holds the custom domain. Use `--base` only when previewing under a subdirectory. Old thesis URLs are `noindex` redirect pages.
 
 ## Type
 

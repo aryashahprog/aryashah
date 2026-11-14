@@ -17,6 +17,7 @@ from markdown.extensions.footnotes import FootnoteExtension
 ROOT = Path(__file__).resolve().parent
 CONTENT = ROOT / "content"
 STATIC = ROOT / "static"
+SITE_URL = "https://aryashah0.com"
 TEMPLATES = ROOT / "templates"
 
 NAV = [("Home", "/"), ("Working theses", "/theses/"), ("Building", "/building/")]
@@ -92,6 +93,7 @@ def build(out: Path, base: str = "") -> None:
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html"]))
     env.filters["date"] = human_date
     env.globals["nav"] = NAV
+    env.globals["site_url"] = SITE_URL
 
     if out.exists():
         shutil.rmtree(out)
