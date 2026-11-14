@@ -27,4 +27,4 @@ This isn't a claim that anyone can build anything. Complex, regulated or high-re
 
 The people who benefit are individuals and small teams building tools for their own work, and businesses whose value already sits in distribution, integrations, data or trust rather than in the code. The most exposed are simple, single-purpose products sold mainly on features that are now cheap to reproduce.
 
-The strongest counterargument is that self-built tools cost more to maintain than people expect, so most teams drift back to buying, and the window closes almost as soon as it opens. I'd change my mind if, two years from now, small teams still aren't replacing purchased tools with their own in any meaningful number, or if the cost of building simple software stops falling.
+Maintenance could close this window quickly. If self-built tools take more work to keep running than people expect, most teams may drift back to buying. I'd change my mind if, two years from now, small teams still aren't replacing purchased tools with their own in any meaningful number, or if the cost of building simple software stops falling.
