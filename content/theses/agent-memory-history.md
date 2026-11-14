@@ -17,6 +17,11 @@ Agents fail in familiar ways when they lack context. They don't know how a compa
 
 Competitors can buy the same models. What they can't buy is a company's own corrections, rules and outcomes, if those are kept as reusable knowledge with a record of where each came from, who may use it and whether it worked. A company can own that context and its workflows while renting model access, and switch providers without losing it. That doesn't mean every company should own the whole stack.
 
+<figure>
+<a href="/theses/agent-memory-history/who-holds-the-reins.png"><img src="/theses/agent-memory-history/who-holds-the-reins.png" width="1800" height="952" loading="lazy" alt="Theory Ventures diagram, Who Holds the Reins? An enterprise sends prompts and context to a harness, such as Claude Code, Codex, Cursor or Grok Build, which decides what to send to a frontier model and what to hold back, and logs every session trace. The frontier model is labelled the disposable layer, swapped each generation, while the trace outlives it. A training loop sends logged traces to train the next model."></a>
+<figcaption>Models get swapped; the context and feedback around them can outlive any one model. Conceptual, not measured evidence. Not every harness trains models, using traces for training depends on contracts and permissions, and running the harness doesn’t by itself confer rights to the data. Diagram: Theory Ventures, from Tomasz Tunguz, <a href="https://tomtunguz.com/the-harness-is-the-new-battleground/">“The Harness Is the New Battleground”</a>. <a href="/theses/agent-memory-history/who-holds-the-reins.png">Open full size</a></figcaption>
+</figure>
+
 <figure class="narrow">
 <img src="/theses/agent-memory-history/company-context-loop.svg" width="360" height="520" alt="Proposed framework, not measured evidence: 1. Model access, rented and replaceable. 2. Workflow execution, agents complete real tasks. 3. Retained company context, corrections, rules and outcomes with provenance and permissions. 4. Improved workflow, the next run uses what was learned. Feedback from each run loops back into execution.">
 <figcaption>A proposed framework, not measured evidence: the company rents model access but keeps what its workflows learn. My diagram, adapted from one of my slides.</figcaption>

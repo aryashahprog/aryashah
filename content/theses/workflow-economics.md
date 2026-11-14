@@ -26,6 +26,11 @@ I don't have data that settles which is more common, and I'm not assuming bills 
 
 Choosing the model for each task is one of the biggest levers. A smaller, cheaper model may be good enough for a routine step, but someone has to define good enough for that task and check it, or the savings come back as rework. AT&T says its AI gateway, which uses cache-aware routing to send each request to a cost-effective model, has cut its AI costs by as much as 90% while handling about 45 billion tokens a day. That's the company's own figure for its own setup, but it shows that routing can matter as much as list prices.
 
+<figure class="tall">
+<a href="/theses/workflow-economics/inference-optimization-stack.png"><img src="/theses/workflow-economics/inference-optimization-stack.png" width="1037" height="1355" loading="lazy" alt="Three layers of LLM inference optimization. Layer 1, model: compress and redesign the weights, through pruning, quantization, distillation and mixture-of-experts or state-space architectures. Layer 2, runtime: serve and decode faster per request, through serving engines, speculative decoding, KV caching and kernels. Layer 3, infrastructure: share and route the cluster, through GPU orchestration, utilization and compute marketplaces."></a>
+<figcaption>Price per token isn’t the only cost lever: the model, the serving runtime and the shared infrastructure can each be optimized. A map of mechanisms, not a measure of savings. Crop from my AI compute trend brief, without its acquisition and moat columns. <a href="/theses/workflow-economics/inference-optimization-stack.png">Open full size</a></figcaption>
+</figure>
+
 The return side is harder to see in aggregate data so far:
 
 <figure class="tall">

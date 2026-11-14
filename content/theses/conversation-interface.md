@@ -15,6 +15,11 @@ sources:
 ---
 For most of the web's history, a business reached a customer through a page the customer opened. My thesis is that more of that contact will happen inside conversations: a person asks an assistant in a chat or message thread, and the assistant finds, compares and sometimes acts. That needs two things. Assistants need distribution where people already spend time, and businesses need to expose their catalogs, prices and actions in a form an agent can use.
 
+<figure class="narrow">
+<a href="/theses/conversation-interface/search-paths.png"><img src="/theses/conversation-interface/search-paths.png" width="1137" height="1760" loading="lazy" alt="Three search paths. Humans: the Google search box. Chatbots: web search inside ChatGPT or Claude. Agents: AI search built for machines, not people."></a>
+<figcaption>Search is splitting by who is asking: people at a search box, chatbots searching for them, and agents calling search built for machines. A framing, not usage data. Crop from one of my slides. <a href="/theses/conversation-interface/search-paths.png">Open full size</a></figcaption>
+</figure>
+
 Three behaviors often get lumped together here. Retrieval is an assistant answering a question with information from the web. A referral is a person clicking from that answer through to a business. An autonomous purchase is the agent completing the transaction itself. Each asks something different of a business, and the evidence for each is very different.
 
 <figure class="stat">
