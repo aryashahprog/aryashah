@@ -15,9 +15,16 @@ sources:
 ---
 The price of a token is the number everyone quotes, but it isn't what a business is buying. A company pays for finished work: a resolved ticket, a reconciled invoice, a contract draft a lawyer accepts. My working thesis is that the unit of AI economics is the cost of a completed, useful task, and that most of the decisions worth making sit at that level.
 
-One task is rarely one call. An agent plans, calls tools, reads the results, retries when something fails and checks its own work, so the cost of a task depends on how many steps it takes and how often it starts over, not only on the price of each step. Cheaper tokens also invite new uses. A falling price per token therefore says little about the total bill: it can fall because the same work got cheaper or rise because there is more work. I don't have data that settles which is more common, and I'm not assuming bills rise.
+One task is rarely one call. An agent plans, calls tools, reads the results, retries when something fails and checks its own work, and a person often reviews the output and fixes what's wrong. The cost of a successful task includes the failed attempts and that review and rework, not only the price of each call. Cheaper tokens also invite longer tasks and new uses, so a falling price per token says little about the total bill.
 
-Engineering choices move the cost side a lot. AT&T says its AI gateway, which uses cache-aware routing to send each request to a cost-effective model, has cut its AI costs by as much as 90% while handling about 45 billion tokens a day. That's the company's own figure for its own setup, but it shows that how work is routed can matter as much as list prices.
+<figure>
+<a href="/theses/workflow-economics/token-price-vs-bill-illustration.png"><img src="/theses/workflow-economics/token-price-vs-bill-illustration.png" width="1099" height="465" loading="lazy" alt="Illustration with no data or scale: on the left a line labeled cost per token falls; on the right a line labeled your total bill rises; a question mark sits between them."></a>
+<figcaption>An illustration, not measured data. Lower token prices can be offset by more calls, retries and longer tasks, so the bill can rise, but it can also fall when the same work simply gets cheaper. From one of my slides. <a href="/theses/workflow-economics/token-price-vs-bill-illustration.png">Open full size</a></figcaption>
+</figure>
+
+I don't have data that settles which is more common, and I'm not assuming bills rise.
+
+Choosing the model for each task is one of the biggest levers. A smaller, cheaper model may be good enough for a routine step, but someone has to define good enough for that task and check it, or the savings come back as rework. AT&T says its AI gateway, which uses cache-aware routing to send each request to a cost-effective model, has cut its AI costs by as much as 90% while handling about 45 billion tokens a day. That's the company's own figure for its own setup, but it shows that routing can matter as much as list prices.
 
 The return side is harder to see in aggregate data so far:
 
@@ -28,6 +35,6 @@ The return side is harder to see in aggregate data so far:
 
 If returns don't show up in totals yet, they have to be measured where the work happens, one workflow at a time.
 
-Cloud is a useful comparison, with limits. It turned capacity into something rented and pushed companies to track spend by service and team; AI may push the same discipline down to the task. The analogy doesn't tell me models will commoditize or that applications will capture most of the value. Frontier models still differ in capability, and model companies also sell applications.
+Cloud is a useful comparison, with limits: it pushed companies to track spend by service and team, and AI may push that discipline down to the task. It doesn't tell me models will commoditize or that applications will capture most of the value.
 
-If this is right, finance and operations teams running agents at scale would pay for tools that tie cost to outcome per workflow, and vendors who can price by outcome would have an edge. The strongest counterargument is that existing cloud cost and observability tools already tag usage well enough, so per-task accounting stays a feature. I'd drop the thesis if teams that measure AI per workflow make no better decisions about what to run than teams that only watch the monthly bill.
+If this is right, finance and operations teams running agents at scale would pay for tools that tie cost, including review time, to outcome per workflow, and vendors who can price by outcome would have an edge. The strongest counterargument is that existing cloud cost and observability tools already tag usage well enough, so per-task accounting stays a feature. I'd drop the thesis if teams that measure AI per workflow make no better decisions about what to run than teams that only watch the monthly bill.

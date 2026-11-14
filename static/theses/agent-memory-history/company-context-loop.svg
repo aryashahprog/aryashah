@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" width="360" height="520" role="img" aria-labelledby="t d">
+  <title id="t">Proposed framework: from rented model access to retained company context</title>
+  <desc id="d">A proposed framework, not measured evidence: model access, which is rented and replaceable, powers workflow execution; corrections, rules and outcomes from that work are retained as company context with provenance and permissions; that context improves the workflow, and feedback from each run loops back into execution.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0072B2"/></marker>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; fill: #111; }
+    .h { font-size: 16px; font-weight: 600; }
+    .s { font-size: 14px; fill: #444; }
+    .k { font-size: 11px; letter-spacing: 0.08em; fill: #555; }
+    .l { font-size: 13px; fill: #0072B2; }
+    rect { fill: #fff; stroke: #111; stroke-width: 1.25; }
+  </style>
+  <rect x="0.5" y="0.5" width="359" height="519" fill="#fff" stroke="none"/>
+  <text class="k" x="20" y="24">PROPOSED FRAMEWORK · NOT MEASURED EVIDENCE</text>
+  <rect x="20" y="44" width="260" height="68" rx="4"/>
+  <text class="h" x="36" y="72">1. Model access</text>
+  <text class="s" x="36" y="96">Rented and replaceable</text>
+  <path d="M150 112V146" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <rect x="20" y="150" width="260" height="68" rx="4"/>
+  <text class="h" x="36" y="178">2. Workflow execution</text>
+  <text class="s" x="36" y="202">Agents complete real tasks</text>
+  <path d="M150 218V252" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <rect x="20" y="256" width="260" height="86" rx="4"/>
+  <text class="h" x="36" y="284">3. Retained company context</text>
+  <text class="s" x="36" y="308">Corrections, rules and outcomes,</text>
+  <text class="s" x="36" y="326">with provenance and permissions</text>
+  <path d="M150 342V376" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <rect x="20" y="380" width="260" height="68" rx="4"/>
+  <text class="h" x="36" y="408">4. Improved workflow</text>
+  <text class="s" x="36" y="432">The next run uses what was learned</text>
+  <path d="M280 414H318V184H284" fill="none" stroke="#0072B2" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+  <text class="l" x="20" y="480">Dashed loop: feedback from each run</text>
+  <text class="l" x="20" y="498">improves the next one.</text>
+</svg>
