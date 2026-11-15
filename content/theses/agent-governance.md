@@ -3,7 +3,7 @@ title: Agent governance is a runtime problem
 theme: Agents and enterprise systems
 order: 2
 summary: Agents act while they run, so governing them means scoped authorization, traces, monitoring, revocation and recovery as actions happen, not only policy written in advance.
-published: 2026-11-13
+started: 2026-10-01
 updated: 2026-11-14
 status: Working draft
 replaces: [cybersecurity-timelines]

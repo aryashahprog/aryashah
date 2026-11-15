@@ -6,7 +6,7 @@
 {% for year, items in years %}
 <h2 class="year-header" id="year-{{ year }}">{{ year }}</h2>
 <ul class="writing nu" aria-labelledby="year-{{ year }}">
-  {% for t in items %}<li><a href="/theses/{{ t.slug }}/">{{ t.title }}</a><time datetime="{{ t.meta.published }}">{{ t.meta.published | day }}</time></li>
+  {% for t in items %}<li><a href="/theses/{{ t.slug }}/">{{ t.title }}</a><time datetime="{{ t.meta.started.strftime('%Y-%m') }}">{{ t.meta.started.strftime('%B') }}</time></li>
   {% endfor %}
 </ul>
 {% endfor %}
