@@ -7,7 +7,6 @@ updated: 2026-11-14
 status: Working draft
 replaces: [agents-need-context, data-is-the-moat, agent-system-of-record]
 related: [agent-governance, conversation-interface]
-source_note: Based on adaptive-context research from September 2026
 ---
 Agents fail in familiar ways when they lack context. They don't know how a company does things, which document is current or why a rule exists.
 
