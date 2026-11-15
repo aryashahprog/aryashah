@@ -3,6 +3,7 @@ title: An agent’s memory needs a history
 theme: Agents and enterprise systems
 order: 1
 summary: A company can rent models but own what its workflows learn, if each correction, rule and outcome is kept with its source, history and permissions.
+started: 2026-09-01
 updated: 2026-11-14
 status: Working draft
 replaces: [agents-need-context, data-is-the-moat, agent-system-of-record]

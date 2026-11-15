@@ -2,12 +2,11 @@
 {% block title %}Working theses · Arya Shah{% endblock %}
 {% block description %}{{ page.description }}{% endblock %}
 {% block main %}
-<h1>{{ page.title }}</h1>
-{{ page.html | safe }}
-{% for theme, items in groups %}
-<h2 class="group" id="theme-{{ loop.index }}">{{ theme }}</h2>
-<ul class="list nu" aria-labelledby="theme-{{ loop.index }}">
-  {% for t in items %}<li><a href="/theses/{{ t.slug }}/">{{ t.title }}</a></li>
+<h1 class="visually-hidden">{{ page.title }}</h1>
+{% for year, items in years %}
+<h2 class="year-header" id="year-{{ year }}">{{ year }}</h2>
+<ul class="writing nu" aria-labelledby="year-{{ year }}">
+  {% for t in items %}<li><a href="/theses/{{ t.slug }}/">{{ t.title }}</a><time datetime="{{ t.meta.started.strftime('%Y-%m') }}">{{ t.meta.started.strftime('%B') }}</time></li>
   {% endfor %}
 </ul>
 {% endfor %}

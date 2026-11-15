@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import itertools
 import re
 import shutil
 from dataclasses import dataclass, field
@@ -83,8 +84,9 @@ def load_theses() -> tuple[dict, list[Page]]:
         if t.theme not in order:
             raise ValueError(f"{t.slug}: unknown theme {t.theme!r}")
     theses.sort(key=lambda t: (order[t.theme], t.meta.get("order", 0)))
-    grouped = [(name, [t for t in theses if t.theme == name]) for name in themes]
-    return {"page": index, "groups": grouped}, theses
+    by_date = sorted(theses, key=lambda t: t.meta["started"], reverse=True)
+    years = [(y, list(items)) for y, items in itertools.groupby(by_date, key=lambda t: t.meta["started"].year)]
+    return {"page": index, "years": years}, theses
 
 
 def build(out: Path, base: str = "") -> None:

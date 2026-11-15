@@ -3,6 +3,7 @@ title: The conversation becomes the interface
 theme: Agents and enterprise systems
 order: 3
 summary: More contact between people and businesses may happen inside chats and message threads, where an assistant finds, compares and sometimes acts. Referrals, retrieval and purchases are different steps with very different evidence.
+started: 2026-06-01
 updated: 2026-11-14
 status: Working draft
 replaces: [agents-are-customers, zero-tab-interface]

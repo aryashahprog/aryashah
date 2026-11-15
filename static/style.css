@@ -158,30 +158,65 @@ h2 + ol {
   color: #767676;
 }
 
-.group {
-  margin: 1.5rem 0 0.5rem;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.year-header {
+  margin: 1rem 0 0.7rem;
   border-bottom: 1px solid #000;
   font-size: 1rem;
   font-weight: normal;
+  line-height: 1.6;
 }
 
-.content > h1 + p + .group {
-  margin-top: 1.5rem;
+.content > h1 + .year-header {
+  margin-top: 22px;
 }
 
-.list {
+.writing {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.list li {
-  margin: 0;
+.writing li {
+  display: grid;
+  grid-template-columns: 60% 30%;
+  column-gap: 5px;
+  margin-bottom: 5px;
 }
 
-.list a {
+.writing li > * {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.writing a {
   font-weight: 500;
   letter-spacing: -0.015em;
+}
+
+.writing time {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.012em;
+}
+
+@media screen and (max-width: 639px) {
+  .writing li {
+    grid-template-columns: 1fr max-content;
+    column-gap: 1rem;
+  }
+
+  .writing li > a {
+    white-space: normal;
+  }
 }
 
 article > h1 {
