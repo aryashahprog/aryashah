@@ -12,7 +12,7 @@ Most governance is written before software runs: a policy, an approval, a review
 
 <figure>
 <a href="/theses/agent-governance/access-visibility-control.svg"><img src="/theses/agent-governance/access-visibility-control.svg" width="360" height="324" loading="lazy" alt="Framework, not data. Access: what can each agent reach, and on whose authority? Visibility: what is it doing, and can anyone see it? Control: who can stop it, and how quickly?"></a>
-<figcaption>A framework for the questions, not data. My diagram, adapted from one of my slides. <a href="/theses/agent-governance/access-visibility-control.svg">Open full size</a></figcaption>
+<figcaption>A framework for the questions to ask, not data. <a href="/theses/agent-governance/access-visibility-control.svg">Open full size</a></figcaption>
 </figure>
 
 Much of this already exists. Identity and access tools issue scoped, short-lived credentials, and standards such as OAuth 2.0 token revocation define how to cut access off.[^rfc7009] Security teams already automate a lot of detection and response, and logging and observability tools record what systems do. OWASP's guidance on excessive agency in LLM applications points to the same controls: give an agent only the tools and permissions it needs, and require human approval for high-impact actions.[^owasp]
@@ -23,7 +23,7 @@ One way to close part of that gap is to check the action as well as the caller. 
 
 <figure>
 <a href="/theses/agent-governance/identity-vs-intent.png"><img src="/theses/agent-governance/identity-vs-intent.png" width="1423" height="1573" loading="lazy" alt="Illustrative workflow. Without an intent check: agent reasoning, an identity check of who is calling, then the action runs; the credentials were valid but the action itself was never approved. With an intent check: agent reasoning, a signed plan, an intent check of whether the action was in the plan, then the action runs; out-of-scope actions are blocked before they run and logged."></a>
-<figcaption>An identity check asks who is calling; an intent check asks whether this action was approved for this task. Illustrative, one possible design rather than a validated security guarantee. Adapted from one of my slides, without the vendor name or performance claim. <a href="/theses/agent-governance/identity-vs-intent.png">Open full size</a></figcaption>
+<figcaption>An identity check asks who is calling; an intent check asks whether this action was approved for the task. One possible design, not a validated security guarantee. <a href="/theses/agent-governance/identity-vs-intent.png">Open full size</a></figcaption>
 </figure>
 
 Recovery is the least solved part. Revoking a credential stops new actions but doesn't reverse finished ones. Cheaper models help attackers and defenders at once, which raises the stakes, but I don't have numbers on how fast either side is moving, so I'm not leaning on that here.

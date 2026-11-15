@@ -16,14 +16,14 @@ In Theory Ventures' picture of the harness, the model is the disposable layer an
 
 <figure>
 <a href="/theses/agent-memory-history/who-holds-the-reins.png"><img src="/theses/agent-memory-history/who-holds-the-reins.png" width="1800" height="952" loading="lazy" alt="Theory Ventures diagram, Who Holds the Reins? An enterprise sends prompts and context to a harness, such as Claude Code, Codex, Cursor or Grok Build, which decides what to send to a frontier model and what to hold back, and logs every session trace. The frontier model is labelled the disposable layer, swapped each generation, while the trace outlives it. A training loop sends logged traces to train the next model."></a>
-<figcaption>Models get swapped; the context and feedback around them can outlive any one model. Conceptual, not measured evidence. Not every harness trains models, using traces for training depends on contracts and permissions, and running the harness doesn’t by itself confer rights to the data. Diagram: Theory Ventures, from Tomasz Tunguz, <a href="https://tomtunguz.com/the-harness-is-the-new-battleground/">“The Harness Is the New Battleground”</a>. <a href="/theses/agent-memory-history/who-holds-the-reins.png">Open full size</a></figcaption>
+<figcaption>Models get swapped; the context and feedback around them can outlive any one model. Conceptual, not measured evidence. Not every harness trains models, training on traces depends on contracts and permissions, and running a harness doesn’t by itself confer rights to the data. Diagram: Theory Ventures, via Tomasz Tunguz, <a href="https://tomtunguz.com/the-harness-is-the-new-battleground/">“The Harness Is the New Battleground”</a>. <a href="/theses/agent-memory-history/who-holds-the-reins.png">Open full size</a></figcaption>
 </figure>
 
 I'd put the company at the center instead. It rents the model, and what its workflows learn stays with it for the next run.
 
 <figure class="tall">
 <img src="/theses/agent-memory-history/company-context-loop.svg" width="360" height="520" alt="Proposed framework, not measured evidence: 1. Model access, rented and replaceable. 2. Workflow execution, agents complete real tasks. 3. Retained company context, corrections, rules and outcomes with provenance and permissions. 4. Improved workflow, the next run uses what was learned. Feedback from each run loops back into execution.">
-<figcaption>A proposed framework, not measured evidence: the company rents model access but keeps what its workflows learn. My diagram, adapted from one of my slides.</figcaption>
+<figcaption>A proposed framework, not measured evidence: the company rents model access but keeps what its workflows learn.</figcaption>
 </figure>
 
 A hypothetical clinic scheduling agent shows what that takes. Answering a question about open slots is easy. Completing the work means identifying the patient, applying the practice's rules, getting approval, saving the appointment and checking that it saved. When staff correct it, the correction should improve the next booking rather than disappear into a chat log. If someone later asks why a booking was made, the record should show which rule and which version applied. The W3C's PROV standard already describes this kind of provenance.[^prov]

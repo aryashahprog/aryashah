@@ -13,7 +13,7 @@ The mechanism is a loop. Capture how experienced people do the task and why they
 
 <figure>
 <img src="/theses/frontline-and-physical-ai/physical-workflow.svg" width="360" height="410" alt="Proposed loop, not measured evidence: 1. Observe work, capturing first-person task context. 2. Learn expertise, from expert reasoning and outcomes. 3. Guide execution, checking the next task. Verified outcomes feed back to improve the next procedure.">
-<figcaption>A proposed workflow, not measured evidence: capture how experts do a task, learn from their reasoning and results, guide the next person, and feed checked outcomes back in. My diagram.</figcaption>
+<figcaption>A proposed workflow, not measured evidence: capture how experts do a task, learn from their reasoning and results, guide the next person, and feed checked outcomes back in.</figcaption>
 </figure>
 
 Here is a hypothetical case, not something I've deployed. A technician servicing an unfamiliar machine gets step-by-step guidance by voice or through a headset. The system flags a skipped step before it causes a failure, and whether the repair held is recorded and used to improve the next set of instructions. Whether that pays off depends on how often the task happens, what an error costs and whether the guidance is actually right.
@@ -22,7 +22,7 @@ The hard part is the first step of the loop: getting a record of how skilled peo
 
 <figure>
 <a href="/theses/frontline-and-physical-ai/data-routes.png"><img src="/theses/frontline-and-physical-ai/data-routes.png" width="956" height="1199" loading="lazy" alt="Four ways to gather physical-task data. Teleoperation and demo farms: accurate, but cost grows linearly. Human video capture: cheap and abundant, but no force data. Simulation and world models: scalable, but must carry over to real conditions. Deployed fleet data flywheels: compounding, but needs a live fleet."></a>
-<figcaption>Four ways to collect data on how physical work is done. Expert demonstrations record skilled work most directly but cost the most; video and simulation scale more cheaply but miss touch or realism; fleet data compounds only once something is deployed. Adapted from my physical AI trend brief. <a href="/theses/frontline-and-physical-ai/data-routes.png">Open full size</a></figcaption>
+<figcaption>Four ways to collect data on how physical work is done. Expert demonstrations record skilled work most directly but cost the most; video and simulation scale more cheaply but miss touch or realism; fleet data compounds only once something is deployed. From my physical AI trend brief. <a href="/theses/frontline-and-physical-ai/data-routes.png">Open full size</a></figcaption>
 </figure>
 
 AR glasses are one way to deliver guidance, and the first-person data they capture might later help train robots. That is one possible path, not an inevitable one. Robotics could advance without it, and a phone may be good enough for many jobs.

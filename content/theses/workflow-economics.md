@@ -14,7 +14,7 @@ One task is rarely one call. An agent plans, calls tools, reads the results, ret
 
 <figure>
 <a href="/theses/workflow-economics/token-price-vs-bill-illustration.png"><img src="/theses/workflow-economics/token-price-vs-bill-illustration.png" width="1099" height="465" loading="lazy" alt="Illustration with no data or scale: on the left a line labeled cost per token falls; on the right a line labeled your total bill rises; a question mark sits between them."></a>
-<figcaption>An illustration, not measured data. Lower token prices can be offset by more calls, retries and longer tasks, so the bill can rise, but it can also fall when the same work simply gets cheaper. From one of my slides. <a href="/theses/workflow-economics/token-price-vs-bill-illustration.png">Open full size</a></figcaption>
+<figcaption>An illustration, not measured data. Lower token prices can be offset by more calls, retries and longer tasks, so the bill can rise, but it can also fall when the same work simply gets cheaper. <a href="/theses/workflow-economics/token-price-vs-bill-illustration.png">Open full size</a></figcaption>
 </figure>
 
 I don't have data that settles which is more common, so I'm not assuming bills rise.
@@ -23,14 +23,14 @@ Choosing the model for each task is one of the bigger levers. A smaller, cheaper
 
 <figure>
 <a href="/theses/workflow-economics/inference-optimization-stack.png"><img src="/theses/workflow-economics/inference-optimization-stack.png" width="1037" height="1355" loading="lazy" alt="Three layers of LLM inference optimization. Layer 1, model: compress and redesign the weights, through pruning, quantization, distillation and mixture-of-experts or state-space architectures. Layer 2, runtime: serve and decode faster per request, through serving engines, speculative decoding, KV caching and kernels. Layer 3, infrastructure: share and route the cluster, through GPU orchestration, utilization and compute marketplaces."></a>
-<figcaption>Price per token isn’t the only cost lever: the model, the serving runtime and the shared infrastructure can each be optimized. A map of mechanisms, not a measure of savings. Crop from my AI compute trend brief, without its acquisition and moat columns. <a href="/theses/workflow-economics/inference-optimization-stack.png">Open full size</a></figcaption>
+<figcaption>Price per token isn’t the only cost lever: the model, the serving runtime and the shared infrastructure can each be optimized. A map of mechanisms, not a measure of savings. From my AI compute trend brief. <a href="/theses/workflow-economics/inference-optimization-stack.png">Open full size</a></figcaption>
 </figure>
 
 Returns are harder to see. In Stripe's sector data, industries that use more AI have grown productivity faster recently, but they were also growing faster before generative AI existed.[^stripe]
 
 <figure class="narrow">
 <a href="/theses/workflow-economics/sector-productivity-vs-ai-adoption.png"><img src="/theses/workflow-economics/sector-productivity-vs-ai-adoption.png" width="1700" height="3600" loading="lazy" alt="Three scatter plots of US sectors, annualized labor productivity growth against the share of firms using AI in 2026 H1. Latest period, 2022 Q4 to 2025 Q4: weak upward fit, R squared 0.18. Pre-pandemic, 2016 Q4 to 2019 Q4: similar upward fit, R squared 0.21. Latest minus pre-pandemic: flat fit, R squared 0.00."></a>
-<figcaption>Sectors that use more AI grew faster recently, but they also grew faster before generative AI existed; net of that earlier trend, the fit is about zero. Early, sector-level data about returns, not about token prices or spending, and not evidence that AI adds no value. Chart: Ernie Tedeschi, <a href="https://www.stripeeconomics.com/p/ai-and-productivity">“AI and productivity”</a>, Stripe Economics, July 23, 2026. Data: Census Bureau (BTOS), Bureau of Labor Statistics, Federal Reserve Bank of Chicago, Stripe analysis; mining excluded. <a href="/theses/workflow-economics/sector-productivity-vs-ai-adoption.png">Open full size</a></figcaption>
+<figcaption>Sectors that use more AI grew faster recently, but they also grew faster before generative AI existed; net of that earlier trend, the fit is about zero. Early sector-level data on returns, not on token prices or spending, and not evidence that AI adds no value. Chart: Ernie Tedeschi, <a href="https://www.stripeeconomics.com/p/ai-and-productivity">“AI and productivity”</a>, Stripe Economics, July 23, 2026. Data: Census Bureau (BTOS), Bureau of Labor Statistics, Federal Reserve Bank of Chicago, Stripe analysis; mining excluded. <a href="/theses/workflow-economics/sector-productivity-vs-ai-adoption.png">Open full size</a></figcaption>
 </figure>
 
 If returns don't show up in the totals yet, they have to be measured where the work happens, one workflow at a time. Cloud is a useful comparison, with limits. It pushed companies to track spend by service and team, and AI may push that discipline down to the task. It doesn't tell me models will commoditize or that applications will capture most of the value.

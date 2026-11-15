@@ -15,14 +15,14 @@ The more lasting effect is a split between disposable and durable software. A di
 
 <figure class="tall">
 <a href="/theses/arbitrage-window/beyond-the-build.svg"><img src="/theses/arbitrage-window/beyond-the-build.svg" width="360" height="512" loading="lazy" alt="Conceptual, not measured evidence. Building the first version is much cheaper with AI coding tools. Still needed for a durable product: distribution, who hears about it; domain access, knowing which problem to solve; integration, fitting the systems people use; maintenance, keeping up as those change; trust, meaning support, reliability and care with data."></a>
-<figcaption>Conceptual, not measured evidence: cheaper code shrinks the first step, not the five after it. My diagram. <a href="/theses/arbitrage-window/beyond-the-build.svg">Open full size</a></figcaption>
+<figcaption>Conceptual, not measured evidence: cheaper code shrinks the first step, not the five after it. <a href="/theses/arbitrage-window/beyond-the-build.svg">Open full size</a></figcaption>
 </figure>
 
 The difference shows up as soon as a tool leaves the person who built it. Say an employee uses a coding agent to make an app their team starts relying on. Building it takes the same effort either way. Running it for other people doesn't: someone has to own sign-in, decide which data it may touch, keep an audit trail and pay for it.
 
 <figure class="tall">
 <a href="/theses/arbitrage-window/build-vs-operate.png"><img src="/theses/arbitrage-window/build-vs-operate.png" width="1360" height="1923" loading="lazy" alt="Illustrative comparison. Unmanaged app: employee, coding agent, production, with no SSO, no audit trail, unknown data access and unknown cost. Proposed managed deployment: employee, coding agent, a managed platform, then production, with enterprise SSO, audit logging, scoped data sources and cost per user."></a>
-<figcaption>Building looks the same in both columns; operating doesn’t. Once an employee-built app reaches production, someone has to own sign-in, approved data access, an audit trail and its cost. Illustrative, adapted from one of my slides, with a product name replaced by a generic managed platform. <a href="/theses/arbitrage-window/build-vs-operate.png">Open full size</a></figcaption>
+<figcaption>Building looks the same in both columns; operating doesn’t. Once an employee-built app reaches production, someone has to own sign-in, approved data access, an audit trail and its cost. Illustrative. <a href="/theses/arbitrage-window/build-vs-operate.png">Open full size</a></figcaption>
 </figure>
 
 None of this means anyone can build anything. Complex, regulated or high-reliability software still needs expertise, testing and someone accountable for it, and a working demo is not a product people depend on.

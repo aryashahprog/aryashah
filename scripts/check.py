@@ -11,7 +11,7 @@ from urllib.parse import unquote, urlparse
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 CONTENT = ROOT / "content"
-EMAIL = "aryashah@gatech.edu"
+EMAIL = "aryavms@outlook.com"
 NAV = ["/", "/theses/", "/building/"]
 PAPERS = ROOT / "review" / "papers"
 PLACEHOLDERS = ["[AUTHOR", "TO CONFIRM", "TO ADD", "not verified", "TODO", "TBD"]
