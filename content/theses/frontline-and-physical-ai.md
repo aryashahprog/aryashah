@@ -3,6 +3,7 @@ title: Frontline AI starts with one costly task
 theme: AI in operations
 order: 1
 summary: For people who work with their hands, AI may start as guidance on one specific, expensive task, built from expert reasoning and checked outcomes, not as a general assistant or a robot.
+published: 2026-11-13
 updated: 2026-11-14
 status: Working draft
 related: [agentic-operations-research]

@@ -3,6 +3,7 @@ title: Agents can help formulate the optimization problem
 theme: AI in operations
 order: 2
 summary: Operations research already re-plans continuously and under uncertainty. The bottleneck is often turning messy operational knowledge into objectives and constraints, which agents might help with under human review.
+published: 2026-11-13
 updated: 2026-11-14
 status: Working draft
 related: [frontline-and-physical-ai, workflow-economics]

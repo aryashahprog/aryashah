@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import itertools
 import re
 import shutil
 from dataclasses import dataclass, field
@@ -64,6 +65,11 @@ def human_date(value: dt.date) -> str:
     return f"{value:%B} {value.day}, {value.year}"
 
 
+def day_of_month(value: dt.date) -> str:
+    suffix = "th" if 11 <= value.day <= 13 else {1: "st", 2: "nd", 3: "rd"}.get(value.day % 10, "th")
+    return f"{value:%B} {value.day}{suffix}"
+
+
 def load_theses() -> tuple[dict, list[Page]]:
     index = read(CONTENT / "theses" / "_index.md")
     theses = [read(p, thesis_extensions()) for p in sorted((CONTENT / "theses").glob("*.md")) if p.name != "_index.md"]
@@ -83,8 +89,9 @@ def load_theses() -> tuple[dict, list[Page]]:
         if t.theme not in order:
             raise ValueError(f"{t.slug}: unknown theme {t.theme!r}")
     theses.sort(key=lambda t: (order[t.theme], t.meta.get("order", 0)))
-    grouped = [(name, [t for t in theses if t.theme == name]) for name in themes]
-    return {"page": index, "groups": grouped}, theses
+    by_date = sorted(theses, key=lambda t: t.meta["published"], reverse=True)
+    years = [(y, list(items)) for y, items in itertools.groupby(by_date, key=lambda t: t.meta["published"].year)]
+    return {"page": index, "years": years}, theses
 
 
 def build(out: Path, base: str = "") -> None:
@@ -92,6 +99,7 @@ def build(out: Path, base: str = "") -> None:
     root_links = re.compile(r'((?:href|src|srcset)="|url=)/(?!/)')
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html"]))
     env.filters["date"] = human_date
+    env.filters["day"] = day_of_month
     env.globals["nav"] = NAV
     env.globals["site_url"] = SITE_URL
 

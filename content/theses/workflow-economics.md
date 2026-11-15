@@ -3,6 +3,7 @@ title: The workflow is the unit of AI economics
 theme: AI economics
 order: 1
 summary: The price of a token is the wrong unit. What matters is the full cost of a completed, useful task and what it produced.
+published: 2026-11-13
 updated: 2026-11-14
 status: Working draft
 replaces: [tokens-cheaper-bills-dont, ai-repeats-the-cloud-arc]

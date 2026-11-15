@@ -3,6 +3,7 @@ title: Cheap software shifts value beyond the build
 theme: AI economics
 order: 2
 summary: As simple software gets cheap to build, value moves to what surrounds the code. Distribution, domain access, integration, maintenance and trust.
+published: 2026-11-13
 updated: 2026-11-14
 status: Working draft
 related: [workflow-economics]

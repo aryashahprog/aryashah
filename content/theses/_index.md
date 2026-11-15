@@ -6,4 +6,3 @@ themes:
   - Agents and enterprise systems
   - AI in operations
 ---
-Ideas I’m working through. My own views, subject to change.
