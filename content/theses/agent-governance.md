@@ -7,7 +7,6 @@ updated: 2026-11-14
 status: Working draft
 replaces: [cybersecurity-timelines]
 related: [agent-memory-history, conversation-interface]
-source_note: Based on notes from October 2026
 ---
 Most governance is written before software runs: a policy, an approval, a review. Agents strain that model. The same agent can take different steps on the same input, and its actions happen while it works.
 

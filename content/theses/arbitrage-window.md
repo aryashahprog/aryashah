@@ -6,7 +6,6 @@ summary: As simple software gets cheap to build, value moves to what surrounds t
 updated: 2026-11-14
 status: Working draft
 related: [workflow-economics]
-source_note: Based on notes from October 2026
 ---
 Building simple software is getting much cheaper. Someone who can describe a tool clearly can often get a working version in an afternoon, which changes the build-or-buy decision for small, single-purpose tools.
 
