@@ -21,7 +21,9 @@ STATIC = ROOT / "static"
 SITE_URL = "https://aryashah0.com"
 TEMPLATES = ROOT / "templates"
 
-NAV = [("Home", "/"), ("Working theses", "/theses/"), ("Building", "/building/")]
+# Building is kept in content/ but not published; set True to bring it back.
+SHOW_BUILDING = False
+NAV = [("Home", "/"), ("Working theses", "/theses/")] + ([("Building", "/building/")] if SHOW_BUILDING else [])
 
 
 @dataclass
@@ -123,7 +125,8 @@ def build(out: Path, base: str = "") -> None:
         render("thesis.html", f"theses/{t.slug}/index.html", page=t, current="/theses/")
         for old in t.meta.get("replaces", []):
             render("redirect.html", f"theses/{old}/index.html", target=t, current="/theses/")
-    render("building.html", "building/index.html", page=building, projects=projects, current="/building/")
+    if SHOW_BUILDING:
+        render("building.html", "building/index.html", page=building, projects=projects, current="/building/")
     research = [read(p) for p in sorted((CONTENT / "research").glob("*.md"))]
     for r in research:
         render("research.html", f"research/{r.slug}/index.html", page=r, current="")
