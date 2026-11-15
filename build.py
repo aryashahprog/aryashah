@@ -89,7 +89,7 @@ def load_theses() -> tuple[dict, list[Page]]:
 
 def build(out: Path, base: str = "") -> None:
     base = base.rstrip("/")
-    root_links = re.compile(r'((?:href|src)="|url=)/(?!/)')
+    root_links = re.compile(r'((?:href|src|srcset)="|url=)/(?!/)')
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html"]))
     env.filters["date"] = human_date
     env.globals["nav"] = NAV

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 191" width="640" height="191" role="img" aria-labelledby="t d">
+  <title id="t">Capture, learn, guide, check</title>
+  <desc id="d">1. Observe work, capturing first-person task context. 2. Learn expertise from expert reasoning and outcomes. 3. Guide execution and check the next task. Verified outcomes feed back to improve the next procedure.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0072B2"/></marker>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; fill: #111; }
+    .h { font-size: 15px; font-weight: 600; }
+    .s { font-size: 13.5px; fill: #444; }
+    .i { font-size: 13px; fill: #666; font-style: italic; }
+    .k { font-size: 11px; letter-spacing: 0.08em; fill: #555; font-weight: 600; }
+    .l { font-size: 13px; fill: #0072B2; }
+    rect { fill: #fff; stroke: #111; stroke-width: 1.25; }
+    rect.g { fill: #f6f6f6; stroke: #888; stroke-dasharray: 4 3; }
+  </style>
+  <rect width="640" height="191" fill="#fff" stroke="none"/>
+  <text class="k" x="20" y="24">CAPTURE, LEARN, GUIDE, CHECK</text>
+  <rect x="20" y="40" width="186" height="87" rx="4"/>
+  <text class="h" x="32" y="64">1. Observe work</text>
+  <text class="s" x="32" y="88">First-person task</text>
+  <text class="s" x="32" y="106">context</text>
+  <rect x="227" y="40" width="186" height="87" rx="4"/>
+  <text class="h" x="239" y="64">2. Learn expertise</text>
+  <text class="s" x="239" y="88">Expert reasoning and</text>
+  <text class="s" x="239" y="106">outcomes</text>
+  <path d="M209 83.5H224" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <rect x="434" y="40" width="186" height="87" rx="4"/>
+  <text class="h" x="446" y="64">3. Guide execution</text>
+  <text class="s" x="446" y="88">Check the next task</text>
+  <path d="M416 83.5H431" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <path d="M527 127V153H113V131" fill="none" stroke="#0072B2" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+  <text class="l" x="125" y="175">Verified outcomes improve the next procedure.</text>
+</svg>

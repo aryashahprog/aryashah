@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 454" width="640" height="454" role="img" aria-labelledby="t d">
+  <title id="t">From messy information to a reviewed plan</title>
+  <desc id="d">Messy operational information, from emails, spreadsheets and policies, goes to an agent that drafts candidate objectives and constraints. A person approves, edits or rejects the draft. The reviewed formulation feeds four layers: a world model of the operation as it is, forecasts, behavior models of how people actually act, and an optimizer that draws on the other three. The reviewed plan goes into use with changes reversible, and drift and exceptions from deployment feed the next draft.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0072B2"/></marker>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; fill: #111; }
+    .h { font-size: 15px; font-weight: 600; }
+    .s { font-size: 13.5px; fill: #444; }
+    .i { font-size: 13px; fill: #666; font-style: italic; }
+    .k { font-size: 11px; letter-spacing: 0.08em; fill: #555; font-weight: 600; }
+    .l { font-size: 13px; fill: #0072B2; }
+    rect { fill: #fff; stroke: #111; stroke-width: 1.25; }
+    rect.g { fill: #f6f6f6; stroke: #888; stroke-dasharray: 4 3; }
+  </style>
+  <rect width="640" height="454" fill="#fff" stroke="none"/>
+  <text class="k" x="20" y="24">FROM MESSY INFORMATION TO A REVIEWED PLAN</text>
+  <rect x="20" y="40" width="186" height="106" rx="4"/>
+  <text class="h" x="32" y="64">Messy operational</text>
+  <text class="h" x="32" y="83">information</text>
+  <text class="s" x="32" y="107">Emails, spreadsheets,</text>
+  <text class="s" x="32" y="125">policies</text>
+  <rect x="227" y="40" width="186" height="106" rx="4"/>
+  <text class="h" x="239" y="64">Agent drafts the</text>
+  <text class="h" x="239" y="83">formulation</text>
+  <text class="s" x="239" y="107">Candidate objectives and</text>
+  <text class="s" x="239" y="125">constraints</text>
+  <path d="M209 93.0H224" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <rect x="434" y="40" width="186" height="106" rx="4"/>
+  <text class="h" x="446" y="64">Human review</text>
+  <text class="s" x="446" y="88">Approve, edit or reject</text>
+  <path d="M416 93.0H431" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <path d="M527.0 149V177" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <rect class="g" x="227" y="180" width="393" height="228" rx="4"/>
+  <text class="k" x="239" y="202">FOUR LAYERS</text>
+  <rect x="239.0" y="214" width="180.5" height="87" rx="4"/>
+  <text class="h" x="251.0" y="238">World model</text>
+  <text class="s" x="251.0" y="262">The operation as it is</text>
+  <rect x="427.5" y="214" width="180.5" height="87" rx="4"/>
+  <text class="h" x="439.5" y="238">Forecasts</text>
+  <text class="s" x="439.5" y="262">What is likely to come</text>
+  <rect x="239.0" y="309" width="180.5" height="87" rx="4"/>
+  <text class="h" x="251.0" y="333">Behavior models</text>
+  <text class="s" x="251.0" y="357">How people actually act</text>
+  <rect x="427.5" y="309" width="180.5" height="87" rx="4"/>
+  <text class="h" x="439.5" y="333">Optimizer</text>
+  <text class="s" x="439.5" y="357">Draws on the other</text>
+  <text class="s" x="439.5" y="375">three</text>
+  <rect x="20" y="250.0" width="186" height="88" rx="4"/>
+  <text class="h" x="32" y="274.0">Reviewed plan in</text>
+  <text class="h" x="32" y="293.0">use</text>
+  <text class="s" x="32" y="317.0">Changes stay reversible</text>
+  <path d="M224 294.0H209" stroke="#111" stroke-width="1.25" marker-end="url(#a)"/>
+  <path d="M113.0 247.0V149" fill="none" stroke="#0072B2" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+  <text class="l" x="20" y="436">Dashed: drift and exceptions from deployment feed the next draft.</text>
+</svg>
