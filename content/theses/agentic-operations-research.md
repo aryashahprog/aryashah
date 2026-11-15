@@ -17,14 +17,14 @@ One way to structure it, as a proposed architecture, is four layers: an operatio
 
 <figure class="narrow">
 <a href="/theses/agentic-operations-research/formulation-loop.svg"><img src="/theses/agentic-operations-research/formulation-loop.svg" width="360" height="764" loading="lazy" alt="Proposed architecture, not measured evidence. Messy operational information goes to an agent that drafts candidate objectives and constraints; a person approves, edits or rejects the draft; the reviewed formulation feeds four proposed layers: world model, forecasts, behavior models and an optimizer drawing on the other three; the reviewed plan goes into use with changes reversible; drift and exceptions from deployment feed the next draft."></a>
-<figcaption>A proposed architecture, not measured evidence: the agent drafts, a person reviews, and deployment feedback flows back into the next draft. My diagram. <a href="/theses/agentic-operations-research/formulation-loop.svg">Open full size</a></figcaption>
+<figcaption>A proposed architecture, not measured evidence: the agent drafts, a person reviews, and deployment feedback flows back into the next draft. <a href="/theses/agentic-operations-research/formulation-loop.svg">Open full size</a></figcaption>
 </figure>
 
 The world-model layer has its own loop once a plan is running. It takes in what sensors report, predicts what each candidate action would do, and lets a planner with a safety check choose one or hand the decision to a person.
 
 <figure class="slim">
 <a href="/theses/agentic-operations-research/deployment-loop.png"><img src="/theses/agentic-operations-research/deployment-loop.png" width="422" height="1599" loading="lazy" alt="Deployment loop: live sensors, then candidate actions, then predicted outcomes, then a planner and safety check, then an action or a request for human help."></a>
-<figcaption>The world-model layer at run time: predict what each candidate action would do, then let a planner and safety check pick one or hand off to a person. It illustrates one layer, not the whole thesis. Crop from an Engage brief on world models. <a href="/theses/agentic-operations-research/deployment-loop.png">Open full size</a></figcaption>
+<figcaption>The world-model layer at run time: predict what each candidate action would do, then let a planner and safety check pick one or hand off to a person. It shows one layer, not the whole thesis. Source: Engage brief on world models. <a href="/theses/agentic-operations-research/deployment-loop.png">Open full size</a></figcaption>
 </figure>
 
 The failure cases matter as much as the upside. An agent can encode a rule that doesn't exist or miss one that does, and the solver will return a confident plan that can't or shouldn't be carried out. A formulation can be right on day one and slowly drift away from how the operation actually works. And a plan can reach people or equipment without anyone checking it. Each of these argues for keeping proposals reviewable and changes reversible.
