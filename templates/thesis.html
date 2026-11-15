@@ -4,7 +4,7 @@
 {% block main %}
 <article>
   <h1>{{ page.title }}</h1>
-  <p class="meta">{{ page.theme }} · Last updated <time datetime="{{ page.updated }}">{{ page.updated | date }}</time> · {{ page.status }}</p>
+  <p class="meta">{{ page.theme }} · {{ page.status }}</p>
   {% if page.meta.source_note %}<p class="meta source-note">{{ page.meta.source_note }}</p>{% endif %}
   {{ page.html | safe }}
   {% if page.related %}

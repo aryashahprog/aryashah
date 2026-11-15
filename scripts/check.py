@@ -95,9 +95,6 @@ def main() -> int:
     theses = [f for f in thesis_dirs if f not in redirects]
     if len(theses) != 7:
         errors.append(f"expected 7 theses, found {len(theses)}")
-    for f in theses:
-        if "Last updated" not in f.read_text(encoding="utf-8"):
-            errors.append(f"{f.relative_to(DIST)}: missing last-updated metadata")
     for old in ARCHIVE.glob("*.md"):
         page = DIST / "theses" / old.stem / "index.html"
         if not page.exists():
