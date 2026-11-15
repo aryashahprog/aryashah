@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 228" width="640" height="228" role="img" aria-labelledby="t d">
+  <title id="t">Four ways to close the physical data gap</title>
+  <desc id="d">Teleoperation and demo farms: accurate, but cost grows linearly. Human video capture: cheap and abundant, but no force data. Simulation and world models: scalable, but must carry over to real conditions. Deployed fleet data flywheels: compounding, but needs a live fleet.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0072B2"/></marker>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; fill: #111; }
+    .h { font-size: 15px; font-weight: 600; }
+    .s { font-size: 13.5px; fill: #444; }
+    .i { font-size: 13px; fill: #666; font-style: italic; }
+    .k { font-size: 11px; letter-spacing: 0.08em; fill: #555; font-weight: 600; }
+    .l { font-size: 13px; fill: #0072B2; }
+    rect { fill: #fff; stroke: #111; stroke-width: 1.25; }
+    rect.g { fill: #f6f6f6; stroke: #888; stroke-dasharray: 4 3; }
+  </style>
+  <rect width="640" height="228" fill="#fff" stroke="none"/>
+  <text class="k" x="20" y="24">FOUR WAYS TO CLOSE THE PHYSICAL DATA GAP</text>
+  <rect x="20" y="40" width="294" height="69" rx="4"/>
+  <text class="h" x="32" y="64">Teleoperation and demo farms</text>
+  <text class="s" x="32" y="88">Accurate, but cost grows linearly</text>
+  <rect x="326" y="40" width="294" height="69" rx="4"/>
+  <text class="h" x="338" y="64">Human video capture</text>
+  <text class="s" x="338" y="88">Cheap and abundant, but no force data</text>
+  <rect x="20" y="121" width="294" height="87" rx="4"/>
+  <text class="h" x="32" y="145">Simulation and world models</text>
+  <text class="s" x="32" y="169">Scalable, but must carry over to real</text>
+  <text class="s" x="32" y="187">conditions</text>
+  <rect x="326" y="121" width="294" height="87" rx="4"/>
+  <text class="h" x="338" y="145">Deployed fleet data flywheels</text>
+  <text class="s" x="338" y="169">Compounding, but needs a live fleet</text>
+</svg>

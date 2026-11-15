@@ -69,6 +69,14 @@ h2 {
   font-size: 1rem;
 }
 
+article h2 {
+  margin-top: 2rem;
+}
+
+article strong {
+  font-weight: 600;
+}
+
 h2 + p,
 h2 + ul,
 h2 + ol {
@@ -145,6 +153,11 @@ h2 + ol {
   font-size: 14px;
 }
 
+.meta + .source-note {
+  margin-top: -0.75rem;
+  color: #767676;
+}
+
 .group {
   margin: 1.5rem 0 0.5rem;
   border-bottom: 1px solid #000;
@@ -176,7 +189,7 @@ article > h1 {
 }
 
 figure {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
 figure img {
@@ -355,4 +368,16 @@ sub {
 
 figure.slim img {
   max-width: 220px;
+}
+
+figure picture {
+  display: block;
+}
+
+@media screen and (min-width: 700px) {
+  figure.wide img,
+  figure.wide.tall img,
+  figure.wide.slim img {
+    max-width: 640px;
+  }
 }
