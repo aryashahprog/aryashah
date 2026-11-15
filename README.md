@@ -16,7 +16,7 @@ All writing lives in `content/` as Markdown with a short YAML header.
   - `updated` is the last-updated date shown on the page. Change it when you revise a note.
   - `related` lists other note slugs to link at the bottom.
   - `sources` (optional) is a list of `{title, url}`, listed at the end of the note.
-- `content/building/<slug>.md`: one entry per project, with `role`, optional `status` and `links`.
+- `content/building/<slug>.md`: one entry per project, with `role`, optional `status` and `links`. The Building page is currently unpublished; set `SHOW_BUILDING = True` in `build.py` to restore it and its nav link.
 - `content/research/<slug>.md`: a short research landing page at `/research/<slug>/` linking the `poster` PDF in `static/research/`. Not in the nav; linked from Home.
 - `review/`: work held back from the site until scientific and coauthor review is done. `build.py` only copies `static/`, so nothing here is served, but the repository is public, so it is still publicly readable (and was in earlier public commits).
   - `review/papers/<slug>.md`: source for the paper PDF (figures in `review/papers/figures/`). Regenerate with `.venv/bin/python scripts/make_pdf.py` (needs Chrome or `playwright install chromium`); the PDF is written beside the source.

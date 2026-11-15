@@ -47,7 +47,7 @@ The action side is earlier. The Agentic Commerce Protocol is an open standard fo
 
 Messaging needs no new app or login, and many tasks fit a thread: a quick request, a confirmation, a reminder, a simple choice. Detailed comparisons and anything visual fit less well.
 
-I built a small [event finder for iMessage](/building/#messaging-event-agent) that suggests events that fit your calendar. It's a prototype that shows the shape of the idea, not evidence that people want it.
+I built a small [event finder for iMessage](https://github.com/aryashahprog/roamio-mcp) that suggests events that fit your calendar. It's a prototype that shows the shape of the idea, not evidence that people want it.
 
 Businesses that depend on people seeing their interface, through ads, upsells or onboarding, would feel this first. Those that make their products easy for agents to understand and buy could gain, as could whoever runs identity and payments for agent-initiated purchases.
 
