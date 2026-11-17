@@ -89,7 +89,7 @@ li + li { margin-top: 0.4em; }
 .project-photo img { display: block; width: 100%; height: auto; }
 .ar-visual { aspect-ratio: 4 / 3; background: var(--soft); }
 .ar-visual video { display: block; width: 100%; height: 100%; object-fit: contain; }
-.home-about { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; padding-block: 104px; }
+.home-about { padding-block: 104px; }
 .about-copy { max-width: 760px; font-size: clamp(23px, 2.3vw, 32px); line-height: 1.55; letter-spacing: -0.025em; }
 .about-copy p:last-of-type { margin-bottom: 24px; }
 .about-copy .pill { letter-spacing: 0; }
@@ -182,7 +182,6 @@ sub { top: 0.4em; }
 .thesis .related { margin-top: 48px; }
 .thesis .related a { align-items: center; min-height: 60px; padding-block: 16px; border-bottom: 1px solid var(--line); }
 .thesis .related a span { flex-shrink: 0; }
-.research-header .eyebrow { margin-bottom: 18px; }
 .research-body { max-width: 960px; }
 .research-body > p { max-width: 760px; }
 .paper-links { display: flex; flex-wrap: wrap; gap: 12px; margin-block: 32px 48px; }
@@ -202,7 +201,7 @@ sub { top: 0.4em; }
 @media (max-width: 1100px) {
   .experience { gap: 48px; padding-block: 56px; }
   .experience h2 { font-size: 28px; }
-  .home-about { gap: 48px; padding-block: 72px; }
+  .home-about { padding-block: 72px; }
   .index-header { padding-block: 64px 60px; }
   .writing-link { grid-template-columns: 100px 1fr 44px; gap: 28px; }
 }
@@ -237,7 +236,7 @@ sub { top: 0.4em; }
   .sardine-logo img { max-width: 152px; }
   .research-visual img { inset: 12px; width: calc(100% - 24px); height: calc(100% - 24px); }
   .ar-visual { width: min(100%, 320px); aspect-ratio: 2 / 3; justify-self: center; }
-  .home-about { grid-template-columns: 1fr; gap: 10px; padding-block: 56px; }
+  .home-about { padding-block: 56px; }
   .about-copy { font-size: 23px; }
   .footer { padding-block: 28px 36px; font-size: 14px; }
   .footer-links { gap: 20px; }
