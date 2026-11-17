@@ -1,44 +1,52 @@
 {
-  "chatgpt-memory.png": {
-    "url": "https://x.com/sama/status/1910380643772665873",
-    "author": "Sam Altman",
-    "published": "2025-04-10",
-    "processing": "Original screenshot from supplied research pack; no crop."
-  },
-  "replit-production-data.png": {
-    "url": "https://x.com/amasad/status/1946986468586721478",
-    "author": "Amjad Masad",
-    "published": "2025-07-20",
-    "processing": "Top 250px of supplied 554x676 screenshot; attached media omitted. No text altered."
-  },
-  "chatgpt-shopping.png": {
-    "url": "https://x.com/OpenAI/status/1993018357432586391",
+  "2026-chatgpt-memory-sources.png": {
+    "url": "https://openai.com/index/gpt-5-5-instant/",
     "author": "OpenAI",
-    "published": "2025-11-24",
-    "processing": "Top 250px of supplied 554x676 screenshot; video preview omitted. No text altered."
+    "published": "2026-05-05",
+    "captured": "2026-11-17",
+    "processing": "Cropped memory-sources paragraph from the article, captured in Chrome. No text altered."
   },
-  "neo-home-robot.png": {
-    "url": "https://x.com/1x_tech/status/1983233494575952138",
-    "author": "1X",
-    "published": "2025-10-28",
-    "processing": "Original screenshot from supplied research pack; no crop."
+  "2026-openclaw-inbox.png": {
+    "url": "https://x.com/summeryue0/status/2025774069124399363",
+    "author": "Summer Yue",
+    "published": "2026-02-23",
+    "captured": "2026-11-17",
+    "processing": "Original screenshot from the supplied research pack, with the post date visible. No crop or text alteration."
   },
-  "alphaevolve.png": {
-    "url": "https://x.com/GoogleDeepMind/status/1922669321559347498",
+  "2026-chatgpt-ads.png": {
+    "url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries/",
+    "author": "OpenAI",
+    "published": "2026-10-21",
+    "captured": "2026-11-17",
+    "processing": "Cropped article header showing publication date, headline and subtitle, captured in Chrome. No text altered."
+  },
+  "2026-siemens-shop-floor.png": {
+    "url": "https://blogs.sw.siemens.com/thought-leadership/how-to-create-an-copilot-for-the-shop-floor/",
+    "author": "Siemens",
+    "published": "2026-07-03",
+    "captured": "2026-11-17",
+    "processing": "Cropped article header showing Siemens branding, title and publication date, captured in Chrome. No text altered."
+  },
+  "2026-gemini-deep-think.png": {
+    "url": "https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/",
     "author": "Google DeepMind",
-    "published": "2025-05-14",
-    "processing": "Top 300px of supplied 554x950 screenshot; animated media omitted. No text altered."
+    "published": "2026-02-11",
+    "captured": "2026-11-17",
+    "processing": "Cropped article header showing publisher, date, title and authors, captured in Chrome. No text altered."
   },
-  "vibe-coding.png": {
-    "url": "https://x.com/karpathy/status/1886192184808149383",
-    "author": "Andrej Karpathy",
-    "published": "2025-02-02",
-    "processing": "Original screenshot from supplied research pack; no crop."
+  "2026-saaspocalypse.png": {
+    "url": "https://www.cnbc.com/2026/02/06/ai-anthropic-tools-saas-software-stocks-selloff.html",
+    "author": "CNBC",
+    "published": "2026-02-05",
+    "updated": "2026-02-06",
+    "captured": "2026-11-17",
+    "processing": "Cropped article headline, publication/update dates and byline, captured in Chrome. The page's publication date is February 5 in EST (February 6 in UTC). No text altered."
   },
-  "claude-rate-limits.png": {
-    "url": "https://x.com/AnthropicAI/status/1949898502688903593",
+  "2026-sonnet-cost-per-task.png": {
+    "url": "https://www.anthropic.com/claude-sonnet-5-5",
     "author": "Anthropic",
-    "published": "2025-07-28",
-    "processing": "Top 154px of supplied 554x561 screenshot; illustration omitted. No text altered."
+    "published": "2026-09-28",
+    "captured": "2026-11-17",
+    "processing": "Cropped Cost paragraph from the article, captured in Chrome. Publication date separately verified in the rendered article header. No text altered."
   }
 }
