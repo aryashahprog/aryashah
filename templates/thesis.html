@@ -16,7 +16,7 @@
     {% if page.related %}
     <aside class="related" aria-label="Related theses">
       <h2>Keep thinking</h2>
-      {% for r in page.related %}<a href="/theses/{{ r.slug }}/">{{ r.title }} <span aria-hidden="true">↗</span></a>{% endfor %}
+      {% for r in page.related %}<a href="/theses/{{ r.slug }}/">{{ r.title }} <span aria-hidden="true">→</span></a>{% endfor %}
     </aside>
     {% endif %}
   </div>

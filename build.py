@@ -9,6 +9,8 @@ import re
 import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
+from urllib.parse import urlsplit
+from xml.etree import ElementTree as ET
 
 import markdown
 import yaml
@@ -68,6 +70,14 @@ def human_date(value: dt.date) -> str:
     return f"{value:%B} {value.day}, {value.year}"
 
 
+def link_arrow(url: str) -> str:
+    target = urlsplit(url)
+    hostname = urlsplit(SITE_URL).hostname
+    if target.scheme and target.scheme not in ("http", "https"):
+        return "↗"
+    return "→" if not target.netloc or target.hostname in (hostname, f"www.{hostname}") else "↗"
+
+
 def load_theses() -> tuple[dict, list[Page]]:
     index = read(CONTENT / "theses" / "_index.md")
     theses = [read(p, thesis_extensions()) for p in sorted((CONTENT / "theses").glob("*.md")) if p.name != "_index.md"]
@@ -101,6 +111,7 @@ def build(out: Path, base: str = "") -> None:
     root_links = re.compile(r'((?:href|src|srcset|poster)="|url=)/(?!/)')
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html"]))
     env.filters["date"] = human_date
+    env.filters["link_arrow"] = link_arrow
     env.globals["nav"] = NAV
     env.globals["site_url"] = SITE_URL
     env.globals["goatcounter_code"] = GOATCOUNTER_CODE
@@ -108,11 +119,21 @@ def build(out: Path, base: str = "") -> None:
     if out.exists():
         shutil.rmtree(out)
     shutil.copytree(STATIC, out)
+    sitemap_urls: list[str] = []
 
     def render(template: str, dest: str, **ctx) -> None:
         target = out / dest
         target.parent.mkdir(parents=True, exist_ok=True)
-        html = env.get_template(template).render(analytics_enabled=template not in ("redirect.html", "404.html"), **ctx)
+        indexable = template not in ("redirect.html", "404.html")
+        canonical_url = f"{SITE_URL}/{dest.removesuffix('index.html')}" if indexable else None
+        if canonical_url:
+            sitemap_urls.append(canonical_url)
+        html = env.get_template(template).render(
+            analytics_enabled=indexable,
+            canonical_url=canonical_url,
+            og_type="article" if template in ("thesis.html", "research.html") else "website",
+            **ctx,
+        )
         if base:
             html = root_links.sub(rf"\g<1>{base}/", html)
         target.write_text(html, encoding="utf-8")
@@ -137,6 +158,12 @@ def build(out: Path, base: str = "") -> None:
     for r in research:
         render("research.html", f"research/{r.slug}/index.html", page=r, current="")
     render("404.html", "404.html", current="")
+    sitemap = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+    for url in sorted(sitemap_urls):
+        ET.SubElement(ET.SubElement(sitemap, "url"), "loc").text = url
+    ET.indent(sitemap)
+    ET.ElementTree(sitemap).write(out / "sitemap.xml", encoding="utf-8", xml_declaration=True)
+    (out / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
     print(f"Built {len(theses)} theses, {len(projects)} projects, {len(research)} research pages into {out}")
 
 

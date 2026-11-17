@@ -3,14 +3,18 @@
 from __future__ import annotations
 
 import re
+import struct
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlparse
+from urllib.robotparser import RobotFileParser
+from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 CONTENT = ROOT / "content"
+SITE_URL = f"https://{(ROOT / 'static' / 'CNAME').read_text().strip()}"
 EMAIL = "aryavms@outlook.com"
 NAV = ["/", "/theses/"]
 PAPERS = ROOT / "review" / "papers"
@@ -27,13 +31,30 @@ class Page(HTMLParser):
         self.h2: list[str] = []
         self.h1 = 0
         self._in_h2 = False
+        self.meta: dict[str, str] = {}
+        self.canonical: list[str] = []
+        self.title = ""
+        self._in_title = False
+        self.link_labels: list[tuple[str, str]] = []
+        self._anchor_href: str | None = None
+        self._anchor_text = ""
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == "meta" and "content" in a:
+            key = a.get("property") or a.get("name")
+            if key:
+                self.meta[key] = a["content"]
+        if tag == "link" and a.get("rel") == "canonical":
+            self.canonical.append(a.get("href", ""))
+        if tag == "title":
+            self._in_title = True
         if a.get("id"):
             self.ids.add(a["id"])
         if tag == "a" and "href" in a:
             self.links.append(a["href"])
+            self._anchor_href = a["href"]
+            self._anchor_text = ""
         if tag in ("link", "script", "img", "video", "source") and (a.get("href") or a.get("src")):
             self.links.append(a.get("href") or a.get("src"))
         if tag == "video" and a.get("poster"):
@@ -47,10 +68,19 @@ class Page(HTMLParser):
             self.h2.append("")
 
     def handle_endtag(self, tag):
+        if tag == "title":
+            self._in_title = False
+        if tag == "a" and self._anchor_href is not None:
+            self.link_labels.append((self._anchor_href, self._anchor_text))
+            self._anchor_href = None
         if tag == "h2":
             self._in_h2 = False
 
     def handle_data(self, data):
+        if self._in_title:
+            self.title += data
+        if self._anchor_href is not None:
+            self._anchor_text += data
         if self._in_h2:
             self.h2[-1] += data
 
@@ -72,6 +102,14 @@ def main() -> int:
         rel = f.relative_to(DIST)
         if p.h1 != 1:
             errors.append(f"{rel}: expected one h1, found {p.h1}")
+        for href, label in p.link_labels:
+            u = urlparse(href)
+            internal = (not u.scheme and not u.netloc) or u.hostname in (
+                urlparse(SITE_URL).hostname,
+                f"www.{urlparse(SITE_URL).hostname}",
+            )
+            if internal and "↗" in label:
+                errors.append(f"{rel}: internal link {href} uses an external arrow")
         for href in NAV:
             if href not in p.links:
                 errors.append(f"{rel}: nav link {href} missing")
@@ -148,6 +186,73 @@ def main() -> int:
     for f in pages:
         if re.search(r"<img(?![^>]*\balt=\"[^\"]+\")[^>]*>", f.read_text(encoding="utf-8")):
             errors.append(f"{f.relative_to(DIST)}: image without alt text")
+
+    canonical_urls = set()
+    for f, p in pages.items():
+        rel = f.relative_to(DIST)
+        if f in redirects or rel == Path("404.html"):
+            if p.meta.get("robots") != "noindex":
+                errors.append(f"{rel}: redirects and the 404 page must be noindex")
+            if "og:url" in p.meta:
+                errors.append(f"{rel}: must not advertise a social card")
+            continue
+        url = f"{SITE_URL}/{rel.as_posix().removesuffix('index.html')}"
+        canonical_urls.add(url)
+        if p.canonical != [url]:
+            errors.append(f"{rel}: expected one canonical URL matching {url}")
+        expected = {
+            "og:site_name": "Arya Shah",
+            "og:type": "article" if f in theses or f in research else "website",
+            "og:title": p.title,
+            "og:description": p.meta.get("description"),
+            "og:url": url,
+            "og:image": f"{SITE_URL}/social-preview.png",
+            "og:image:type": "image/png",
+            "og:image:width": "1200",
+            "og:image:height": "630",
+            "twitter:card": "summary_large_image",
+            "twitter:title": p.title,
+            "twitter:description": p.meta.get("description"),
+            "twitter:image": f"{SITE_URL}/social-preview.png",
+        }
+        for key, value in expected.items():
+            if not value or p.meta.get(key) != value:
+                errors.append(f"{rel}: missing or incorrect {key}")
+        if not p.meta.get("og:image:alt") or p.meta.get("twitter:image:alt") != p.meta["og:image:alt"]:
+            errors.append(f"{rel}: social image alt text missing or inconsistent")
+
+    image = DIST / "social-preview.png"
+    if not image.exists():
+        errors.append("social-preview.png: missing")
+    else:
+        header = image.read_bytes()[:24]
+        if (
+            len(header) != 24
+            or not header.startswith(b"\x89PNG\r\n\x1a\n")
+            or struct.unpack("!II", header[16:24]) != (1200, 630)
+        ):
+            errors.append("social-preview.png: expected a 1200 by 630 PNG")
+
+    try:
+        sitemap = ET.parse(DIST / "sitemap.xml")
+    except (OSError, ET.ParseError) as exc:
+        errors.append(f"sitemap.xml: {exc}")
+    else:
+        ns = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+        urls = [loc.text for loc in sitemap.findall(f"{ns}url/{ns}loc")]
+        if sitemap.getroot().tag != f"{ns}urlset" or set(urls) != canonical_urls or len(urls) != len(canonical_urls):
+            errors.append("sitemap.xml: must contain each canonical HTML page once, without redirects or 404")
+
+    robots = DIST / "robots.txt"
+    if not robots.exists():
+        errors.append("robots.txt: missing")
+    else:
+        rules = RobotFileParser()
+        rules.parse(robots.read_text(encoding="utf-8").splitlines())
+        if rules.site_maps() != [f"{SITE_URL}/sitemap.xml"]:
+            errors.append("robots.txt: canonical sitemap URL missing or incorrect")
+        if any(not rules.can_fetch("*", url) for url in canonical_urls):
+            errors.append("robots.txt: a canonical page is blocked")
     if "reading" in " ".join(link.lower() for p in pages.values() for link in p.links):
         errors.append("a Reading link exists")
 

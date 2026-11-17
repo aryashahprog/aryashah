@@ -12,8 +12,8 @@
   <div class="article-body research-body">
     {{ page.html | safe }}
     <div class="paper-links">
-      <a class="pill" href="{{ page.poster }}" type="application/pdf">Poster <span aria-hidden="true">↗</span></a>
-      <a class="pill" href="{{ page.paper }}" type="application/pdf">Working paper (PDF) <span aria-hidden="true">↗</span></a>
+      <a class="pill" href="{{ page.poster }}" type="application/pdf">Poster <span aria-hidden="true">{{ page.poster | link_arrow }}</span></a>
+      <a class="pill" href="{{ page.paper }}" type="application/pdf">Working paper (PDF) <span aria-hidden="true">{{ page.paper | link_arrow }}</span></a>
     </div>
     <figure class="poster-figure">
       <img src="/research/poster-preview.png" alt="Research poster on the association between premature birth, cuneus grey matter and receptive vocabulary" width="1200" height="1200" loading="lazy">

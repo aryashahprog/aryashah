@@ -14,7 +14,7 @@
       <p class="eyebrow">{{ item.label }}</p>
       <h2 id="experience-{{ loop.index }}">{{ item.title }}</h2>
       <p class="experience-description">{{ item.description }}</p>
-      {% if item.url %}<a class="pill" href="{{ item.url }}">{{ item.link_label }} <span aria-hidden="true">↗</span></a>{% endif %}
+      {% if item.url %}<a class="pill" href="{{ item.url }}">{{ item.link_label }} <span aria-hidden="true">{{ item.url | link_arrow }}</span></a>{% endif %}
     </div>
     {% if item.visual == "ventures" %}
     <div class="organization-gallery">

@@ -45,6 +45,12 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
 
 Responsive system sans-serif typography, with a narrow reading column for theses. There are no font files to load.
 
+## Sharing and discovery
+
+Every published page has its own canonical URL, Open Graph and X/Twitter title and description, and a shared 1200×630 preview image in `static/social-preview.png`. Titles and descriptions use the same template blocks as the page itself.
+
+The build generates `sitemap.xml` from published canonical pages and `robots.txt` pointing to it. Redirects, the 404 page and unpublished Building content are excluded from the sitemap. `scripts/check.py` validates these files, social metadata, and internal-link arrows.
+
 ## Analytics
 
 Set `GOATCOUNTER_CODE` in `build.py` to the hosted GoatCounter site code. An empty code disables analytics. The dashboard is `https://<site-code>.goatcounter.com`; filter page paths to `/theses/` to compare thesis pageviews by title. A pageview is not proof that an article was read to completion.
