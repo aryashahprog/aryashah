@@ -72,6 +72,8 @@ def load_theses() -> tuple[dict, list[Page]]:
     theses = [read(p, thesis_extensions()) for p in sorted((CONTENT / "theses").glob("*.md")) if p.name != "_index.md"]
     by_slug = {t.slug: t for t in theses}
     for t in theses:
+        words = re.findall(r"\b[\w’-]+\b", re.sub(r"<[^>]+>", " ", t.html))
+        t.meta["reading_minutes"] = max(1, (len(words) + 219) // 220)
         missing = [s for s in t.meta.get("related", []) if s not in by_slug]
         if missing:
             raise ValueError(f"{t.slug}: unknown related notes {missing}")
@@ -93,7 +95,7 @@ def load_theses() -> tuple[dict, list[Page]]:
 
 def build(out: Path, base: str = "") -> None:
     base = base.rstrip("/")
-    root_links = re.compile(r'((?:href|src|srcset)="|url=)/(?!/)')
+    root_links = re.compile(r'((?:href|src|srcset|poster)="|url=)/(?!/)')
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html"]))
     env.filters["date"] = human_date
     env.globals["nav"] = NAV

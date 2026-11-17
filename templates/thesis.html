@@ -1,14 +1,24 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }} · Arya Shah{% endblock %}
 {% block description %}{{ page.summary }}{% endblock %}
+{% block body_class %}thesis{% endblock %}
 {% block main %}
 <article>
-  <h1>{{ page.title }}</h1>
-  <p class="meta">{{ page.theme }} · {{ page.status }}</p>
-  {% if page.meta.source_note %}<p class="meta source-note">{{ page.meta.source_note }}</p>{% endif %}
-  {{ page.html | safe }}
-  {% if page.related %}
-  <p class="related">Related: {% for r in page.related %}<a href="/theses/{{ r.slug }}/">{{ r.title }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
-  {% endif %}
+  <header class="article-header">
+    <a class="back-link" href="/theses/">← All working theses</a>
+    <h1>{{ page.title }}</h1>
+    <p class="meta">{{ page.theme }}</p>
+    <p class="meta reading-meta">{{ page.reading_minutes }} min read</p>
+    {% if page.meta.source_note %}<p class="meta source-note">{{ page.meta.source_note }}</p>{% endif %}
+  </header>
+  <div class="article-body">
+    {{ page.html | safe }}
+    {% if page.related %}
+    <aside class="related" aria-label="Related theses">
+      <h2>Keep thinking</h2>
+      {% for r in page.related %}<a href="/theses/{{ r.slug }}/">{{ r.title }} <span aria-hidden="true">↗</span></a>{% endfor %}
+    </aside>
+    {% endif %}
+  </div>
 </article>
 {% endblock %}

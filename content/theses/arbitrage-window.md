@@ -42,6 +42,7 @@ None of this means anyone can build anything. Complex, regulated or high-reliabi
 
 Individuals and small teams building tools for their own work gain, along with businesses whose value already sits in distribution, integrations, data or trust. The most exposed are simple, single-purpose products sold mainly on features that are now cheap to reproduce.
 
-The case against is that self-built tools cost more to maintain than people expect, so most teams drift back to buying and the window closes almost as soon as it opens. If, two years from now, small teams still aren't replacing purchased tools with their own in any meaningful number, or the cost of building simple software stops falling, I'll have been wrong.
+The case against is that self-built tools cost more to maintain than people expect, so most teams drift back to buying and the window closes almost as soon as it opens.
 
+If, two years from now, small teams still aren't replacing purchased tools with their own in any meaningful number, or the cost of building simple software stops falling, I'll have been wrong.
 

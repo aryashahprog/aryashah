@@ -45,7 +45,9 @@ What an agent knows is not what it may do. Access decisions belong in authorizat
 
 Where the model runs is a separate choice too. On-device, on-premises, private cloud and disconnected setups trade privacy against cost, upkeep and quality. Running locally isn't a moat or a security guarantee on its own, and neither is data. Data helps only if it improves an outcome, the company may use it and someone keeps it current.
 
-I'd expect the first buyers to be risk and compliance teams in regulated businesses, since explaining decisions is already their job, though I haven't tested that. The obvious objection is that agent platforms and systems of record will add versioned memory and audit logs as features. I'd change my mind if compliance teams accept ordinary application logs as enough to explain an agent's decisions, or if incumbents ship provenance that holds up in a real audit.
+I'd expect the first buyers to be risk and compliance teams in regulated businesses, since explaining decisions is already their job, though I haven't tested that.
+
+The obvious objection is that agent platforms and systems of record will add versioned memory and audit logs as features. I'd change my mind if compliance teams accept ordinary application logs as enough to explain an agent's decisions, or if incumbents ship provenance that holds up in a real audit.
 
 [^harness]: The diagram is credited to Theory Ventures and appears in Tomasz Tunguz, “[The Harness Is the New Battleground](https://tomtunguz.com/the-harness-is-the-new-battleground/).”
 [^prov]: W3C, “[PROV-Overview: An Overview of the PROV Family of Documents](https://www.w3.org/TR/prov-overview/),” 2013. PROV defines provenance as information about the entities, activities and people involved in producing a piece of data.

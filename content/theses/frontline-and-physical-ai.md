@@ -40,8 +40,9 @@ AR glasses are one way to deliver guidance, and the first-person data they captu
 
 Hiring difficulty might drive adoption in some industries and not others, and how workers and unions respond will differ by workplace. Synthetic data might help with training, but it can't replace real outcomes when checking whether guidance works.
 
-The buyer is probably an operations or service leader who owns a task where errors are costly and hard to staff, such as field service, maintenance or quality inspection. This may turn out to be a feature of existing field service and training software, with the hard part being integration and getting crews to change habits.
+The buyer is probably an operations or service leader who owns a task where errors are costly and hard to staff, such as field service, maintenance or quality inspection.
+
+This may turn out to be a feature of existing field service and training software, with the hard part being integration and getting crews to change habits.
 
 I'd change my mind if guided workflows fail to measurably cut errors or time on a specific task in real deployments, or if workers stop using them once the novelty wears off.
-
 

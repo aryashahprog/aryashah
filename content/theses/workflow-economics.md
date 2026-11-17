@@ -48,7 +48,9 @@ In Stripe's sector data, industries that use more AI have grown productivity fas
 
 If returns don't show up in the totals yet, they have to be measured where the work happens, one workflow at a time. Cloud pushed companies to track spend by service and team, and AI may push that discipline down to the task. The comparison has limits: it doesn't tell me models will commoditize or that applications will capture most of the value.
 
-Finance and operations teams running agents at scale would pay for tools that tie cost, including review time, to the outcome of each workflow, and vendors who can price by outcome would have an edge. It could just as easily stay a feature of existing cloud cost and observability tools. I'd drop the idea if teams that measure AI per workflow make no better decisions about what to run than teams that only watch the monthly bill.
+Finance and operations teams running agents at scale would pay for tools that tie cost, including review time, to the outcome of each workflow, and vendors who can price by outcome would have an edge.
+
+It could just as easily stay a feature of existing cloud cost and observability tools. I'd drop the idea if teams that measure AI per workflow make no better decisions about what to run than teams that only watch the monthly bill.
 
 [^att]: AT&T, “[The tokenomics equation](https://about.att.com/blogs/2026/the-tokenomics-equation.html),” 2026. The figure is the company's own, for its own setup.
 [^stripe]: Ernie Tedeschi, “[AI and productivity](https://www.stripeeconomics.com/p/ai-and-productivity),” Stripe Economics, July 23, 2026. This is early, sector-level data about returns, not about token prices or spending.

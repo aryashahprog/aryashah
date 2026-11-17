@@ -1,5 +1,76 @@
 {% extends "base.html" %}
+{% block body_class %}home{% endblock %}
+{% block head %}<script src="/home.js" defer></script>{% endblock %}
 {% block main %}
-{{ page.html | safe }}
-<p><a href="mailto:aryavms@outlook.com">aryavms [at] outlook [dot] com</a> · <a href="https://www.linkedin.com/in/aryashahcy/">LinkedIn</a> · <a href="https://x.com/aryashah0">X</a></p>
+<section class="hero" aria-labelledby="intro">
+  <h1 id="intro">{{ page.intro }}</h1>
+  <p class="hero-context">{{ page.background }}</p>
+  <a class="scroll-link" href="#work">A little of what I do <span aria-hidden="true">↓</span></a>
+</section>
+<section id="work" aria-label="Experience and research">
+  {% for item in page.experience %}
+  <section class="experience" aria-labelledby="experience-{{ loop.index }}">
+    <div class="experience-copy">
+      <p class="eyebrow">{{ item.label }}</p>
+      <h2 id="experience-{{ loop.index }}">{{ item.title }}</h2>
+      <p class="experience-description">{{ item.description }}</p>
+      {% if item.url %}<a class="pill" href="{{ item.url }}">{{ item.link_label }} <span aria-hidden="true">↗</span></a>{% endif %}
+    </div>
+    {% if item.visual == "ventures" %}
+    <div class="organization-gallery">
+      <a class="organization-card" href="https://techsquareventures.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Tech Square Ventures (opens in a new tab)">
+        <div class="organization-photo"><img src="/brands/tech-square-team.webp" alt="The Tech Square Ventures team" width="1000" height="667" loading="lazy"></div>
+        <div class="organization-caption">
+          <img class="organization-logo tsv-logo" src="/brands/tech-square-ventures.png" alt="Tech Square Ventures" width="358" height="154" loading="lazy">
+          <span class="organization-link">Visit website <span aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+      <a class="organization-card" href="https://engage.vc/" target="_blank" rel="noopener noreferrer" aria-label="Visit Engage (opens in a new tab)">
+        <div class="organization-photo"><img src="/brands/engage-program.webp" alt="Founders and enterprise leaders at an Engage program" width="1000" height="677" loading="lazy"></div>
+        <div class="organization-caption">
+          <img class="organization-logo engage-logo" src="/brands/engage.svg" alt="Engage" width="688" height="108" loading="lazy">
+          <span class="organization-link">Visit website <span aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+    </div>
+    {% elif item.visual == "investing" %}
+    <div class="work-visual investing-visual" aria-label="Companies I worked on deals involving at University Growth Fund">
+      <a class="portfolio-logo perplexity-logo" href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer" aria-label="Visit Perplexity (opens in a new tab)"><img src="/brands/perplexity.svg" alt="Perplexity" width="668" height="253" loading="lazy"><span aria-hidden="true">↗</span></a>
+      <a class="portfolio-logo colossal-logo" href="https://colossal.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Colossal Biosciences (opens in a new tab)"><img src="/brands/colossal.svg" alt="Colossal Biosciences" width="619" height="108" loading="lazy"><span aria-hidden="true">↗</span></a>
+      <a class="portfolio-logo sardine-logo" href="https://www.sardine.ai/" target="_blank" rel="noopener noreferrer" aria-label="Visit Sardine (opens in a new tab)"><img src="/brands/sardine.svg" alt="Sardine" width="111" height="25" loading="lazy"><span aria-hidden="true">↗</span></a>
+    </div>
+    {% elif item.visual == "research" %}
+    <div class="research-gallery">
+      <a class="work-visual research-visual" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
+        <img src="/research/cuneus-cortex.png" alt="Brain scan highlighting the cuneus cortex" width="600" height="582" loading="lazy">
+      </a>
+      <a class="work-visual research-photo" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
+        <img src="/research/poster-presentation.webp" alt="Research poster presentation with Georgia Tech’s Buzz mascot" width="480" height="431" loading="lazy">
+      </a>
+    </div>
+    {% elif item.visual == "startup" %}
+    <div class="work-visual project-photo">
+      <img src="/projects/startup-team.webp" alt="Our events startup team together on a rooftop" width="1200" height="900" loading="lazy">
+    </div>
+    {% elif item.visual == "coca-cola" %}
+    <div class="work-visual project-photo">
+      <img src="/projects/coca-cola-team.jpg" alt="Our group in front of a vintage Coca-Cola truck" width="987" height="687" loading="lazy">
+    </div>
+    {% elif item.visual == "ar" %}
+    <div class="work-visual ar-visual">
+      <video data-autoplay muted loop playsinline controls preload="metadata" poster="/projects/cyprus-ar-poster.jpg" width="480" height="720" aria-label="Cyprus augmented reality shopping demo, silent video">
+        <source src="/projects/cyprus-ar-loop.mp4" type="video/mp4">
+        <a href="/projects/cyprus-ar-loop.mp4">Watch the AR shopping demo</a>
+      </video>
+    </div>
+    {% endif %}
+  </section>
+  {% endfor %}
+</section>
+<section class="home-about" aria-label="A bit more about me">
+  <p class="eyebrow">A bit more</p>
+  <div class="about-copy">{{ page.html | safe }}
+    <a class="pill" href="mailto:aryavms@outlook.com">Get in touch <span aria-hidden="true">↗</span></a>
+  </div>
+</section>
 {% endblock %}

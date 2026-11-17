@@ -1,0 +1,32 @@
+{
+  "tech-square-team.webp": {
+    "page": "https://techsquareventures.com/team/",
+    "asset": "https://techsquareventures.com/wp-content/uploads/2026/07/New_team_group_photo.jpg",
+    "processing": "Resized to 1000px wide and converted to WebP."
+  },
+  "tech-square-ventures.png": {
+    "page": "https://techsquareventures.com/",
+    "asset": "https://techsquareventures.com/wp-content/uploads/2024/04/techsquare_logo.png"
+  },
+  "engage-program.webp": {
+    "page": "https://engage.vc/",
+    "asset": "https://engage.vc/wp-content/uploads/2020/08/Enterprise-GTM-Program-1.jpg",
+    "processing": "Resized to 1000px wide and converted to WebP."
+  },
+  "engage.svg": {
+    "page": "https://engage.vc/",
+    "asset": "https://engage.vc/wp-content/uploads/2020/06/engage_logo.svg"
+  },
+  "perplexity.svg": {
+    "page": "https://www.perplexity.ai/hub/brand",
+    "asset": "https://frontend-cdn.perplexity.ai/_agi_assets/marketing/hub/brand/logos/2026-10-08/perplexity-wordmark-offblack.svg"
+  },
+  "colossal.svg": {
+    "page": "https://colossal.com/",
+    "asset": "https://colossal.com/wp-content/themes/colossal/img/logo-crisper-black.svg"
+  },
+  "sardine.svg": {
+    "page": "https://www.sardine.ai/",
+    "asset": "Inline homepage navigation logo, viewBox 0 0 111 25."
+  }
+}

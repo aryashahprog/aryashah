@@ -51,7 +51,9 @@ I built a small [event finder for iMessage](https://github.com/aryashahprog/roam
 
 Businesses that depend on people seeing their interface, through ads, upsells or onboarding, would feel this first. Those that make their products easy for agents to understand and buy could gain, as could whoever runs identity and payments for agent-initiated purchases.
 
-It's also possible that people keep using assistants for research but still choose and pay on familiar sites, so referrals grow and autonomous purchases stay rare. I'd change my mind if agent-completed purchases stay negligible after checkout standards are widely available, or if messaging platforms close off third-party agents.
+It's also possible that people keep using assistants for research but still choose and pay on familiar sites, so referrals grow and autonomous purchases stay rare.
+
+I'd change my mind if agent-completed purchases stay negligible after checkout standards are widely available, or if messaging platforms close off third-party agents.
 
 [^adobe]: Adobe, “[2025 holiday shopping season results](https://news.adobe.com/news/downloads/pdfs/2026/01/010726-2025-holiday-shopping-season.pdf),” January 7, 2026. The figure covers Nov. 1 to Dec. 31, compared with a year earlier.
 [^acp]: [Agentic Commerce Protocol](https://www.agenticcommerce.dev/).

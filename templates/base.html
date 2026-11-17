@@ -13,12 +13,12 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   {% block head %}{% endblock %}
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
   <a class="skip" href="#main">Skip to content</a>
   <div class="page">
     <header class="header-wrap">
       <div class="header nu limiter">
-        {% if current == "/" %}<h1 class="name">Arya Shah</h1>{% else %}<p class="name"><a href="/">Arya Shah</a></p>{% endif %}
+        <p class="name"><a href="/">Arya Shah</a></p>
         <nav aria-label="Main">
           <ul>
             {% for label, href in nav %}
@@ -31,6 +31,14 @@
     <main id="main" class="content limiter" tabindex="-1">
       {% block main %}{% endblock %}
     </main>
+    <footer class="footer limiter">
+      <a class="footer-name" href="/">Arya Shah</a>
+      <div class="footer-links">
+        <a href="mailto:aryavms@outlook.com">Email</a>
+        <a href="https://www.linkedin.com/in/aryashahcy/">LinkedIn</a>
+        <a href="https://x.com/aryashah0">X</a>
+      </div>
+    </footer>
   </div>
 </body>
 </html>

@@ -1,19 +1,19 @@
 # aryashah
 
-Arya Shah's personal website. A small static site: Markdown content, Jinja templates, one stylesheet, no JavaScript or web fonts.
+Arya Shah's personal website. A small static site: Markdown content, Jinja templates, one stylesheet, and a lightweight script for reduced-motion-aware video playback. No web fonts.
 
-Unpublished first version. Nothing here deploys automatically.
+Published at https://aryashah0.com. Changes pushed to `main` deploy automatically through GitHub Pages.
 
 ## Editing content
 
 All writing lives in `content/` as Markdown with a short YAML header.
 
-- `content/home.md`: the bio on the home page (the email line is added by `templates/home.html`).
+- `content/home.md`: the bio and experience rows on the home page (the contact button is added by `templates/home.html`).
 - `content/theses/_index.md`: the intro to Working theses and the order of the three themes.
 - `content/theses/<slug>.md`: one note per thesis. The file name is the URL (`/theses/<slug>/`). `replaces: [old-slug, ...]` writes a redirect page at each old URL.
 - `archive/theses/`: the original 12 notes before they were combined. Not built.
   - `theme` must match one of the themes in `_index.md`; `order` sorts notes within a theme.
-  - `updated` is the last-updated date shown on the page. Change it when you revise a note.
+  - `updated` is retained as content metadata but is not displayed. Change it when you revise a note. Draft status is also hidden; reading time is generated automatically.
   - `related` lists other note slugs to link at the bottom.
   - `sources` (optional) is a list of `{title, url}`, listed at the end of the note.
 - `content/building/<slug>.md`: one entry per project, with `role`, optional `status` and `links`. The Building page is currently unpublished; set `SHOW_BUILDING = True` in `build.py` to restore it and its nav link.
@@ -43,4 +43,4 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
 
 ## Type
 
-The system sans-serif stack at 16px, so there are no font files to load.
+Responsive system sans-serif typography, with a narrow reading column for theses. There are no font files to load.

@@ -42,7 +42,9 @@ An agent can encode a rule that doesn't exist or miss one that does, and the sol
 
 A formulation can be right on day one and slowly drift away from how the operation actually works. And a plan can reach people or equipment without anyone checking it. Each of these argues for keeping proposals reviewable and changes reversible.
 
-Planning teams in logistics, manufacturing and scheduling, who already pay for solvers and consultants, are the likely beneficiaries. Formulation may depend on tacit knowledge agents can't reach, in which case experts still do the real work and agents only save typing. I'd change my mind if, in live deployments, agent-proposed formulations need so much correction that they save analysts no time, or if the errors they introduce outweigh the gains.
+Planning teams in logistics, manufacturing and scheduling, who already pay for solvers and consultants, are the likely beneficiaries.
+
+Formulation may depend on tacit knowledge agents can't reach, in which case experts still do the real work and agents only save typing. I'd change my mind if, in live deployments, agent-proposed formulations need so much correction that they save analysts no time, or if the errors they introduce outweigh the gains.
 
 [^mpc]: Rawlings, Mayne and Diehl, [*Model Predictive Control: Theory, Computation, and Design*](https://sites.engineering.ucsb.edu/~jbraw/mpc/), 2nd ed.; Birge and Louveaux, [*Introduction to Stochastic Programming*](https://doi.org/10.1007/978-1-4614-0237-4), 2nd ed., Springer, 2011.
 [^optimus]: AhmadiTeshnizi, Gao and Udell, “[OptiMUS: Scalable Optimization Modeling with (MI)LP Solvers and Large Language Models](https://arxiv.org/abs/2402.10172),” 2024.

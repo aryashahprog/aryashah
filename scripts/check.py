@@ -34,8 +34,10 @@ class Page(HTMLParser):
             self.ids.add(a["id"])
         if tag == "a" and "href" in a:
             self.links.append(a["href"])
-        if tag in ("link", "script", "img") and (a.get("href") or a.get("src")):
+        if tag in ("link", "script", "img", "video", "source") and (a.get("href") or a.get("src")):
             self.links.append(a.get("href") or a.get("src"))
+        if tag == "video" and a.get("poster"):
+            self.links.append(a["poster"])
         if tag == "source" and a.get("srcset"):
             self.links.append(a["srcset"])
         if tag == "h1":
@@ -111,7 +113,13 @@ def main() -> int:
         if f"/theses/{f.parent.name}/" not in index_links:
             errors.append(f"theses index is missing /theses/{f.parent.name}/")
     for f in theses:
-        figures = re.findall(r"<figure.*?</figure>", f.read_text(encoding="utf-8"), flags=re.S)
+        html = f.read_text(encoding="utf-8")
+        header = re.search(r'<header class="article-header">(.*?)</header>', html, flags=re.S)
+        if not header or "Working draft" in header[1] or "Updated " in header[1]:
+            errors.append(f"{f.relative_to(DIST)}: thesis header must omit draft status and updated date")
+        if not header or not re.search(r"\b[1-9]\d* min read\b", header[1]):
+            errors.append(f"{f.relative_to(DIST)}: reading time missing")
+        figures = re.findall(r"<figure.*?</figure>", html, flags=re.S)
         if not any("<img" in fg and "<figcaption>" in fg for fg in figures):
             errors.append(f"{f.relative_to(DIST)}: needs at least one captioned image")
     for f in (CONTENT / "theses").glob("*.md"):

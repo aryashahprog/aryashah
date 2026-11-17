@@ -2,11 +2,25 @@
 {% block title %}Working theses · Arya Shah{% endblock %}
 {% block description %}{{ page.description }}{% endblock %}
 {% block main %}
-<h1 class="visually-hidden">{{ page.title }}</h1>
+<header class="index-header">
+  <h1>{{ page.title }}.</h1>
+  <p>{{ page.description }}</p>
+</header>
 {% for year, items in years %}
 <h2 class="year-header" id="year-{{ year }}">{{ year }}</h2>
 <ul class="writing nu" aria-labelledby="year-{{ year }}">
-  {% for t in items %}<li><a href="/theses/{{ t.slug }}/">{{ t.title }}</a><time datetime="{{ t.meta.started.strftime('%Y-%m') }}">{{ t.meta.started.strftime('%B') }}</time></li>
+  {% for t in items %}
+  <li>
+    <a class="writing-link" href="/theses/{{ t.slug }}/">
+      <time datetime="{{ t.meta.started.strftime('%Y-%m') }}">{{ t.meta.started.strftime('%B') }}</time>
+      <div class="writing-copy">
+        <p class="eyebrow">{{ t.theme }}</p>
+        <h3>{{ t.title }}</h3>
+        <p class="writing-summary">{{ t.summary }}</p>
+      </div>
+      <span class="writing-arrow" aria-hidden="true">↗</span>
+    </a>
+  </li>
   {% endfor %}
 </ul>
 {% endfor %}

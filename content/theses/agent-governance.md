@@ -39,7 +39,9 @@ One way to close part of that gap is to check the action as well as the caller. 
 
 Revoking a credential stops new actions but doesn't reverse finished ones. Cheaper models help attackers and defenders at once, which raises the stakes, but I don't have numbers on how fast either side is moving, so I'm not leaning on that here.
 
-Security, risk and platform teams, who already own access and incident response, are the natural buyers. They may never need a separate product. Identity, security and observability vendors could extend what they sell to cover agents, and governance would become a set of features in tools companies already run.
+Security, risk and platform teams, who already own access and incident response, are the natural buyers.
+
+They may never need a separate product. Identity, security and observability vendors could extend what they sell to cover agents, and governance would become a set of features in tools companies already run.
 
 I'd drop this if companies running many agents in production can answer the three questions with their existing stack, including stopping an agent mid-task and undoing its partial work.
 
