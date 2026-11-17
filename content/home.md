@@ -11,22 +11,18 @@ experience:
     title: University Growth Fund
     description: Worked on deals involving Perplexity, Colossal Biosciences and Sardine AI.
     visual: investing
-  - label: Research
-    title: Brain structure & cognition
+  - title: Brain structure & cognition
     description: Researched brain structure and cognition at the TReNDS Center, using machine learning and structural MRI data from the ABCD Study.
     visual: research
     url: /research/prematurity-brain-cognition/
     link_label: View research
-  - label: Co-founder
-    title: Events management startup
+  - title: Events management startup
     description: Co-founded an events management startup and ran a pilot with DoorDash.
     visual: startup
-  - label: Enterprise
-    title: AI automation at Coca-Cola
+  - title: AI automation at Coca-Cola
     description: Worked on AI automation for Coca-Cola.
     visual: coca-cola
-  - label: Cyprus · 2020
-    title: Augmented reality shopping
+  - title: Augmented reality shopping
     description: Created Cyprus’s first augmented reality shopping experience.
     visual: ar
 ---
