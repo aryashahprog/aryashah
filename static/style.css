@@ -156,6 +156,12 @@ sub { top: 0.4em; }
 .thesis figure.slim img { max-width: 360px; }
 .thesis figcaption { max-width: 680px; margin: 16px auto 0; color: #61666d; font-size: 14px; line-height: 1.65; text-align: left; }
 .thesis figcaption a[href*="/theses/"] { display: table; min-height: 44px; padding-block: 10px; color: var(--ink); font-weight: 500; }
+.thesis .signal { padding: 24px; border: 1px solid var(--line); border-radius: 14px; background: #fafafa; }
+.thesis .signal img { max-width: 554px; border-radius: 10px; }
+.thesis .signal figcaption { max-width: 554px; }
+.signal-label { display: block; margin-bottom: 8px; color: var(--ink); font-size: 16px; font-weight: 600; }
+.signal-attribution { display: block; margin-top: 12px; font-size: 12px; }
+.signal-source { display: inline-flex; align-items: center; min-height: 44px; }
 .thesis .stat { padding: 28px 32px; border: 1px solid var(--line); border-radius: 12px; background: #fafafa; }
 .thesis .stat-number { color: var(--ink); font-size: 56px; letter-spacing: -0.045em; }
 .thesis sup { font-size: 0.7em; line-height: 0; }
@@ -249,6 +255,7 @@ sub { top: 0.4em; }
   .thesis .reading-meta { font-size: 13px; }
   .thesis figcaption { font-size: 14px; }
   .thesis .stat { padding: 24px; }
+  .thesis .signal { padding: 16px; }
   .poster-figure { padding: 12px; }
 }
 @media (max-width: 700px) and (max-height: 700px) {

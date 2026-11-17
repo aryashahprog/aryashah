@@ -22,6 +22,11 @@ The authors of OptiMUS, an LLM-based agent that formulates and solves linear and
 
 Agents could turn messy information into candidate objectives and constraints, propose revisions when conditions change and explain exceptions, with a person reviewing before anything changes the plan. Results so far come from benchmark problems, not live operations, so I'm not claiming agents do this better than experienced analysts.
 
+<figure class="signal">
+<a href="https://x.com/GoogleDeepMind/status/1922669321559347498" target="_blank" rel="noopener noreferrer" aria-label="Read Google DeepMind's original AlphaEvolve announcement on X"><img src="/theses/signals/alphaevolve.png" width="554" height="300" loading="lazy" alt="Google DeepMind introduces AlphaEvolve, a Gemini-powered coding agent for algorithm discovery, including improving data-center and training efficiency."></a>
+<figcaption><strong class="signal-label">A familiar signal: DeepMind's AlphaEvolve</strong>DeepMind announced an agent for algorithm discovery, including more efficient data centers and AI training. It is a recognizable example of agents entering optimization work, not proof that they can correctly formulate every messy operational problem.<span class="signal-attribution">Google DeepMind, May 14, 2025. Screenshot excerpt; animated media omitted.</span> <a class="signal-source" href="https://x.com/GoogleDeepMind/status/1922669321559347498" target="_blank" rel="noopener noreferrer">Read the original post ↗</a> <a href="/theses/signals/alphaevolve.png">Open screenshot full size</a></figcaption>
+</figure>
+
 One way to structure it is four layers: an operations world model that reflects the operation as it is, forecasts, models of how workers and customers actually behave, and an optimizer that draws on the other three.
 
 <figure class="wide">

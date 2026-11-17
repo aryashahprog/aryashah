@@ -25,6 +25,11 @@ Three behaviors often get lumped together here. Retrieval is an assistant answer
 
 Each asks something different of a business, and **the evidence for each is very different**.
 
+<figure class="signal">
+<a href="https://x.com/OpenAI/status/1993018357432586391" target="_blank" rel="noopener noreferrer" aria-label="Read OpenAI's original shopping research announcement on X"><img src="/theses/signals/chatgpt-shopping.png" width="554" height="250" loading="lazy" alt="OpenAI introduces shopping research in ChatGPT, an interactive experience for researching products and making purchasing decisions."></a>
+<figcaption><strong class="signal-label">A familiar signal: shopping research inside ChatGPT</strong>OpenAI's shopping research launch puts product discovery inside the assistant. It illustrates the interface shift, but research and recommendations are not evidence that an agent completed a purchase.<span class="signal-attribution">OpenAI, November 24, 2025. Screenshot excerpt; video preview omitted.</span> <a class="signal-source" href="https://x.com/OpenAI/status/1993018357432586391" target="_blank" rel="noopener noreferrer">Read the original post ↗</a> <a href="/theses/signals/chatgpt-shopping.png">Open screenshot full size</a></figcaption>
+</figure>
+
 ## Referrals are measured; purchases are early
 
 The clearest number so far is about referrals. Adobe measured traffic to US retail sites from generative AI tools over the 2025 holidays.[^adobe]

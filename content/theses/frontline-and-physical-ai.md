@@ -36,6 +36,11 @@ The hard part is the first step of the loop: getting a record of how skilled peo
 
 AR glasses are one way to deliver guidance, and the first-person data they capture might later help train robots. That is one possible path. Robotics could advance without it, and a phone may be good enough for many jobs.
 
+<figure class="signal">
+<a href="https://x.com/1x_tech/status/1983233494575952138" target="_blank" rel="noopener noreferrer" aria-label="Read 1X's original NEO home robot announcement on X"><img src="/theses/signals/neo-home-robot.png" width="554" height="556" loading="lazy" alt="1X announces NEO, a home robot, with a video preview showing the robot beside a person in a kitchen."></a>
+<figcaption><strong class="signal-label">A familiar signal: 1X's NEO home robot</strong>NEO is a high-profile example of physical AI becoming a consumer product. A home-robot launch is not evidence that reliable frontline automation is solved; the narrower question here is which costly task can improve first.<span class="signal-attribution">1X, October 28, 2025. Screenshot of the launch post; the video plays on X.</span> <a class="signal-source" href="https://x.com/1x_tech/status/1983233494575952138" target="_blank" rel="noopener noreferrer">Read the original post ↗</a> <a href="/theses/signals/neo-home-robot.png">Open screenshot full size</a></figcaption>
+</figure>
+
 ## Adoption won't follow one pattern
 
 Hiring difficulty might drive adoption in some industries and not others, and how workers and unions respond will differ by workplace. Synthetic data might help with training, but it can't replace real outcomes when checking whether guidance works.
@@ -45,4 +50,3 @@ The buyer is probably an operations or service leader who owns a task where erro
 This may turn out to be a feature of existing field service and training software, with the hard part being integration and getting crews to change habits.
 
 I'd change my mind if guided workflows fail to measurably cut errors or time on a specific task in real deployments, or if workers stop using them once the novelty wears off.
-

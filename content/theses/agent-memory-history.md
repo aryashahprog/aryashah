@@ -13,6 +13,11 @@ Agents fail in familiar ways when they lack context. They don't know how a compa
 
 The usual answer is more memory. In many workflows, though, **memory is only useful if it has a history**: what the agent believed, where that came from, when it changed and which facts supported each decision.
 
+<figure class="signal">
+<a href="https://x.com/sama/status/1910380643772665873" target="_blank" rel="noopener noreferrer" aria-label="Read Sam Altman's original ChatGPT memory post on X"><img src="/theses/signals/chatgpt-memory.png" width="554" height="373" loading="lazy" alt="Sam Altman announces that ChatGPT memory can reference past conversations, describing more personalized AI systems."></a>
+<figcaption><strong class="signal-label">A familiar signal: ChatGPT remembers past conversations</strong>Sam Altman's memory announcement makes the shift toward persistent context tangible. Remembering more is not the same as recording where a fact came from, which version applied or who may use it.<span class="signal-attribution">Sam Altman, April 10, 2025. Screenshot of the original post.</span> <a class="signal-source" href="https://x.com/sama/status/1910380643772665873" target="_blank" rel="noopener noreferrer">Read the original post ↗</a> <a href="/theses/signals/chatgpt-memory.png">Open screenshot full size</a></figcaption>
+</figure>
+
 ## What a company can own
 
 Competitors can buy the same models. What they can't buy is a company's own corrections, rules and outcomes, if those are kept as reusable knowledge with a record of where each came from, who may use it and whether it worked.

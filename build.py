@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parent
 CONTENT = ROOT / "content"
 STATIC = ROOT / "static"
 SITE_URL = "https://aryashah0.com"
+GOATCOUNTER_CODE = "arya"
 TEMPLATES = ROOT / "templates"
 
 # Building is kept in content/ but not published; set True to bring it back.
@@ -95,11 +96,14 @@ def load_theses() -> tuple[dict, list[Page]]:
 
 def build(out: Path, base: str = "") -> None:
     base = base.rstrip("/")
+    if GOATCOUNTER_CODE and not re.fullmatch(r"[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?", GOATCOUNTER_CODE):
+        raise ValueError("GOATCOUNTER_CODE must be a GoatCounter site code, not a URL")
     root_links = re.compile(r'((?:href|src|srcset|poster)="|url=)/(?!/)')
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html"]))
     env.filters["date"] = human_date
     env.globals["nav"] = NAV
     env.globals["site_url"] = SITE_URL
+    env.globals["goatcounter_code"] = GOATCOUNTER_CODE
 
     if out.exists():
         shutil.rmtree(out)
@@ -108,7 +112,7 @@ def build(out: Path, base: str = "") -> None:
     def render(template: str, dest: str, **ctx) -> None:
         target = out / dest
         target.parent.mkdir(parents=True, exist_ok=True)
-        html = env.get_template(template).render(**ctx)
+        html = env.get_template(template).render(analytics_enabled=template not in ("redirect.html", "404.html"), **ctx)
         if base:
             html = root_links.sub(rf"\g<1>{base}/", html)
         target.write_text(html, encoding="utf-8")

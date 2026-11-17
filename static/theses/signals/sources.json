@@ -1,0 +1,44 @@
+{
+  "chatgpt-memory.png": {
+    "url": "https://x.com/sama/status/1910380643772665873",
+    "author": "Sam Altman",
+    "published": "2025-04-10",
+    "processing": "Original screenshot from supplied research pack; no crop."
+  },
+  "replit-production-data.png": {
+    "url": "https://x.com/amasad/status/1946986468586721478",
+    "author": "Amjad Masad",
+    "published": "2025-07-20",
+    "processing": "Top 250px of supplied 554x676 screenshot; attached media omitted. No text altered."
+  },
+  "chatgpt-shopping.png": {
+    "url": "https://x.com/OpenAI/status/1993018357432586391",
+    "author": "OpenAI",
+    "published": "2025-11-24",
+    "processing": "Top 250px of supplied 554x676 screenshot; video preview omitted. No text altered."
+  },
+  "neo-home-robot.png": {
+    "url": "https://x.com/1x_tech/status/1983233494575952138",
+    "author": "1X",
+    "published": "2025-10-28",
+    "processing": "Original screenshot from supplied research pack; no crop."
+  },
+  "alphaevolve.png": {
+    "url": "https://x.com/GoogleDeepMind/status/1922669321559347498",
+    "author": "Google DeepMind",
+    "published": "2025-05-14",
+    "processing": "Top 300px of supplied 554x950 screenshot; animated media omitted. No text altered."
+  },
+  "vibe-coding.png": {
+    "url": "https://x.com/karpathy/status/1886192184808149383",
+    "author": "Andrej Karpathy",
+    "published": "2025-02-02",
+    "processing": "Original screenshot from supplied research pack; no crop."
+  },
+  "claude-rate-limits.png": {
+    "url": "https://x.com/AnthropicAI/status/1949898502688903593",
+    "author": "Anthropic",
+    "published": "2025-07-28",
+    "processing": "Top 154px of supplied 554x561 screenshot; illustration omitted. No text altered."
+  }
+}

@@ -26,6 +26,11 @@ Cheaper tokens also invite longer tasks and new uses, so a falling price per tok
 
 I don't have data that settles which is more common, so I'm not assuming bills rise.
 
+<figure class="signal">
+<a href="https://x.com/AnthropicAI/status/1949898502688903593" target="_blank" rel="noopener noreferrer" aria-label="Read Anthropic's original weekly rate-limit announcement on X"><img src="/theses/signals/claude-rate-limits.png" width="554" height="154" loading="lazy" alt="Anthropic announces new weekly limits for Claude Pro and Max, estimating that they will affect fewer than five percent of subscribers based on then-current usage."></a>
+<figcaption><strong class="signal-label">A familiar signal: Claude's weekly usage limits</strong>Anthropic's announcement is a reminder that a subscription price does not describe an unlimited workload. How many tasks agents run, how long they run and how often they retry still matter; this post alone does not measure cost per successful task.<span class="signal-attribution">Anthropic, July 28, 2025. Screenshot excerpt; illustration omitted.</span> <a class="signal-source" href="https://x.com/AnthropicAI/status/1949898502688903593" target="_blank" rel="noopener noreferrer">Read the original post ↗</a> <a href="/theses/signals/claude-rate-limits.png">Open screenshot full size</a></figcaption>
+</figure>
+
 ## Routing is a lever
 
 A smaller, cheaper model may be good enough for a routine step, but someone has to define good enough for that task and check it, or the savings come back as rework.

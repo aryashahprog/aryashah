@@ -1,6 +1,6 @@
 # aryashah
 
-Arya Shah's personal website. A small static site: Markdown content, Jinja templates, one stylesheet, and a lightweight script for reduced-motion-aware video playback. No web fonts.
+Arya Shah's personal website. A small static site: Markdown content, Jinja templates, one stylesheet, and lightweight scripts for video playback and privacy-conscious analytics. No web fonts.
 
 Published at https://aryashah0.com. Changes pushed to `main` deploy automatically through GitHub Pages.
 
@@ -44,3 +44,11 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
 ## Type
 
 Responsive system sans-serif typography, with a narrow reading column for theses. There are no font files to load.
+
+## Analytics
+
+Set `GOATCOUNTER_CODE` in `build.py` to the hosted GoatCounter site code. An empty code disables analytics. The dashboard is `https://<site-code>.goatcounter.com`; filter page paths to `/theses/` to compare thesis pageviews by title. A pageview is not proof that an article was read to completion.
+
+The integration uses GoatCounter's [documented counting endpoint](https://www.goatcounter.com/help/pixel), without loading third-party JavaScript. It sends only the page path and title, plus a random cache-buster; it omits query strings, fragments, referrers, screen dimensions, and cookies. Requests still disclose the standard network headers and IP address to GoatCounter; see its [privacy policy](https://www.goatcounter.com/help/privacy).
+
+Only visible pages on the production HTTPS hostname (or its `www` alias) are counted. Local and hosted previews, redirects, the 404 page, embedded frames, automated browsers, Do Not Track, and Global Privacy Control are excluded. Blocked analytics never prevents reading or navigation. No cookies or browser storage are created, and no no-JavaScript tracking fallback bypasses privacy preferences.

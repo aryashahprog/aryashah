@@ -12,6 +12,11 @@ Building simple software is getting much cheaper. Someone who can describe a too
 
 What it doesn't change much is everything around the code, and that is where I think the value moves.
 
+<figure class="signal">
+<a href="https://x.com/karpathy/status/1886192184808149383" target="_blank" rel="noopener noreferrer" aria-label="Read Andrej Karpathy's original vibe coding post on X"><img src="/theses/signals/vibe-coding.png" width="554" height="349" loading="lazy" alt="Andrej Karpathy describes vibe coding, building software by talking to AI coding tools rather than focusing on the code itself."></a>
+<figcaption><strong class="signal-label">A familiar signal: Karpathy's “vibe coding” post</strong>Karpathy gave a name to building software by describing what you want to a coding model. That makes the cheaper-build argument concrete; it does not establish that distribution, integration, maintenance or trust become cheap too.<span class="signal-attribution">Andrej Karpathy, February 2, 2025. Screenshot of the original post.</span> <a class="signal-source" href="https://x.com/karpathy/status/1886192184808149383" target="_blank" rel="noopener noreferrer">Read the original post ↗</a> <a href="/theses/signals/vibe-coding.png">Open screenshot full size</a></figcaption>
+</figure>
+
 ## A window that closes
 
 For now there is an arbitrage in it. While the tools are new and unevenly used, people who build quickly can make something useful before others notice the opportunity. The window narrows as more people use the same tools and the obvious gaps get filled.
@@ -45,4 +50,3 @@ Individuals and small teams building tools for their own work gain, along with b
 The case against is that self-built tools cost more to maintain than people expect, so most teams drift back to buying and the window closes almost as soon as it opens.
 
 If, two years from now, small teams still aren't replacing purchased tools with their own in any meaningful number, or the cost of building simple software stops falling, I'll have been wrong.
-

@@ -12,6 +12,7 @@
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   {% block head %}{% endblock %}
+  {% if goatcounter_code and analytics_enabled %}<script src="/analytics.js" defer data-site="{{ site_url }}" data-goatcounter="https://{{ goatcounter_code }}.goatcounter.com/count"></script>{% endif %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
   <a class="skip" href="#main">Skip to content</a>
