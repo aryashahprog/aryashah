@@ -204,22 +204,22 @@ def main() -> int:
             "og:site_name": "Arya Shah",
             "og:type": "article" if f in theses or f in research else "website",
             "og:title": p.title,
-            "og:description": p.meta.get("description"),
+            "og:description": "Arya Shah" if f == DIST / "index.html" else p.meta.get("description"),
             "og:url": url,
-            "og:image": f"{SITE_URL}/social-preview.png",
+            "og:image": f"{SITE_URL}/social-preview.png?v=2",
+            "og:image:alt": "Arya Shah",
             "og:image:type": "image/png",
             "og:image:width": "1200",
             "og:image:height": "630",
             "twitter:card": "summary_large_image",
             "twitter:title": p.title,
-            "twitter:description": p.meta.get("description"),
-            "twitter:image": f"{SITE_URL}/social-preview.png",
+            "twitter:description": "Arya Shah" if f == DIST / "index.html" else p.meta.get("description"),
+            "twitter:image": f"{SITE_URL}/social-preview.png?v=2",
+            "twitter:image:alt": "Arya Shah",
         }
         for key, value in expected.items():
             if not value or p.meta.get(key) != value:
                 errors.append(f"{rel}: missing or incorrect {key}")
-        if not p.meta.get("og:image:alt") or p.meta.get("twitter:image:alt") != p.meta["og:image:alt"]:
-            errors.append(f"{rel}: social image alt text missing or inconsistent")
 
     image = DIST / "social-preview.png"
     if not image.exists():

@@ -47,7 +47,7 @@ Responsive system sans-serif typography, with a narrow reading column for theses
 
 ## Sharing and discovery
 
-Every published page has its own canonical URL, Open Graph and X/Twitter title and description, and a shared 1200×630 preview image in `static/social-preview.png`. Titles and descriptions use the same template blocks as the page itself.
+Every published page has its own canonical URL, Open Graph and X/Twitter metadata, and a shared 1200×630 preview image in `static/social-preview.png` showing only “Arya Shah.” The homepage's sharing title and description are name-only; other pages use their page titles and descriptions. The image URL is versioned to refresh image caches when crawlers fetch the new metadata.
 
 The build generates `sitemap.xml` from published canonical pages and `robots.txt` pointing to it. Redirects, the 404 page and unpublished Building content are excluded from the sitemap. `scripts/check.py` validates these files, social metadata, and internal-link arrows.
 
