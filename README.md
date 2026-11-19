@@ -35,9 +35,11 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
 ## Checks
 
 ```bash
-.venv/bin/python scripts/check.py  # internal links, anchors, nav, mailto, old thesis URLs redirect to live notes, 250 to 450 words per note, no em dashes
+.venv/bin/python scripts/check.py  # internal links, anchors, nav, mailto, old thesis URLs redirect to live notes, word limits, no em dashes
 .venv/bin/ruff check . && .venv/bin/ruff format --check .
 ```
+
+Theses default to 250–450 prose words, excluding figures and footnotes. A longer essay can set `word_limit` in its front matter while retaining the minimum length and all other checks.
 
 `dist/` is plain static files, so any static host (GitHub Pages, Netlify, Cloudflare Pages) can serve it later. It is published to GitHub Pages at https://aryashah0.com from `main` by `.github/workflows/pages.yml`; `static/CNAME` holds the custom domain. Use `--base` only when previewing under a subdirectory. Old thesis URLs are `noindex` redirect pages.
 

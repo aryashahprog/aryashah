@@ -11,6 +11,8 @@ from urllib.parse import unquote, urlparse
 from urllib.robotparser import RobotFileParser
 from xml.etree import ElementTree as ET
 
+import yaml
+
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 CONTENT = ROOT / "content"
@@ -133,8 +135,10 @@ def main() -> int:
     thesis_dirs = [f for f in pages if f.parent.parent == DIST / "theses"]
     redirects = [f for f in thesis_dirs if 'http-equiv="refresh"' in f.read_text(encoding="utf-8")]
     theses = [f for f in thesis_dirs if f not in redirects]
-    if len(theses) != 7:
-        errors.append(f"expected 7 theses, found {len(theses)}")
+    source_theses = [f for f in sorted((CONTENT / "theses").glob("*.md")) if f.name != "_index.md"]
+    expected_theses = {DIST / "theses" / f.stem / "index.html" for f in source_theses}
+    if set(theses) != expected_theses:
+        errors.append("built theses do not match Markdown sources")
     for old in ARCHIVE.glob("*.md"):
         page = DIST / "theses" / old.stem / "index.html"
         if not page.exists():
@@ -160,16 +164,19 @@ def main() -> int:
         figures = re.findall(r"<figure.*?</figure>", html, flags=re.S)
         if not any("<img" in fg and "<figcaption>" in fg for fg in figures):
             errors.append(f"{f.relative_to(DIST)}: needs at least one captioned image")
-    for f in (CONTENT / "theses").glob("*.md"):
-        if f.name == "_index.md":
+    for f in source_theses:
+        _, front, body = f.read_text(encoding="utf-8").split("---\n", 2)
+        meta = yaml.safe_load(front) or {}
+        word_limit = meta.get("word_limit", WORDS[1])
+        if not isinstance(word_limit, int) or word_limit < WORDS[0]:
+            errors.append(f"{f.relative_to(ROOT)}: word_limit must be an integer of at least {WORDS[0]}")
             continue
-        body = f.read_text(encoding="utf-8").split("---\n", 2)[-1]
         body = re.sub(r"^\[\^[^\]]+\]:.*$", " ", body, flags=re.M)
         body = re.sub(r"\[\^[^\]]+\]", "", body)
         prose = re.sub(r"<[^>]+>", " ", re.sub(r"<figure.*?</figure>", " ", body, flags=re.S))
         n = len(re.findall(r"[A-Za-z0-9’'%.,$-]+", prose))
-        if not WORDS[0] <= n <= WORDS[1]:
-            errors.append(f"{f.relative_to(ROOT)}: {n} words, expected {WORDS[0]} to {WORDS[1]}")
+        if not WORDS[0] <= n <= word_limit:
+            errors.append(f"{f.relative_to(ROOT)}: {n} words, expected {WORDS[0]} to {word_limit}")
     home = pages[DIST / "index.html"]
     if f"mailto:{EMAIL}" not in home.links:
         errors.append("home: mailto link missing")
