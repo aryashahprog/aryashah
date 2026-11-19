@@ -154,7 +154,9 @@ def build(out: Path, base: str = "") -> None:
             render("redirect.html", f"theses/{old}/index.html", target=t, current="/theses/")
     if SHOW_BUILDING:
         render("building.html", "building/index.html", page=building, projects=projects, current="/building/")
-    research = [read(p) for p in sorted((CONTENT / "research").glob("*.md"))]
+    research_index = read(CONTENT / "research" / "_index.md")
+    render("research-index.html", "research/index.html", page=research_index, current="/research/")
+    research = [read(p) for p in sorted((CONTENT / "research").glob("*.md")) if p.name != "_index.md"]
     for r in research:
         render("research.html", f"research/{r.slug}/index.html", page=r, current="")
     render("404.html", "404.html", current="")

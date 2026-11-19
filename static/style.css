@@ -184,6 +184,16 @@ sub { top: 0.4em; }
 .thesis .related a span { flex-shrink: 0; }
 .research-body { max-width: 960px; }
 .research-body > p { max-width: 760px; }
+.research-mention { max-width: 540px; margin: 20px 0 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
+.research-mention a { color: var(--ink); }
+.research-list { max-width: 960px; margin-bottom: 104px; }
+.research-entry { padding-block: 44px 48px; border-top: 1px solid var(--line); }
+.publication-status { margin-bottom: 18px; }
+.research-entry h2 { max-width: 900px; margin: 0 0 20px; font-size: clamp(25px, 3vw, 36px); line-height: 1.25; font-weight: 500; }
+.publication-authors { margin-bottom: 20px; color: var(--muted); font-size: 15px; }
+.publication-summary { max-width: 760px; margin-bottom: 28px; font-size: 18px; line-height: 1.75; }
+.publication-citation { max-width: 850px; margin: 28px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
+.publication-citation strong { color: var(--ink); font-weight: 500; }
 .paper-links { display: flex; flex-wrap: wrap; gap: 12px; margin-block: 32px 48px; }
 .poster-figure { border: 1px solid var(--line); border-radius: 14px; background: #fafafa; padding: 24px; }
 .poster-figure img { max-width: none; }

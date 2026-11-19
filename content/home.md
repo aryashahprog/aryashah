@@ -2,6 +2,9 @@
 title: Arya Shah
 intro: Hey! I’m Arya. I study finance and computer science at Georgia Tech.
 background: Born and raised in Cyprus. Served 14 months in the Cypriot army after high school.
+preprint:
+  title: publication on personalizing lip-reading models
+  url: /research/
 experience:
   - label: Now
     title: Tech Square Ventures & Engage

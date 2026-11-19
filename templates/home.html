@@ -22,6 +22,7 @@
       <h2 id="experience-{{ loop.index }}">{{ item.title }}</h2>
       <p class="experience-description">{{ item.description }}</p>
       {% if item.url %}<a class="pill" href="{{ item.url }}">{{ item.link_label }} <span aria-hidden="true">{{ item.url | link_arrow }}</span></a>{% endif %}
+      {% if item.visual == "research" and page.preprint %}<p class="research-mention">I also co-authored a <a href="{{ page.preprint.url }}">{{ page.preprint.title }} <span aria-hidden="true">{{ page.preprint.url | link_arrow }}</span></a>.</p>{% endif %}
     </div>
     {% if item.visual == "ventures" %}
     <div class="organization-gallery">

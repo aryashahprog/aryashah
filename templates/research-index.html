@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} · Arya Shah{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+{% block main %}
+<header class="index-header">
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.description }}</p>
+</header>
+<div class="research-list">
+  {% for publication in page.publications %}
+  <article class="research-entry" aria-labelledby="publication-{{ loop.index }}">
+    {% if publication.kind %}<p class="meta publication-status">{{ publication.kind }}{% if publication.published %} · <time datetime="{{ publication.published }}">{{ publication.published | date }}</time>{% endif %}</p>{% endif %}
+    <h2 id="publication-{{ loop.index }}">{{ publication.title }}</h2>
+    <p class="publication-authors">{{ publication.authors }}</p>
+    <p class="publication-summary">{{ publication.summary }}</p>
+    <a class="pill" href="{{ publication.url }}">{{ publication.link_label }} <span aria-hidden="true">{{ publication.url | link_arrow }}</span></a>
+    {% if publication.citation %}<p class="publication-citation"><strong>Cite:</strong> {{ publication.citation }} <a href="{{ publication.url }}">{{ publication.url }} <span aria-hidden="true">{{ publication.url | link_arrow }}</span></a></p>{% endif %}
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}
