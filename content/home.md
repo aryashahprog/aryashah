@@ -12,21 +12,21 @@ experience:
     visual: ventures
   - label: Previously
     title: University Growth Fund
-    description: Worked on deals involving Perplexity, Colossal Biosciences and Sardine AI.
+    description: Worked on investment research and diligence for Perplexity, Colossal Biosciences and Sardine AI.
     visual: investing
   - title: Brain structure & cognition
-    description: Researched brain structure and cognition at the TReNDS Center, using machine learning and structural MRI data from the ABCD Study.
+    description: Studied how premature birth affects brain development and cognition using MRI data from 3,135 children.
     visual: research
     url: /research/prematurity-brain-cognition/
     link_label: View research
   - title: Events management startup
-    description: Co-founded an events management startup and ran a pilot with DoorDash.
+    description: Founded an events management startup and ran a pilot with DoorDash.
     visual: startup
-  - title: AI automation at Coca-Cola
-    description: Worked on AI automation for Coca-Cola.
+  - title: Coca-Cola
+    description: Led a forward-deployed team building AI tools with Coca-Cola’s marketing team.
     visual: coca-cola
   - title: Augmented reality shopping
-    description: Created Cyprus’s first augmented reality shopping experience.
+    description: Built Cyprus’s first AR shopping experience, letting customers see products in their own space before buying.
     visual: ar
 ---
 I’m interested in the distance between what technology can do and what people will trust it to do. I [write about that here](/theses/).
